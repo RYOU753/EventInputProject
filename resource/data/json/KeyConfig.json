@@ -1,0 +1,199 @@
+{
+    "default": {
+        "Up": {
+            "Keybord": [
+                "KEY_UP"
+            ],
+            "Pad": [
+                "STICK_L_UP"
+            ],
+            "isCanConfig": false
+        },
+        "Down": {
+            "Keybord": [
+                "KEY_DOWN"
+            ],
+            "Pad": [
+                "STICK_L_DOWN"
+            ],
+            "isCanConfig": false
+        },
+        "Left": {
+            "Keybord": [
+                "KEY_LEFT"
+            ],
+            "Pad": [
+                "STICK_L_LEFT"
+            ],
+            "isCanConfig": false
+        },
+        "Right": {
+            "Keybord": [
+                "KEY_RIGHT"
+            ],
+            "Pad": [
+                "STICK_L_RIGHT"
+            ],
+            "isCanConfig": false
+        },
+        "ChangeScene": {
+            "Keybord": [
+                "KEY_RETURN"
+            ],
+            "Pad": null,
+            "isCanConfig": true
+        },
+        "SelectField": {
+            "Keybord": [
+                "Click_L"
+            ],
+            "Pad": null,
+            "isCanConfig": false
+        },
+        "TestClick1": {
+            "Keybord": [
+                "Click_L"
+            ],
+            "Pad": null,
+            "isCanConfig": false
+        },
+        "TestClick2": {
+            "Keybord": [
+                "Click_R"
+            ],
+            "Pad": null,
+            "isCanConfig": false
+        },
+        "PauseKey": {
+            "Keybord": [
+                "KEY_ESCAPE"
+            ],
+            "Pad": [
+                "START"
+            ],
+            "isCanConfig": false
+        },
+        "MoveForward": {
+            "Keybord": [
+                "KEY_W"
+            ],
+            "Pad": [
+                "UP"
+            ],
+            "isCanConfig": true
+        },
+        "MoveBack": {
+            "Keybord": [
+                "KEY_S"
+            ],
+            "Pad": [
+                "DOWN"
+            ],
+            "isCanConfig": true
+        },
+        "MoveRight": {
+            "Keybord": [
+                "KEY_D"
+            ],
+            "Pad": [
+                "RIGHT"
+            ],
+            "isCanConfig": true
+        },
+        "MoveLeft": {
+            "Keybord": [
+                "KEY_A"
+            ],
+            "Pad": [
+                "LEFT"
+            ],
+            "isCanConfig": true
+        },
+        "ShotBall": {
+            "Keybord": [
+                "Click_L"
+            ],
+            "Pad": [
+                "BTN_A"
+            ],
+            "isCanConfig": true
+        },
+        "ClubSelectL": {
+            "Keybord": [
+                "KEY_LEFT",
+                "WheelUp"
+            ],
+            "Pad": [
+                "LT"
+            ],
+            "isCanConfig": false
+        },
+        "ClubSelectR": {
+            "Keybord": [
+                "KEY_RIGHT",
+                "WheelDown"
+            ],
+            "Pad": [
+                "RT"
+            ],
+            "isCanConfig": false
+        },
+        "CheckScoreBord": {
+            "Keybord": [
+                "KEY_TAB"
+            ],
+            "Pad": [
+                "PAUSE"
+            ],
+            "isCanConfig": false
+        }
+    },
+    "config": {
+        "ChangeScene": {
+            "Keybord": [
+                "KEY_RETURN"
+            ],
+            "Pad": null
+        },
+        "MoveForward": {
+            "Keybord": [
+                "KEY_W"
+            ],
+            "Pad": [
+                "UP"
+            ]
+        },
+        "MoveBack": {
+            "Keybord": [
+                "KEY_S"
+            ],
+            "Pad": [
+                "DOWN"
+            ]
+        },
+        "MoveRight": {
+            "Keybord": [
+                "KEY_D"
+            ],
+            "Pad": [
+                "RIGHT"
+            ]
+        },
+        "MoveLeft": {
+            "Keybord": [
+                "KEY_A"
+            ],
+            "Pad": [
+                "LEFT"
+            ]
+        },
+        "ShotBall": {
+            "Keybord": [
+                "Click_L"
+            ],
+            "Pad": [
+                "BTN_A"
+            ]
+        }
+    }
+}
