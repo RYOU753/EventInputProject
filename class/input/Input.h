@@ -74,7 +74,7 @@ public:
 
 	/// @brief 指定した入力機器のデッドゾーンをセットする
 	/// @param zone 0.0~1.0
-	void SetDeadZone(float zone);
+	virtual void SetDeadZone(float zone);
 
 	/// @brief 指定した入力機器のデッドゾーンを取得する
 	/// @return 1.0~0.0の間のデッドゾーン
@@ -82,16 +82,21 @@ public:
 
 	/// @brief マウスポインターをセンター固定する
 	/// @param flag true:固定 false:自由
-	void SetCenterLockMousePointer(bool flag) { isFixCenterCursor_ = flag; };
+	void FixCenterCursor(bool flag);
+
+	/// @brief マウスカーソルをセンターに固定しているか
+	/// @return true:固定 false:自由
+	bool GetIsFixCenterCursor(void) { return isFixCenterCursor_; };
 private:
+	/// @brief インスタンス内での初期化 
 	virtual void InInit(void) = 0;
 protected:
-	void MouseCenterSet(void);
+	/// @brief isFixCenterCursorがtrueの時，画面中央にセットする 
+	void DoCenterCursor(void);
 
-	AnalogData analogData_;	//アナログ値(トリガーやスティックなど)
-	float sensitivity_;		//カーソルの感度(アナログ値に掛ける値)
-	float deadZone_;		//スティックのデッドゾーン範囲
-	MousePointer drawPos_;	
-	bool isFixCenterCursor_;
+	AnalogData analogData_;		//アナログ値(トリガーやスティックなど)
+	float sensitivity_;			//カーソルの感度(アナログ値に掛ける値)
+	float deadZone_;			//スティックのデッドゾーン範囲
+	bool isFixCenterCursor_;	//画面中央に固定するか
 };
 

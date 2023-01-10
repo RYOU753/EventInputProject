@@ -22,7 +22,7 @@ XPadInput::~XPadInput()
 void XPadInput::Update(void)
 {
 	
-	if (XInputGetState(ConnectPadNum_, &xInput_) != ERROR_DEVICE_NOT_CONNECTED)
+	if (XInputGetState(isConnectXPad_, &xInput_) != ERROR_DEVICE_NOT_CONNECTED)
 	{
 		for (auto& data : padData_)
 		{
@@ -34,12 +34,12 @@ void XPadInput::Update(void)
 			padData_[tblData.first][Trg::Now] = xInput_.Gamepad.wButtons & tblData.second;
 		}
 
-		StickDigitalButtonUpdate();
+		UpdateStickDigitalButton();
 
 		padData_[PadInputID::LT][Trg::Now] = xInput_.Gamepad.bLeftTrigger > 0;
 		padData_[PadInputID::RT][Trg::Now] = xInput_.Gamepad.bRightTrigger > 0;
-		AnalogUpdate();
-		MouseCenterSet();
+		UpdateAnalog();
+		DoCenterCursor();
 	}
 	else
 	{
@@ -136,14 +136,14 @@ float XPadInput::GetDirRot(Stick_LR dir)
 	return GetMoveDirRot(xInput_.Gamepad.sThumbRX, xInput_.Gamepad.sThumbRY);
 }
 
-Vector2F XPadInput::GetMoveDir(Stick_LR dir)
+Vector2F XPadInput::GetMoveVec(Stick_LR dir)
 {
 	if (dir == Stick_LR::L)
 	{
-		return GetMoveDir(xInput_.Gamepad.sThumbLX, xInput_.Gamepad.sThumbLY);
+		return GetMoveVec(xInput_.Gamepad.sThumbLX, xInput_.Gamepad.sThumbLY);
 	}
 
-	return GetMoveDir(xInput_.Gamepad.sThumbRX, xInput_.Gamepad.sThumbRY);
+	return GetMoveVec(xInput_.Gamepad.sThumbRX, xInput_.Gamepad.sThumbRY);
 }
 
 bool XPadInput::IsActive(void)
@@ -158,10 +158,10 @@ bool XPadInput::IsActive(void)
 	return false;
 }
 
-void XPadInput::StickDigitalButtonUpdate(void)
+void XPadInput::UpdateStickDigitalButton(void)
 {
-	auto StickL = GetMoveDir(Stick_LR::L);
-	auto StickR = GetMoveDir(Stick_LR::R);
+	auto StickL = GetMoveVec(Stick_LR::L);
+	auto StickR = GetMoveVec(Stick_LR::R);
 
 	padData_[PadInputID::STICK_L_DOWN][Trg::Now] = StickL.y < 0;
 	padData_[PadInputID::STICK_L_UP][Trg::Now] = StickL.y > 0;
@@ -174,10 +174,10 @@ void XPadInput::StickDigitalButtonUpdate(void)
 	padData_[PadInputID::STICK_R_LEFT][Trg::Now] = StickR.x < 0;
 }
 
-void XPadInput::AnalogUpdate(void)
+void XPadInput::UpdateAnalog(void)
 {
-	auto StickL = GetMoveDir(Stick_LR::L);
-	auto StickR = GetMoveDir(Stick_LR::R);
+	auto StickL = GetMoveVec(Stick_LR::L);
+	auto StickR = GetMoveVec(Stick_LR::R);
 	analogData_.at(AnalogInputID::PAD_STICK_LX) = StickL.x;
 	analogData_.at(AnalogInputID::PAD_STICK_LY) = StickL.y;
 	analogData_.at(AnalogInputID::PAD_STICK_RX) = StickR.x;
@@ -203,7 +203,7 @@ float XPadInput::GetMoveDirRot(short x, short y)
 	return floorf(r * 360 / PI2_F);
 }
 
-Vector2F XPadInput::GetMoveDir(short x, short y)
+Vector2F XPadInput::GetMoveVec(short x, short y)
 {
 	const float Max = 32767.0f;
 	const float Min = 32768.0f;
@@ -280,7 +280,7 @@ void XPadInput::ConectXPad()
 		{
 			// Controller is connected
 			std::cout << i << ":¬Œ÷" << std::endl;
-			ConnectPadNum_ = i;
+			isConnectXPad_ = i;
 		}
 		else
 		{

@@ -3,6 +3,7 @@
 #include "Keybord.h"
 #include "KeybordID.h"
 #include "../_debug/_DebugConOut.h"
+#include "../_debug/_DebugDispOut.h"
 
 Keybord::Keybord()
 {
@@ -41,9 +42,7 @@ void Keybord::InInit(void)
 		{MouseInputID::Click_3,MOUSE_INPUT_6},
 		{MouseInputID::Click_4,MOUSE_INPUT_7},
 	};
-	drawPos_.try_emplace(Trg::Now);
-	drawPos_.try_emplace(Trg::Old);
-	MouseCenterSet();
+	DoCenterCursor();
 }
 
 InputState Keybord::GetInputState(std::string keyid)
@@ -130,21 +129,9 @@ bool Keybord::IsActive(void)
 	return false;
 }
 
-Vector2F Keybord::GetMoveVec(void)
-{
-	if (isFixCenterCursor_)
-	{
-		Vector2 size;
-		GetDrawScreenSize(&size.x, &size.y);
-		Vector2F center = static_cast<Vector2F>(size) / 2.0f;
-		return drawPos_[Trg::Now] - center;
-	}
-	return drawPos_[Trg::Now] - drawPos_[Trg::Old];
-}
-
 void Keybord::UpdateKeybord(void)
 {
-	keybordData_[Trg::Old] = keybordData_[Trg::Now];
+	keybordData_[Trg::Old].swap(keybordData_[Trg::Now]);
 	GetHitKeyStateAll(keybordData_[Trg::Now].data());
 }
 
@@ -164,18 +151,21 @@ void Keybord::UpdateMouse(void)
 	int vol = GetMouseWheelRotVol();
 	mouseData_[MouseInputID::WheelUp][Trg::Now] = vol > 0;
 	mouseData_[MouseInputID::WheelDown][Trg::Now] = vol < 0;
-	
-	//マウスのカーソル位置の更新部分
-	drawPos_[Trg::Old] = drawPos_[Trg::Now];
-	GetMousePoint(&drawPos_[Trg::Now].x, &drawPos_[Trg::Now].y);
-	analogData_.at(AnalogInputID::CURSOR_X) = static_cast<float>(drawPos_[Trg::Now].x);
-	analogData_.at(AnalogInputID::CURSOR_Y) = static_cast<float>(drawPos_[Trg::Now].y);
-	//TRACE("場所::%d,%d\n", drawPos_.x, drawPos_.y);
-
+	//マウスのカーソル位置の更新部分	
+	Vector2 nowPos;
+	GetMousePoint(&nowPos.x,&nowPos.y);
+	oldCursorPos_.x = analogData_.at(AnalogInputID::CURSOR_X);
+	oldCursorPos_.y = analogData_.at(AnalogInputID::CURSOR_Y);
+	analogData_.at(AnalogInputID::CURSOR_X) = static_cast<float>(nowPos.x);
+	analogData_.at(AnalogInputID::CURSOR_Y) = static_cast<float>(nowPos.y);	
 	//マウスのカーソル移動量の更新部分
-	MouseCenterSet();//センターにするフラグが立っている場合は画面中央にマウスカーソルが移動する
-	auto movevec = GetMoveVec();
-	analogData_.at(AnalogInputID::CURSOR_MOVED_X) = movevec.x;
-	analogData_.at(AnalogInputID::CURSOR_MOVED_Y) = movevec.y;
-	//TRACE("動いた距離::%lf,%lf\n", analogData_.at(AnalogInputID::CURSOR_MOVED_X), analogData_.at(AnalogInputID::CURSOR_MOVED_Y));
+	analogData_.at(AnalogInputID::CURSOR_MOVED_X) = analogData_.at(AnalogInputID::CURSOR_X) - oldCursorPos_.x;
+	analogData_.at(AnalogInputID::CURSOR_MOVED_Y) = analogData_.at(AnalogInputID::CURSOR_Y) - oldCursorPos_.y;
+	//カーソルの中央固定時の処理
+	if(isFixCenterCursor_)//画面中央固定の時，中央に戻す(画面中央フラグを立てる時に，一緒にCursorPosが画面中央の値になっているので前フレームのCursorPosを入れる)
+	{
+		SetMousePoint(static_cast<int>(oldCursorPos_.x), static_cast<int>(oldCursorPos_.y));
+		analogData_.at(AnalogInputID::CURSOR_X) = oldCursorPos_.x;
+		analogData_.at(AnalogInputID::CURSOR_Y) = oldCursorPos_.y;
+	}
 }

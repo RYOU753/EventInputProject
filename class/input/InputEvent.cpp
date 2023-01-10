@@ -1,4 +1,5 @@
 #include <fstream>
+#include <chrono>
 #include <json.hpp>
 #define MAGIC_ENUM_RANGE_MIN 0
 #define MAGIC_ENUM_RANGE_MAX 256
@@ -100,19 +101,19 @@ std::optional<float> InputEvent::GetDirAngle(AnalogInputID id, AnalogInputID id2
 std::optional<float> InputEvent::GetDirAngle(Axis axis1, Axis axis2, float offsetdeg)const
 {
 	auto dir = GetAnalogVecEvent(axis1, axis2).normalized();
-	auto r = atan2(dir.y, -dir.x);
+	auto rad = atan2(dir.y, -dir.x);
 
-	if (isnan(r))
+	if (isnan(rad))
 	{
 		return std::nullopt;
 	}
-	r += offsetdeg * DX_PI_F / 180.0f;
-	if (r < 0)//Ç±Ç±Ç≈-Ç180ìxà»è„Ç…ägí£Ç∑ÇÈ
+	rad += offsetdeg * DX_PI_F / 180.0f;
+	if (rad < 0)//Ç±Ç±Ç≈-Ç180ìxà»è„Ç…ägí£Ç∑ÇÈ
 	{
-		r = r + DX_TWO_PI_F;
+		rad = rad + DX_TWO_PI_F;
 	}
 
-	return std::optional<float>(r * 360.0f / DX_TWO_PI_F);
+	return std::optional<float>(rad * 360.0f / DX_TWO_PI_F);
 }
 
 void InputEvent::SetSensi(InputType type, float sensi)
@@ -153,10 +154,15 @@ float InputEvent::GetDeadZone(InputType type)
 	return 0.0f;
 }
 
-void InputEvent::SetCenterLockMousePointer(bool flag)
+void InputEvent::FixCenterCursor(bool flag)
 {
-	activeInput_->SetCenterLockMousePointer(flag);
-	noneActive_->SetCenterLockMousePointer(flag);
+	activeInput_->FixCenterCursor(flag);
+	noneActive_->FixCenterCursor(flag);
+}
+
+bool InputEvent::GetIsFixCenterCursor(void)
+{
+	return activeInput_->GetIsFixCenterCursor();
 }
 
 InputType InputEvent::GetInputType(void)
@@ -167,15 +173,8 @@ InputType InputEvent::GetInputType(void)
 void InputEvent::InInit()
 {
 	activeInput_ = std::make_unique<Keybord>();
-	noneActive_ = std::make_unique<PadInput>();
+	noneActive_ = std::make_unique<PadInput>(DX_INPUT_PAD1);
 
-	/*DefaultEventInit();
-	Write();*/
-	/*if (!Read())
-	{
-		DefaultEventInit();
-		Write();
-	}*/
 	Read();
 	InputIDCheck();
 }
@@ -221,8 +220,67 @@ void InputEvent::Write()
 		}
 	}
 
-	std::ofstream file("resource/json/KeyConfig.json");
+	std::ofstream file(filePath_);
 	file << jsonfile.dump(2) << std::endl;
+}
+
+void InputEvent::SaveConfig()
+{
+	std::ifstream file(filePath_);
+	if(file.good())
+	{
+		nlohmann::json json;
+		file >> json;
+		for(const auto& eventSet : eventTbl_)
+		{
+			if(!eventSet.second.isCanConfig)//configÇ∆ÇµÇƒèëÇ´ä∑Ç¶Ç™óLå¯Ç©ÅH
+			{
+				continue;
+			}
+			const auto& keybord_KeyIDs = eventSet.second.continer[static_cast<int>(InputType::Keybord)];
+			const auto& pad_KeyIDs = eventSet.second.continer[static_cast<int>(InputType::Pad)];
+			
+			if(!keybord_KeyIDs.empty())//ãÛÇ∂Ç·Ç»Ç¢éû
+			{
+				auto eventName = magic_enum::enum_name<EventID>(eventSet.first);
+				auto& jdata = json["config"][eventName.data()];
+				if(!jdata["Keybord"].is_null())
+				{
+					jdata["Keybord"].array() = keybord_KeyIDs;
+				}
+			}
+
+		}
+
+		std::ofstream f("test.txt");
+		f << json.dump(2) << std::endl;
+	}
+}
+
+bool InputEvent::ChangeEventKeyInput(EventID eventID,InputType type)
+{
+	if(eventTbl_[eventID].isCanConfig)
+	{
+		if(type == InputType::Keybord)
+		{
+			char keys[256];
+			GetHitKeyStateAll(keys);
+			for(int i = 0; i < 256; i++)//âüÇ≥ÇÍÇΩÉLÅ[Çìoò^(ìØéûâüÇµÇ™óàÇΩÇ∆Ç´ÇÕîzóÒÇ…ì¸Ç¡ÇƒÇ¢ÇÈèÓïÒÇ™ëÅÇ¢ÇÃÇ™ìoò^Ç≥ÇÍÇÈ)
+			{
+				if(keys[i])
+				{
+					eventTbl_[eventID].continer[static_cast<int>(type)].clear();
+					eventTbl_[eventID].continer[static_cast<int>(type)].push_back(magic_enum::enum_name(magic_enum::enum_cast<KeybordID>(i).value()).data());
+					break;
+				}
+			}
+		}
+		else if(type == InputType::Pad)
+		{
+
+		}
+	}
+	return false;
 }
 
 bool InputEvent::Read(void)
@@ -262,6 +320,7 @@ bool InputEvent::Read(void)
 				{
 					eventTbl_[eventId].continer[1] = json["config"].find(it.key()).value()["Pad"];
 				}
+				eventTbl_[eventId].isCanConfig = true;
 			}
 		}
 	}
@@ -289,24 +348,25 @@ void InputEvent::InputIDCheck(void)
 					continue;
 				}
 				errorCnt++;
+				errorMes.append("DifferenceList\neventID:");
 				errorMes.append(magic_enum::enum_name(Event.first).data());
 				errorMes.append("\n");
 				TRACE("%s\n", magic_enum::enum_name(Event.first).data());
 			}
 		}
 	}
-	std::ofstream writing_file;
 	if (errorCnt > 0)
 	{
-		writing_file.open("ErrorReport.txt", std::ios::out);
+		std::ofstream writing_file;
+
+		auto tz = std::chrono::locate_zone("Asia/Tokyo");
+		auto now = std::chrono::system_clock::now();
+		auto now_sec = std::chrono::floor<std::chrono::seconds>(tz->to_local(now));
+		auto time = std::format("{:%Y%m%d_%H%M%S}", now_sec);
+		writing_file.open("InputID_DifferenceReport_"+time+".txt", std::ios::out);
 		writing_file << errorMes << std::endl;
 		writing_file.close();
 	}
-	else
-	{
-		std::remove("ErrorReport.txt");
-	}
-	writing_file.close();
 	assert(!(errorCnt > 0));
 }
 
@@ -326,6 +386,7 @@ void InputEvent::SwitchInput()
 void InputEvent::DebugDraw(void)
 {
 #if _DEBUG
+	_TRACE_M(0xffffff, "åªç›ÇÃì¸óÕã@äÌ:%s", magic_enum::enum_name(activeInput_->GetInputType()).data());
 	for (auto event : EventID())
 	{
 		_TRACE_M(0xffffff, "%s::(None:%s Push:%s Hold:%s Relese:%s)", magic_enum::enum_name(event).data(),

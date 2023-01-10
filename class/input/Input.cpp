@@ -9,7 +9,7 @@ Input::Input()
 	analogData_.try_emplace(AnalogInputID::CURSOR_MOVED_X, 0.0f);
 	analogData_.try_emplace(AnalogInputID::CURSOR_MOVED_Y, 0.0f);
 	isFixCenterCursor_ = true;
-	MouseCenterSet();
+	DoCenterCursor();
 	isFixCenterCursor_ = false;
 	SetSensi(0.5f);
 	SetDeadZone(0.3f);
@@ -29,7 +29,13 @@ void Input::SetDeadZone(float zone)
 	deadZone_ = std::clamp(zone, 0.0f, 1.0f);
 }
 
-void Input::MouseCenterSet(void)
+void Input::FixCenterCursor(bool flag)
+{
+	isFixCenterCursor_ = flag;
+	DoCenterCursor();
+}
+
+void Input::DoCenterCursor(void)
 {
 	if (isFixCenterCursor_)
 	{

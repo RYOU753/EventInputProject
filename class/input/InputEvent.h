@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <vector>
+#include <list>
 #include <optional>
 #include "EventID.h"
 #include "Input.h"
@@ -8,11 +9,12 @@
 #include "AnalogInputID.h"
 
 using Axis = std::pair<EventID, EventID>;
-
 using FlexibleInput = std::vector<std::string>;
 using InputTypeContena = std::array<FlexibleInput, 2U>;
+
 struct EventData
 {
+	EventData() :isCanConfig(false){};
 	InputTypeContena continer;
 	bool isCanConfig;
 };
@@ -86,7 +88,11 @@ public:
 	
 	/// @brief マウスポインターをセンター固定する
 	/// @param flag true:固定 false:自由
-	void SetCenterLockMousePointer(bool flag);
+	void FixCenterCursor(bool flag);
+
+	/// @brief マウスカーソルをセンターに固定しているか
+	/// @return true:固定 false:自由
+	bool GetIsFixCenterCursor(void);
 
 	/// @brief 現在使っている入力機器の種類を返す
 	/// @returns 入力機器の種類
@@ -94,13 +100,14 @@ public:
 
 	/// @brief 登録されているイベントを入力されているかデバッグ表示する 
 	void DebugDraw(void);
+	void SaveConfig();
 private:
 	/// @brief インスタンス時の初期化処理
 	void InInit(void);
 
 	/// @brief jsonファイルにEventTblの中身を書いて記録する
 	void Write();
-
+	bool ChangeEventKeyInput(EventID eventID,InputType type);
 	/// @brief jsonファイルの読み込みをしEventTblをロードする
 	/// @return jsonファイルがある:true | ない:false
 	bool Read(void);
@@ -112,10 +119,12 @@ private:
 	/// @brief 入力機器が使われてるかを調べ，使われてなかったらnoneActiveを調べ使われていたら切り替える
 	void SwitchInput();
 
-	std::unique_ptr<Input> activeInput_;
-	std::unique_ptr<Input> noneActive_;
+	std::unique_ptr<Input> activeInput_;	//現在使っている入力
+	std::unique_ptr<Input> noneActive_;		//現在使われてない入力
+	std::unique_ptr<class Keybord> keybord_;
+	std::list<std::unique_ptr<class PadInput>> padList_;
 
-	std::pair<int, int> ConnectNum_;//Now,Old
+	std::pair<int, int> ConnectNum_;		//padの接続数(Now,Old)
 
 	std::unordered_map<EventID, EventData> eventTbl_;
 

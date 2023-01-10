@@ -3,7 +3,7 @@
 #pragma comment (lib,"xinput.lib")
 #include "Input.h"
 class XPadInput :
-    public Input
+	public Input
 {
 public:
 	XPadInput(int no = 0);
@@ -17,15 +17,15 @@ public:
 	float GetAnalogData(std::string keyid)override;
 
 	float GetDirRot(Stick_LR dir);
-	Vector2F GetMoveDir(Stick_LR dir);
+	Vector2F GetMoveVec(Stick_LR dir);
 	bool IsActive(void)override;
 private:
-	void StickDigitalButtonUpdate(void);
-	void AnalogUpdate(void);
+	void UpdateStickDigitalButton(void);
+	void UpdateAnalog(void);
 	//指定した方
 	float GetMoveDirRot(short x, short y);
 	//指定した方
-	Vector2F GetMoveDir(short x, short y);
+	Vector2F GetMoveVec(short x, short y);
 	//デッドゾーン内ならゼロにする
 	Vector2F CorrectDeadZone(Vector2F in);
 	void ConectXPad();
@@ -35,6 +35,6 @@ private:
 	_XINPUT_STATE xInput_;
 	std::unordered_map<PadInputID, unsigned int> btnTbl_;
 	float deadzone_;
-	int ConnectPadNum_;
+	int isConnectXPad_;
 };
 
