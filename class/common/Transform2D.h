@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Vector2.h"
 
 class Transform2D
@@ -6,43 +6,43 @@ class Transform2D
 public:
 	Transform2D(void);
 	~Transform2D();
-	//À•WXY‚ğİ’è
+	//åº§æ¨™XYã‚’è¨­å®š
 	void SetPos(Position2F pos);
-	//À•WX‚ğİ’è
+	//åº§æ¨™Xã‚’è¨­å®š
 	void SetPosX(float x);
-	//À•WY‚ğİ’è
+	//åº§æ¨™Yã‚’è¨­å®š
 	void SetPosY(float y);
-	//À•W‚ğæ“¾
+	//åº§æ¨™ã‚’å–å¾—
 	const Position2F& GetPos(void);
 	/// <summary>
-	/// “x”–@‚Ìˆø”•ª‰ñ“]‚·‚é +•ûŒü‰E‰ñ“] -•ûŒü¶‰ñ“]
+	/// åº¦æ•°æ³•ã®å¼•æ•°åˆ†å›è»¢ã™ã‚‹ +æ–¹å‘å³å›è»¢ -æ–¹å‘å·¦å›è»¢
 	/// </summary>
-	///<param name="deg">’Ç‰Á‚·‚é’l(“x”–@)</param>
+	///<param name="deg">è¿½åŠ ã™ã‚‹å€¤(åº¦æ•°æ³•)</param>
 	void RotateDeg(float deg);
 	/// <summary>
-	/// ŒÊ“x–@‚Ìˆø”•ª‰ñ“]‚·‚é +•ûŒü‰E‰ñ“] -•ûŒü¶‰ñ“]
+	/// å¼§åº¦æ³•ã®å¼•æ•°åˆ†å›è»¢ã™ã‚‹ +æ–¹å‘å³å›è»¢ -æ–¹å‘å·¦å›è»¢
 	/// </summary>
-	///<param name="rad">’Ç‰Á‚·‚é’l(ŒÊ“x–@)</param>
+	///<param name="rad">è¿½åŠ ã™ã‚‹å€¤(å¼§åº¦æ³•)</param>
 	void RotateRad(float rad);
-	//“x”–@‚Åw’è‚µ‚½’l‚ğİ’è
-	///<param name="rotationDeg">’Ç‰Á‚·‚é’l(“x”–@)</param>
+	//åº¦æ•°æ³•ã§æŒ‡å®šã—ãŸå€¤ã‚’è¨­å®š
+	///<param name="rotationDeg">è¿½åŠ ã™ã‚‹å€¤(åº¦æ•°æ³•)</param>
 	void SetRotationDeg(float rotationDeg);
 	/// <summary>
-	///ŒÊ“x–@‚Åw’è‚µ‚½’l‚ğİ’è
+	///å¼§åº¦æ³•ã§æŒ‡å®šã—ãŸå€¤ã‚’è¨­å®š
 	/// </summary>
-	///<param name="rotationRad">’Ç‰Á‚·‚é’l(ŒÊ“x–@)</param>
+	///<param name="rotationRad">è¿½åŠ ã™ã‚‹å€¤(å¼§åº¦æ³•)</param>
 	void SetRotationRad(float rotationRad);
 	/// <summary>
-	/// ‰ñ“]’l‚ğæ“¾
+	/// å›è»¢å€¤ã‚’å–å¾—
 	/// </summary>
-	/// <returns>ƒ‰ƒWƒAƒ“’l</returns>
+	/// <returns>ãƒ©ã‚¸ã‚¢ãƒ³å€¤</returns>
 	const float& GetRotation(void);
-	//Šg‘å’l‚ğİ’è
+	//æ‹¡å¤§å€¤ã‚’è¨­å®š
 	void SetScale(float scale);
-	//Šg‘å’l‚ğæ“¾
+	//æ‹¡å¤§å€¤ã‚’å–å¾—
 	const float& GetScale(void);
 private:
 	Position2F position_;
-	float rotation_;//ƒ‰ƒWƒAƒ“’l
+	float rotation_;//ãƒ©ã‚¸ã‚¢ãƒ³å€¤
 	float scale_;
 };

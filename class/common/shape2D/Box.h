@@ -1,17 +1,17 @@
-#pragma once
+﻿#pragma once
 #include "Shape.h"
 
 enum class BOX_PLACE_TYPE
 {
-	LT,//����
-	LB,//����
-	RT,//�E��
-	RB,//�E��
-	CT,//��ӂ̒���
-	CB,//���ӂ̒���
-	CL,//���ӂ̒���
-	CR,//�E�ӂ̒���
-	CC,//�l�p�̒��S
+	LT,//左上
+	LB,//左下
+	RT,//右上
+	RB,//右下
+	CT,//上辺の中央
+	CB,//下辺の中央
+	CL,//左辺の中央
+	CR,//右辺の中央
+	CC,//四角の中心
 	MAX
 };
 
@@ -21,32 +21,32 @@ class Box :
 public:
 	Box(BOX_PLACE_TYPE placeType, Position2F pos, Vector2F size);
 	~Box();
-	//���g�̌`�̃^�C�v���擾����
+	//自身の形のタイプを取得する
 	ShapeType GetShapeType(void)const override;
-	//DEBUG����Box��`�悷��
+	//DEBUG時にBoxを描画する
 	void dbgDraw(int color, bool isFill = true)const override;
-	//Box��`�悷��
+	//Boxを描画する
 	void Draw(int color, bool isFill = true)const override;
 	/// <summary>
-	/// �w�肵�����W���擾����
+	/// 指定した座標を取得する
 	/// </summary>
-	/// <param name="placeType">Box�̎擾�������ꏊ</param>
-	/// <returns>�w�肵�����W</returns>
+	/// <param name="placeType">Boxの取得したい場所</param>
+	/// <returns>指定した座標</returns>
 	Position2F GetSelectPos(BOX_PLACE_TYPE placeType)const;
 	/// <summary>
-	/// Box�̑傫����ݒ肷��
+	/// Boxの大きさを設定する
 	/// </summary>
-	/// <param name="size">(���C����)</param>
+	/// <param name="size">(幅，高さ)</param>
 	void SetSize(Vector2F size);
 	/// <summary>
-	/// Box�̑傫�����擾����
+	/// Boxの大きさを取得する
 	/// </summary>
-	/// <returns>Box�̑傫��</returns>
+	/// <returns>Boxの大きさ</returns>
 	const Vector2F& GetSize(void)const;
 	/// <summary>
-	/// Box�̋N�_�ƂȂ�ꏊ��ύX����
+	/// Boxの起点となる場所を変更する
 	/// </summary>
-	/// <param name="placeType">�N�_�ƂȂ�ꏊ��</param>
+	/// <param name="placeType">起点となる場所名</param>
 	void ChangeBasePosType(BOX_PLACE_TYPE placeType);
 	const BOX_PLACE_TYPE& GetBasePosType(){
 		return type_;

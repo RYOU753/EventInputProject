@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <Xinput.h>
 #pragma comment (lib,"xinput.lib")
 #include "Input.h"
@@ -11,22 +11,22 @@ public:
 
 	void Update(void)override;
 	void InInit(void)override;
-	InputType GetInputType(void)const override { return InputType::Pad; };
+	InputType GetInputType(void)const override { return InputType::PAD; };
 
-	InputState GetInputState(std::string keyid)override;
-	float GetAnalogData(std::string keyid)override;
+	InputState GetInputState(std::string_view keyid)override;
+	float GetAnalogData(std::string_view keyid)override;
 
-	float GetDirRot(Stick_LR dir);
-	Vector2F GetMoveVec(Stick_LR dir);
+	float GetDirRot(StickLR dir);
+	Vector2F GetMoveVec(StickLR dir);
 	bool IsActive(void)override;
 private:
 	void UpdateStickDigitalButton(void);
 	void UpdateAnalog(void);
-	//w’è‚µ‚½•û
+	//æŒ‡å®šã—ãŸæ–¹
 	float GetMoveDirRot(short x, short y);
-	//w’è‚µ‚½•û
+	//æŒ‡å®šã—ãŸæ–¹
 	Vector2F GetMoveVec(short x, short y);
-	//ƒfƒbƒhƒ][ƒ““à‚È‚çƒ[ƒ‚É‚·‚é
+	//ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³å†…ãªã‚‰ã‚¼ãƒ­ã«ã™ã‚‹
 	Vector2F CorrectDeadZone(Vector2F in);
 	void ConectXPad();
 	void DebugDraw(void);

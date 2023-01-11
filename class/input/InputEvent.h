@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <memory>
 #include <vector>
 #include <list>
@@ -14,117 +14,121 @@ using InputTypeContena = std::array<FlexibleInput, 2U>;
 
 struct EventData
 {
-	EventData() :isCanConfig(false){};
-	InputTypeContena continer;
+	EventData() :isCanConfig(false){}
+	InputTypeContena container;
 	bool isCanConfig;
 };
 
 class InputEvent
 {
 public:
-	InputEvent(std::string filePath);
+	explicit InputEvent(std::string filePath);
 	~InputEvent();
-	/// @brief “ü—Í‹@Ší‚Ìî•ñXV‚ÆPad‚ÆØ‚è‘Ö‚¦‚ª‚ ‚é‚©‚Ü‚½Ú‘±ŒŸ’m‚ğ‚·‚é
-	/// @param delta ƒfƒ‹ƒ^ƒJƒEƒ“ƒ^
+	/// @brief å…¥åŠ›æ©Ÿå™¨ã®æƒ…å ±æ›´æ–°ã¨Padã¨åˆ‡ã‚Šæ›¿ãˆãŒã‚ã‚‹ã‹ã¾ãŸæ¥ç¶šæ¤œçŸ¥ã‚’ã™ã‚‹
+	/// @param delta ãƒ‡ãƒ«ã‚¿ã‚«ã‚¦ãƒ³ã‚¿
 	void Update(const double& delta);
 
-	/// @brief EventID‚Æ•R‚Ã‚¢‚Ä‚éƒ{ƒ^ƒ“‚Ìó‘Ô‚ª‚İ‚½‚¢ó‘Ô‚©‚ğ’²‚×‚é
-	/// @param id “o˜^‚µ‚½ƒCƒxƒ“ƒg
-	/// @param state Œ©‚½‚¢ƒ{ƒ^ƒ“‚Ìó‘Ô
-	/// @return Œ©‚½‚¢ƒ{ƒ^ƒ“‚Ìó‘Ô‚¾‚Á‚½‚ç:true|‚»‚¤‚¶‚á‚È‚¢:false
-	float GetDigitalEvent(EventID id,InputState state = InputState::None)const;
+	/// @brief EventIDã¨ç´ã¥ã„ã¦ã‚‹ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ãŒã¿ãŸã„çŠ¶æ…‹ã‹ã‚’èª¿ã¹ã‚‹
+	/// @param id ç™»éŒ²ã—ãŸã‚¤ãƒ™ãƒ³ãƒˆ
+	/// @param state è¦‹ãŸã„ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹
+	/// @return è¦‹ãŸã„ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ã ã£ãŸã‚‰:true|ãã†ã˜ã‚ƒãªã„:false
+	[[nodiscard]] float GetDigitalEvent(EventID id,InputState state = InputState::NONE)const;
 
-	/// @brief •R‚Ã‚¢‚Ä‚éAnalogInputID‚ÌƒAƒiƒƒO’l‚ğæ“¾
-	/// @return w’è‚ÌƒAƒiƒƒO’l
-	float GetAnalogEvent(AnalogInputID id)const;
+	/// @brief ç´ã¥ã„ã¦ã‚‹AnalogInputIDã®ã‚¢ãƒŠãƒ­ã‚°å€¤ã‚’å–å¾—
+	/// @return æŒ‡å®šã®ã‚¢ãƒŠãƒ­ã‚°å€¤
+	[[nodiscard]] float GetAnalogEvent(AnalogInputID id)const;
 	
-	/// @brief EventID‚©‚çƒ{ƒ^ƒ“î•ñ‚ğæ“¾‚µCid1‚ª‰Ÿ‚³‚ê‚Ä‚ç1.0f,id2‚ª‚¨‚³‚ê‚Ä‚½‚ç-1.0f‚Å
-	/// @brief AnalogInputID‚ª“ü‚Á‚Ä‚½‚ç1.0f~-1.0f‚ğæ“¾‚·‚é
-	/// @param id1 +•ûŒü‚Ì“ü—Í
-	/// @param id2 -•ûŒü‚Ì“ü—Í
-	/// @return 1.0f~-1.0f‚ğæ“¾‚·‚é
-	float GetAnalogEvent(EventID id1, EventID id2)const;
+	/// @brief EventIDã‹ã‚‰ãƒœã‚¿ãƒ³æƒ…å ±ã‚’å–å¾—ã—ï¼Œid1ãŒæŠ¼ã•ã‚Œã¦ã‚‰1.0f,id2ãŒãŠã•ã‚Œã¦ãŸã‚‰-1.0fã§
+	/// AnalogInputIDãŒå…¥ã£ã¦ãŸã‚‰1.0f~-1.0fã‚’å–å¾—ã™ã‚‹
+	/// @param id1 +æ–¹å‘ã®å…¥åŠ›
+	/// @param id2 -æ–¹å‘ã®å…¥åŠ›
+	/// @return 1.0f~-1.0fã‚’å–å¾—ã™ã‚‹
+	[[nodiscard]] float GetAnalogEvent(EventID id1, EventID id2)const;
 
-	/// @brief ƒAƒiƒƒO’l‚ğ“ñ‚Âæ“¾‚µ‚Ävec‚âpos‚Ì‚æ‚¤‚Éˆµ‚¤
-	/// @param id1 ‰¡•ûŒü‚Ì’l
-	/// @param id2 c•ûŒü‚Ì’l
-	/// @return •ûŒüƒxƒNƒgƒ‹‚âÀ•W
-	Vector2F GetAnalogVecEvent(AnalogInputID id1, AnalogInputID id2)const;
+	/// @brief ã‚¢ãƒŠãƒ­ã‚°å€¤ã‚’äºŒã¤å–å¾—ã—ã¦vecã‚„posã®ã‚ˆã†ã«æ‰±ã†
+	/// @param id1 æ¨ªæ–¹å‘ã®å€¤
+	/// @param id2 ç¸¦æ–¹å‘ã®å€¤
+	/// @return æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚„åº§æ¨™
+	[[nodiscard]] Vector2F GetAnalogVecEvent(AnalogInputID id1, AnalogInputID id2)const;
 
-	/// @brief “ñ‚Â‚Ì²‚©‚çvec‚âpos‚ğì¬‚·‚é
-	/// @param x²(+•ûŒü‚Ì“ü—Í,-•ûŒü‚Ì“ü—Í)
-	/// @param y²(+•ûŒü‚Ì“ü—Í,-•ûŒü‚Ì“ü—Í)
-	/// @return •ûŒüƒxƒNƒgƒ‹‚âÀ•W
-	Vector2F GetAnalogVecEvent(Axis axis1, Axis axis2)const;
+	/// @brief äºŒã¤ã®è»¸ã‹ã‚‰vecã‚„posã‚’ä½œæˆã™ã‚‹
+	/// @param axis1 xè»¸(+æ–¹å‘ã®å…¥åŠ›,-æ–¹å‘ã®å…¥åŠ›)
+	/// @param axis2 yè»¸(+æ–¹å‘ã®å…¥åŠ›,-æ–¹å‘ã®å…¥åŠ›)
+	/// @return æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«ã‚„åº§æ¨™
+	[[nodiscard]] Vector2F GetAnalogVecEvent(Axis axis1, Axis axis2)const;
 	
-	/// @brief ƒRƒ“ƒgƒ[ƒ‰ƒXƒeƒBƒbƒN‚Ì‚½‚¨‚µ‚½•ûŒü‚ÌŠp“x‚âƒ}ƒEƒX‚ğ“®‚©‚µ‚½•ûŒü‚ÌŠp“x‚ğ‹‚ß‚é
-	/// @param id x’l
-	/// @param id2 y’l
-	/// @returns “x”–@(‚½‚¨‚µ‚Ä‚È‚¢‚Í’†g‚ª‚È‚¢)‰E‚ª0“xã‚ª90“x
-	std::optional<float> GetDirAngle(AnalogInputID id, AnalogInputID id2,float offset = 0.0f)const;
+	/// @brief ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ©ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ãŸãŠã—ãŸæ–¹å‘ã®è§’åº¦ã‚„ãƒã‚¦ã‚¹ã‚’å‹•ã‹ã—ãŸæ–¹å‘ã®è§’åº¦ã‚’æ±‚ã‚ã‚‹
+	/// @param id xå€¤
+	/// @param id2 yå€¤
+	/// @param offsetDeg 0åº¦ã®åŸºæº–ä½ç½®ã‚’ãšã‚‰ã™
+	/// @returns åº¦æ•°æ³•(ãŸãŠã—ã¦ãªã„æ™‚ã¯ä¸­èº«ãŒãªã„)å³ãŒ0åº¦ä¸ŠãŒ90åº¦
+	[[nodiscard]] std::optional<float> GetDirAngle(AnalogInputID id, AnalogInputID id2,float offsetDeg= 0.0f)const;
 
-	/// @brief digital‚ÌƒXƒeƒBƒbƒN‚Æanalog‚ÌƒXƒeƒBƒbƒN‚ª“¯‚¶ORVector‚Ì’†‚É‚¢‚é‚Æ³Šm‚È’l‚ªæ‚ê‚È‚¢ê‡‚ª‚ ‚è‚Ü‚·D
-	/// @param axis1 x²(+•ûŒü‚Ì“ü—Í,-•ûŒü‚Ì“ü—Í)
-	/// @param axis2 y²(+•ûŒü‚Ì“ü—Í,-•ûŒü‚Ì“ü—Í)
-	/// @return “x”–@(‚½‚¨‚µ‚Ä‚È‚¢‚Í’†g‚ª‚È‚¢)‰E‚ª0“xã‚ª90“x
-	std::optional<float> GetDirAngle(Axis axis1, Axis axis2, float offset = 0.0f)const;
+	/// @brief digitalã®ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã¨analogã®ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãŒåŒã˜ORVectorã®ä¸­ã«ã„ã‚‹ã¨æ­£ç¢ºãªå€¤ãŒå–ã‚Œãªã„å ´åˆãŒã‚ã‚Šã¾ã™ï¼
+	/// @param axis1 xè»¸(+æ–¹å‘ã®å…¥åŠ›,-æ–¹å‘ã®å…¥åŠ›)
+	/// @param axis2 yè»¸(+æ–¹å‘ã®å…¥åŠ›,-æ–¹å‘ã®å…¥åŠ›)
+	/// @param offsetDeg 0åº¦ã®åŸºæº–ä½ç½®ã‚’ãšã‚‰ã™
+	/// @return åº¦æ•°æ³•(ãŸãŠã—ã¦ãªã„æ™‚ã¯ä¸­èº«ãŒãªã„)å³ãŒ0åº¦ä¸ŠãŒ90åº¦
+	[[nodiscard]] std::optional<float> GetDirAngle(const Axis& axis1,const Axis& axis2,const float& offsetDeg = 0.0f)const;
+	
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®æ„Ÿåº¦ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ \n
+	/// 0.01~20.0ã®ç¯„å›²ã§ã‚»ãƒƒãƒˆã™ã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹
+	/// @param type å…¥åŠ›æ©Ÿå™¨ç¨®
+	/// @param sensitivity 0.01~20.0ã®ç¯„å›²ã§ã‚»ãƒƒãƒˆã™ã‚‹
+	void SetSensitivity(InputType type, float sensitivity) const;
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚ÌŠ´“x‚ğƒZƒbƒg‚·‚é
-	/// @brief 0.01~20.0‚Ì”ÍˆÍ‚ÅƒZƒbƒg‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é
-	/// @param sensi 0.01~20.0‚Ì”ÍˆÍ‚ÅƒZƒbƒg‚·‚é
-	void SetSensi(InputType type, float sensi);
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®æ„Ÿåº¦ã‚’å–å¾—ã™ã‚‹
+	/// @return 0.01~20.0ã®é–“ã®æ„Ÿåº¦
+	[[nodiscard]] float GetSensitivity(InputType type) const;
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚ÌŠ´“x‚ğæ“¾‚·‚é
-	/// @return 0.01~20.0‚ÌŠÔ‚ÌŠ´“x
-	float GetSensi(InputType type);
-
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚Ìƒfƒbƒhƒ][ƒ“‚ğƒZƒbƒg‚·‚é
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+	/// @param type å…¥åŠ›æ©Ÿå™¨ç¨®
 	/// @param zone 0.0~1.0
-	void SetDeadZone(InputType type,float zone);
+	void SetDeadZone(InputType type,float zone) const;
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚Ìƒfƒbƒhƒ][ƒ“‚ğæ“¾‚·‚é
-	/// @return 1.0~0.0‚ÌŠÔ‚Ìƒfƒbƒhƒ][ƒ“
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ã‚’å–å¾—ã™ã‚‹
+	/// @return 1.0~0.0ã®é–“ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³
 	float GetDeadZone(InputType type);
 	
-	/// @brief ƒ}ƒEƒXƒ|ƒCƒ“ƒ^[‚ğƒZƒ“ƒ^[ŒÅ’è‚·‚é
-	/// @param flag true:ŒÅ’è false:©—R
-	void FixCenterCursor(bool flag);
+	/// @brief ãƒã‚¦ã‚¹ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã‚’ã‚»ãƒ³ã‚¿ãƒ¼å›ºå®šã™ã‚‹
+	/// @param flag true:å›ºå®š false:è‡ªç”±
+	void FixCenterCursor(bool flag) const;
 
-	/// @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğƒZƒ“ƒ^[‚ÉŒÅ’è‚µ‚Ä‚¢‚é‚©
-	/// @return true:ŒÅ’è false:©—R
-	bool GetIsFixCenterCursor(void);
+	/// @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’ã‚»ãƒ³ã‚¿ãƒ¼ã«å›ºå®šã—ã¦ã„ã‚‹ã‹
+	/// @return true:å›ºå®š false:è‡ªç”±
+	[[nodiscard]] bool GetIsFixCenterCursor(void) const;
 
-	/// @brief Œ»İg‚Á‚Ä‚¢‚é“ü—Í‹@Ší‚Ìí—Ş‚ğ•Ô‚·
-	/// @returns “ü—Í‹@Ší‚Ìí—Ş
-	InputType GetInputType(void);
+	/// @brief ç¾åœ¨ä½¿ã£ã¦ã„ã‚‹å…¥åŠ›æ©Ÿå™¨ã®ç¨®é¡ã‚’è¿”ã™
+	/// @returns å…¥åŠ›æ©Ÿå™¨ã®ç¨®é¡
+	[[nodiscard]] InputType GetInputType(void) const;
 
-	/// @brief “o˜^‚³‚ê‚Ä‚¢‚éƒCƒxƒ“ƒg‚ğ“ü—Í‚³‚ê‚Ä‚¢‚é‚©ƒfƒoƒbƒO•\¦‚·‚é 
-	void DebugDraw(void);
-	void SaveConfig();
+	/// @brief ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã‚’å…¥åŠ›ã•ã‚Œã¦ã„ã‚‹ã‹ãƒ‡ãƒãƒƒã‚°è¡¨ç¤ºã™ã‚‹ 
+	void DebugDraw(void) const;
+	void SaveConfig() const;
 private:
-	/// @brief ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì‰Šú‰»ˆ—
+	/// @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ™‚ã®åˆæœŸåŒ–å‡¦ç†
 	void InInit(void);
 
-	/// @brief jsonƒtƒ@ƒCƒ‹‚ÉEventTbl‚Ì’†g‚ğ‘‚¢‚Ä‹L˜^‚·‚é
+	/// @brief jsonãƒ•ã‚¡ã‚¤ãƒ«ã«EventTblã®ä¸­èº«ã‚’æ›¸ã„ã¦è¨˜éŒ²ã™ã‚‹
 	void Write();
 	bool ChangeEventKeyInput(EventID eventID,InputType type);
-	/// @brief jsonƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ğ‚µEventTbl‚ğƒ[ƒh‚·‚é
-	/// @return jsonƒtƒ@ƒCƒ‹‚ª‚ ‚é:true | ‚È‚¢:false
+	/// @brief jsonãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã‚’ã—EventTblã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹
+	/// @return jsonãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹:true | ãªã„:false
 	bool Read(void);
 
-	/// @brief json‚É‘‚«‚Ü‚ê‚½î•ñ‚Æenum class‚É‚ ‚ékeyid‚ªˆê’v‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚é
-	/// @brief ˆê’v‚µ‚Ä‚È‚©‚Á‚½‚çƒƒOƒtƒ@ƒCƒ‹‚ğc‚µ‚Ä‹­§I—¹‚·‚é
-	void InputIDCheck(void);
+	/// @brief jsonã«æ›¸ãè¾¼ã¾ã‚ŒãŸæƒ…å ±ã¨enum classã«ã‚ã‚‹keyidãŒä¸€è‡´ã—ã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹
+	/// ä¸€è‡´ã—ã¦ãªã‹ã£ãŸã‚‰ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ®‹ã—ã¦å¼·åˆ¶çµ‚äº†ã™ã‚‹
+	void InputIDCheck(void) const;
 
-	/// @brief “ü—Í‹@Ší‚ªg‚í‚ê‚Ä‚é‚©‚ğ’²‚×Cg‚í‚ê‚Ä‚È‚©‚Á‚½‚çnoneActive‚ğ’²‚×g‚í‚ê‚Ä‚¢‚½‚çØ‚è‘Ö‚¦‚é
+	/// @brief å…¥åŠ›æ©Ÿå™¨ãŒä½¿ã‚ã‚Œã¦ã‚‹ã‹ã‚’èª¿ã¹ï¼Œä½¿ã‚ã‚Œã¦ãªã‹ã£ãŸã‚‰noneActiveã‚’èª¿ã¹ä½¿ã‚ã‚Œã¦ã„ãŸã‚‰åˆ‡ã‚Šæ›¿ãˆã‚‹
 	void SwitchInput();
 
-	std::unique_ptr<Input> activeInput_;	//Œ»İg‚Á‚Ä‚¢‚é“ü—Í
-	std::unique_ptr<Input> noneActive_;		//Œ»İg‚í‚ê‚Ä‚È‚¢“ü—Í
-	std::unique_ptr<class Keybord> keybord_;
+	std::unique_ptr<Input> activeInput_;	//ç¾åœ¨ä½¿ã£ã¦ã„ã‚‹å…¥åŠ›
+	std::unique_ptr<Input> noneActive_;		//ç¾åœ¨ä½¿ã‚ã‚Œã¦ãªã„å…¥åŠ›
+	std::unique_ptr<class Keyboard> keyboard_;
 	std::list<std::unique_ptr<class PadInput>> padList_;
 
-	std::pair<int, int> ConnectNum_;		//pad‚ÌÚ‘±”(Now,Old)
+	std::pair<int, int> connectNum_;		//padã®æ¥ç¶šæ•°(Now,Old)
 
 	std::unordered_map<EventID, EventData> eventTbl_;
 

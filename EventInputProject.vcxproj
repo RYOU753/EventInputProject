@@ -161,7 +161,7 @@
     <ClCompile Include="class\common\Transform2D.cpp" />
     <ClCompile Include="class\input\Input.cpp" />
     <ClCompile Include="class\input\InputEvent.cpp" />
-    <ClCompile Include="class\input\Keybord.cpp" />
+    <ClCompile Include="class\input\Keyboard.cpp" />
     <ClCompile Include="class\input\PadInput.cpp" />
     <ClCompile Include="class\input\XPadInput.cpp" />
     <ClCompile Include="main.cpp" />
@@ -194,9 +194,8 @@
     <ClInclude Include="class\input\EventID.h" />
     <ClInclude Include="class\input\Input.h" />
     <ClInclude Include="class\input\InputEvent.h" />
-    <ClInclude Include="class\input\Keybord.h" />
+    <ClInclude Include="class\input\Keyboard.h" />
     <ClInclude Include="class\input\KeybordID.h" />
-    <ClInclude Include="class\input\KeybordID2.h" />
     <ClInclude Include="class\input\MouseInputID.h" />
     <ClInclude Include="class\input\PadInput.h" />
     <ClInclude Include="class\input\PadInputID.h" />

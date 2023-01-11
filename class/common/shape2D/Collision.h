@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <map>
 #include <memory>
 //#include "Ray.h"
@@ -118,21 +118,21 @@ public:
 //		auto& c1 = dynamic_cast<const Circle&>(s2);
 //		auto lengthSQ1 = (c1.center - r1.pos).lengthSQ();
 //		auto lengthSQ2 = (c1.center - r1.end()).lengthSQ();
-//		//’[‚Ì“_‚ª‰~“à‚É“ü‚Á‚Ä‚È‚¢‚©
+//		//ç«¯ã®ç‚¹ãŒå††å†…ã«å…¥ã£ã¦ãªã„ã‹
 //		if (lengthSQ1 <= (c1.radius * c1.radius) || lengthSQ2 <= (c1.radius * c1.radius))
 //		{
 //			return true;
 //		}
-//		//Šp“x
+//		//è§’åº¦
 //		auto kakudo1 = (c1.center - r1.pos).normalized().dot(r1.vec.normalized());
 //		auto kakudo2 = -(c1.center - r1.end()).normalized().dot(r1.vec.normalized());
 //		//TRACE("1:%lf 2:%lf\n", kakudo1, kakudo2);
 //		Vector2F vec1 = (c1.center - r1.pos);
 //		Vector2F vec2 = r1.vec;
-//		//Å’Z‹——£‚Ì“ñæ
+//		//æœ€çŸ­è·é›¢ã®äºŒä¹—
 //		auto lengthSQ3 = std::powf(vec1.length() * vec1.normalized().cross(vec2.normalized()),2);
 //		//TRACE("%lf\n", lengthSQ3);
-//		//Å’Z‹——£‚Æ—¼’[“à‚É‰~‚ª“ü‚Á‚Ä‚¢‚é‚Æ‚«
+//		//æœ€çŸ­è·é›¢ã¨ä¸¡ç«¯å†…ã«å††ãŒå…¥ã£ã¦ã„ã‚‹ã¨ã
 //		if (lengthSQ3 <= (c1.radius * c1.radius) && !std::signbit(kakudo1) && !std::signbit(kakudo2))
 //		{
 //			return true;
@@ -205,7 +205,7 @@ public:
 			}
 			return false;
 		};
-		//lŠp‚ÌŠp‚Æ‰~‚Ì’†S‚Ì‹——£‚Ì2æ‚Æ”¼Œa‚Ì2æ‚Ì”äŠr
+		//å››è§’ã®è§’ã¨å††ã®ä¸­å¿ƒã®è·é›¢ã®2ä¹—ã¨åŠå¾„ã®2ä¹—ã®æ¯”è¼ƒ
 		if (hitcheck(b1.GetSelectPos(BOX_PLACE_TYPE::LT)) || hitcheck(b1.GetSelectPos(BOX_PLACE_TYPE::LB)) ||
 			hitcheck(b1.GetSelectPos(BOX_PLACE_TYPE::RT)) || hitcheck(b1.GetSelectPos(BOX_PLACE_TYPE::RB)))
 		{
@@ -248,11 +248,11 @@ class FlexibleCollision :public Collision
 public:
 	FlexibleCollision()
 	{
-		//‘g‚İ‡‚í‚¹ŠÖŒW‚È‚µ
+		//çµ„ã¿åˆã‚ã›é–¢ä¿‚ãªã—
 		//ColNotCombiTable_.emplace(std::make_pair(ShapeType::Ray, ShapeType::Ray), std::make_unique<RayAndRay>());
 		ColNotCombiTable_.emplace(std::make_pair(ShapeType::Box, ShapeType::Box), std::make_unique < BoxAndBox>());
 		ColNotCombiTable_.emplace(std::make_pair(ShapeType::Circle, ShapeType::Circle), std::make_unique < CircleAndCircle>());
-		//‘g‚İ‡‚í‚¹‚ ‚è
+		//çµ„ã¿åˆã‚ã›ã‚ã‚Š
 		//ColCombiTable_.emplace(std::make_pair(ShapeType::Ray, ShapeType::Box), std::make_unique < RayAndBox>());
 		//ColCombiTable_.emplace(std::make_pair(ShapeType::Ray, ShapeType::Circle), std::make_unique < RayAndCircle>());
 		ColCombiTable_.emplace(std::make_pair(ShapeType::Box, ShapeType::Circle), std::make_unique < BoxAndCircle>());
@@ -264,13 +264,13 @@ public:
 	{
 		auto s1type = s1.GetShapeType();
 		auto s2type = s2.GetShapeType();
-		if (s1type == s2type)//‘g‚İ‡‚í‚¹ŠÖŒW
+		if (s1type == s2type)//çµ„ã¿åˆã‚ã›é–¢ä¿‚
 		{
 			return ColNotCombiTable_.at(std::make_pair(s1type, s2type))->IsHitObject(s1, s2);
 		}
 		else
 		{
-			if (ColCombiTable_.count({s1type,s2type}))//‚ ‚é‘g‚İ‡‚í‚¹‚É‚ ‚í‚¹‚é
+			if (ColCombiTable_.count({s1type,s2type}))//ã‚ã‚‹çµ„ã¿åˆã‚ã›ã«ã‚ã‚ã›ã‚‹
 			{
 				return ColCombiTable_.at(std::make_pair(s1type, s2type))->IsHitObject(s1, s2);
 			}

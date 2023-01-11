@@ -1,25 +1,25 @@
-#pragma once
+ï»¿#pragma once
 #ifdef _DEBUG
 #include <windows.h>
 #include <memory>
 #include <string>
 #include <tuple>
-#include <chrono>		// ¸“x‚Í1msec’ö“x
+#include <chrono>		// ç²¾åº¦ã¯1msecç¨‹åº¦
 #include <DxLib.h>
 
-// ƒfƒoƒbƒO‹@”\‚ğg‚¤‚½‚ß‚Ì‰Šú‰»ŠÖ”(screenSizeX,screenSizeY,alpha’l)
+// ãƒ‡ãƒãƒƒã‚°æ©Ÿèƒ½ã‚’ä½¿ã†ãŸã‚ã®åˆæœŸåŒ–é–¢æ•°(screenSizeX,screenSizeY,alphaå€¤)
 #define _dbgSetup(A,B,C)					_DebugDispOut::GetInstance().Setup(A,B,C)
 
-// ƒfƒoƒbƒO•\¦‚Ì“§–¾“x‚Ì•ÏX
+// ãƒ‡ãƒãƒƒã‚°è¡¨ç¤ºã®é€æ˜åº¦ã®å¤‰æ›´
 #define _dbgSetAlpha(A)						_DebugDispOut::GetInstance().SetAlpha(A)
 
-// ƒQ[ƒ€ƒ‹[ƒv‚Ìæ“ª‚ÅŒÄ‚Ño‚·‰Šú‰»ŠÖ”
+// ã‚²ãƒ¼ãƒ ãƒ«ãƒ¼ãƒ—ã®å…ˆé ­ã§å‘¼ã³å‡ºã™åˆæœŸåŒ–é–¢æ•°
 #define _dbgStartDraw()						_DebugDispOut::GetInstance().StartDrawDebug()
 
-// ƒfƒoƒbƒO•\¦‚ğƒoƒbƒNƒoƒbƒtƒ@‚É•`‰æ‚·‚éÛ‚ÉŒÄ‚Ño‚·
+// ãƒ‡ãƒãƒƒã‚°è¡¨ç¤ºã‚’ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã«æç”»ã™ã‚‹éš›ã«å‘¼ã³å‡ºã™
 #define _dbgDraw()							_DebugDispOut::GetInstance().DrawDebug()
 
-// ƒfƒoƒbƒO•`‰æ”Å‚ÌDxLib–½—ß(ˆø”‚ÍƒIƒŠƒWƒiƒ‹‚Æ“¯‚¶‚È‚Ì‚ÅŒö®ƒŠƒtƒ@ƒŒƒ“ƒX‚ğQÆ‚Ì–
+// ãƒ‡ãƒãƒƒã‚°æç”»ç‰ˆã®DxLibå‘½ä»¤(å¼•æ•°ã¯ã‚ªãƒªã‚¸ãƒŠãƒ«ã¨åŒã˜ãªã®ã§å…¬å¼ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’å‚ç…§ã®äº‹
 #define _dbgDrawGraph(fmt, ...)				_DebugDispOut::GetInstance().DrawGraph(fmt, __VA_ARGS__) 
 #define _dbgDrawBox(fmt, ...)				_DebugDispOut::GetInstance().DrawBox(fmt, __VA_ARGS__) 
 #define _dbgDrawLine(fmt, ...)				_DebugDispOut::GetInstance().DrawLine(fmt, __VA_ARGS__) 
@@ -30,14 +30,14 @@
 											DrawFormatString(fmt, __VA_ARGS__);\
 											_DebugDispOut::GetInstance().RevScreen()
 
-// “à•”•Ï”‚ğ‰æ–Êã•`‰æ‚·‚éÛ‚ÌŠJnˆÊ’uİ’è(ƒfƒtƒHƒ‹ƒg‚Í0,0)
+// å†…éƒ¨å¤‰æ•°ã‚’ç”»é¢ä¸Šæç”»ã™ã‚‹éš›ã®é–‹å§‹ä½ç½®è¨­å®š(ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯0,0)
 #define _dbgSetMesPos(X,Y)					_DebugDispOut::GetInstance().SetMesPos(X,Y)
-// ˆê‚Â‚Ì“à•”•Ï”‚ğ‰æ–Êã•`‰æ(ˆø”‚ÍA•¶šF,•¶š,”’l—p‚Ì•Ï”(int‚à‚µ‚­‚Í•‚“®¬”“_))A•¡”‰ñŒÄ‚Ño‚·‚Æ©“®“I‚É‰º‚É‚¸‚ê‚Ä•\¦‚³‚ê‚Ü‚·
+// ä¸€ã¤ã®å†…éƒ¨å¤‰æ•°ã‚’ç”»é¢ä¸Šæç”»(å¼•æ•°ã¯ã€æ–‡å­—è‰²,æ–‡å­—,æ•°å€¤ç”¨ã®å¤‰æ•°(intã‚‚ã—ãã¯æµ®å‹•å°æ•°ç‚¹))ã€è¤‡æ•°å›å‘¼ã³å‡ºã™ã¨è‡ªå‹•çš„ã«ä¸‹ã«ãšã‚Œã¦è¡¨ç¤ºã•ã‚Œã¾ã™
 #define _TRACE_S(COLOR,STR,NUM)				_DebugDispOut::GetInstance().TRACE_S(COLOR,STR,NUM);
-// printf‚Æ“¯‚¶Š´‚¶‚Åg‚¦‚Ü‚·,•¡”‰ñŒÄ‚Ño‚·‚Æ©“®“I‚É‰º‚É‚¸‚ê‚Ä•\¦‚³‚ê‚Ü‚·
+// printfã¨åŒã˜æ„Ÿã˜ã§ä½¿ãˆã¾ã™,è¤‡æ•°å›å‘¼ã³å‡ºã™ã¨è‡ªå‹•çš„ã«ä¸‹ã«ãšã‚Œã¦è¡¨ç¤ºã•ã‚Œã¾ã™
 #define _TRACE_M(COLOR,STR,...)				_DebugDispOut::GetInstance().TRACE_M(COLOR,STR,__VA_ARGS__);
 
-// “®ìFPS‚ğ•\¦‚·‚éê‡
+// å‹•ä½œFPSã‚’è¡¨ç¤ºã™ã‚‹å ´åˆ
 #define _dbgDrawFPS()						_DebugDispOut::GetInstance().DrawFPS()
 
 using ChronoSysClock = std::chrono::system_clock::time_point;

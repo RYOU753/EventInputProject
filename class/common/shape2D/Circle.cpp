@@ -1,4 +1,4 @@
-#include <DxLib.h>
+﻿#include <DxLib.h>
 #include "Circle.h"
 #include "../../_debug/_DebugDispOut.h"
 

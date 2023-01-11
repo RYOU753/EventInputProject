@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 template<class T> class ValueRangeTemplate
 {
 public:
@@ -7,10 +7,10 @@ public:
 	ValueRangeTemplate(const ValueRangeTemplate& range) { *this = range; };
 
 	~ValueRangeTemplate(){};
-	//‘ã“ü‰‰Zq
+	//ä»£å…¥æ¼”ç®—å­
 	ValueRangeTemplate& operator= (const ValueRangeTemplate& range);
 
-	//•Ö—˜ŠÖ”
+	//ä¾¿åˆ©é–¢æ•°
 	T clamp(T val);
 	T wrap(T val);
 	T min()const { return min_; };

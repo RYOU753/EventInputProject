@@ -1,6 +1,6 @@
-#pragma once
+ï»¿#pragma once
 #include <type_traits>
-//ƒ{ƒ^ƒ“‚Ìí—Ş
+//ãƒœã‚¿ãƒ³ã®ç¨®é¡
 enum class PadInputID
 {
 	UP,

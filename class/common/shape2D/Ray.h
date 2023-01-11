@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Shape.h"
 class Ray :
     public Shape
@@ -9,8 +9,8 @@ public:
 	ShapeType GetShapeType(void)const override { return ShapeType::Ray; };
 	void dbgDraw(int color)const override{_dbgDrawLine(static_cast<int>(pos.x), static_cast<int>(pos.y), static_cast<int>(end().x),static_cast<int>(end().y), color);};
 	void Draw(int color)const override{DrawLine(static_cast<int>(pos.x), static_cast<int>(pos.y), static_cast<int>(end().x), static_cast<int>(end().y), color);};
-	Position2F end(void) const{ return { pos.x + vec.x, pos.y + vec.y }; };//I“_
-	Position2F pos;//n“_
-	Vector2F vec;//•ûŒüƒxƒNƒgƒ‹	
+	Position2F end(void) const{ return { pos.x + vec.x, pos.y + vec.y }; };//çµ‚ç‚¹
+	Position2F pos;//å§‹ç‚¹
+	Vector2F vec;//æ–¹å‘ãƒ™ã‚¯ãƒˆãƒ«	
 };
 

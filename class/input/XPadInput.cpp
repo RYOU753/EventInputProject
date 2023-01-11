@@ -1,4 +1,4 @@
-#include <Windows.h>
+ï»¿#include <Windows.h>
 #include <Xinput.h>
 #include <iostream>
 #include <magic_enum.hpp>
@@ -26,24 +26,24 @@ void XPadInput::Update(void)
 	{
 		for (auto& data : padData_)
 		{
-			data.second[Trg::Old] = data.second[Trg::Now];
+			data.second[Trg::OLD] = data.second[Trg::NOW];
 		}
 
 		for (auto& tblData : btnTbl_)
 		{
-			padData_[tblData.first][Trg::Now] = xInput_.Gamepad.wButtons & tblData.second;
+			padData_[tblData.first][Trg::NOW] = xInput_.Gamepad.wButtons & tblData.second;
 		}
 
 		UpdateStickDigitalButton();
 
-		padData_[PadInputID::LT][Trg::Now] = xInput_.Gamepad.bLeftTrigger > 0;
-		padData_[PadInputID::RT][Trg::Now] = xInput_.Gamepad.bRightTrigger > 0;
+		padData_[PadInputID::LT][Trg::NOW] = xInput_.Gamepad.bLeftTrigger > 0;
+		padData_[PadInputID::RT][Trg::NOW] = xInput_.Gamepad.bRightTrigger > 0;
 		UpdateAnalog();
 		DoCenterCursor();
 	}
 	else
 	{
-		std::cout << "Ž¸”s" << std::endl;
+		std::cout << "å¤±æ•—" << std::endl;
 		ConectXPad();
 	}
 	DebugDraw();
@@ -82,37 +82,37 @@ void XPadInput::InInit(void)
 	for (auto id : PadInputID())
 	{
 		padData_.try_emplace(id);
-		padData_.at(id).try_emplace(Trg::Now);
-		padData_.at(id).try_emplace(Trg::Old);
+		padData_.at(id).try_emplace(Trg::NOW);
+		padData_.at(id).try_emplace(Trg::OLD);
 	}
 
 	deadzone_ = 0.2f;
 	ConectXPad();
 }
 
-InputState XPadInput::GetInputState(std::string keyid)
+InputState XPadInput::GetInputState(std::string_view keyid)
 {
 	auto id = magic_enum::enum_cast<PadInputID>(keyid);
 	if (id.has_value())
 	{
-		if (padData_[id.value()][Trg::Now] && !padData_[id.value()][Trg::Old])
+		if (padData_[id.value()][Trg::NOW] && !padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Push;
+			return InputState::PUSH;
 		}
-		if (!padData_[id.value()][Trg::Now] && padData_[id.value()][Trg::Old])
+		if (!padData_[id.value()][Trg::NOW] && padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Relese;
+			return InputState::RELEASE;
 		}
-		if (padData_[id.value()][Trg::Now] && padData_[id.value()][Trg::Old])
+		if (padData_[id.value()][Trg::NOW] && padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Hold;
+			return InputState::HOLD;
 		}
 	}
 
-	return InputState::None;
+	return InputState::NONE;
 }
 
-float XPadInput::GetAnalogData(std::string keyid)
+float XPadInput::GetAnalogData(std::string_view keyid)
 {
 	auto id = magic_enum::enum_cast<AnalogInputID>(keyid);
 	if (id.has_value())
@@ -126,9 +126,9 @@ float XPadInput::GetAnalogData(std::string keyid)
 	return 0.0f;
 }
 
-float XPadInput::GetDirRot(Stick_LR dir)
+float XPadInput::GetDirRot(StickLR dir)
 {
-	if (dir == Stick_LR::L)
+	if (dir == StickLR::L)
 	{
 		return GetMoveDirRot(xInput_.Gamepad.sThumbLX, xInput_.Gamepad.sThumbLY);
 	}
@@ -136,9 +136,9 @@ float XPadInput::GetDirRot(Stick_LR dir)
 	return GetMoveDirRot(xInput_.Gamepad.sThumbRX, xInput_.Gamepad.sThumbRY);
 }
 
-Vector2F XPadInput::GetMoveVec(Stick_LR dir)
+Vector2F XPadInput::GetMoveVec(StickLR dir)
 {
-	if (dir == Stick_LR::L)
+	if (dir == StickLR::L)
 	{
 		return GetMoveVec(xInput_.Gamepad.sThumbLX, xInput_.Gamepad.sThumbLY);
 	}
@@ -150,7 +150,7 @@ bool XPadInput::IsActive(void)
 {
 	for (auto id : PadInputID())
 	{
-		if (padData_[id][Trg::Now])
+		if (padData_[id][Trg::NOW])
 		{
 			return true;
 		}
@@ -160,31 +160,31 @@ bool XPadInput::IsActive(void)
 
 void XPadInput::UpdateStickDigitalButton(void)
 {
-	auto StickL = GetMoveVec(Stick_LR::L);
-	auto StickR = GetMoveVec(Stick_LR::R);
+	auto StickL = GetMoveVec(StickLR::L);
+	auto StickR = GetMoveVec(StickLR::R);
 
-	padData_[PadInputID::STICK_L_DOWN][Trg::Now] = StickL.y < 0;
-	padData_[PadInputID::STICK_L_UP][Trg::Now] = StickL.y > 0;
-	padData_[PadInputID::STICK_L_RIGHT][Trg::Now] = StickL.x > 0;
-	padData_[PadInputID::STICK_L_LEFT][Trg::Now] = StickL.x < 0;
+	padData_[PadInputID::STICK_L_DOWN][Trg::NOW] = StickL.y < 0;
+	padData_[PadInputID::STICK_L_UP][Trg::NOW] = StickL.y > 0;
+	padData_[PadInputID::STICK_L_RIGHT][Trg::NOW] = StickL.x > 0;
+	padData_[PadInputID::STICK_L_LEFT][Trg::NOW] = StickL.x < 0;
 
-	padData_[PadInputID::STICK_R_DOWN][Trg::Now] = StickR.y < 0;
-	padData_[PadInputID::STICK_R_UP][Trg::Now] = StickR.y > 0;
-	padData_[PadInputID::STICK_R_RIGHT][Trg::Now] = StickR.x > 0;
-	padData_[PadInputID::STICK_R_LEFT][Trg::Now] = StickR.x < 0;
+	padData_[PadInputID::STICK_R_DOWN][Trg::NOW] = StickR.y < 0;
+	padData_[PadInputID::STICK_R_UP][Trg::NOW] = StickR.y > 0;
+	padData_[PadInputID::STICK_R_RIGHT][Trg::NOW] = StickR.x > 0;
+	padData_[PadInputID::STICK_R_LEFT][Trg::NOW] = StickR.x < 0;
 }
 
 void XPadInput::UpdateAnalog(void)
 {
-	auto StickL = GetMoveVec(Stick_LR::L);
-	auto StickR = GetMoveVec(Stick_LR::R);
+	auto StickL = GetMoveVec(StickLR::L);
+	auto StickR = GetMoveVec(StickLR::R);
 	analogData_.at(AnalogInputID::PAD_STICK_LX) = StickL.x;
 	analogData_.at(AnalogInputID::PAD_STICK_LY) = StickL.y;
 	analogData_.at(AnalogInputID::PAD_STICK_RX) = StickR.x;
 	analogData_.at(AnalogInputID::PAD_STICK_RY) = StickR.y;
 	analogData_.at(AnalogInputID::PAD_TRIGGER_L) = xInput_.Gamepad.bLeftTrigger / 255.0f;
 	analogData_.at(AnalogInputID::PAD_TRIGGER_R) = xInput_.Gamepad.bRightTrigger / 255.0f;
-	//ƒ}ƒEƒXƒ|ƒCƒ“ƒ^[XV
+	//ãƒžã‚¦ã‚¹ãƒã‚¤ãƒ³ã‚¿ãƒ¼æ›´æ–°
 	analogData_.at(AnalogInputID::CURSOR_X) += StickL.x * sensitivity_;
 	analogData_.at(AnalogInputID::CURSOR_Y) -= StickL.y * sensitivity_;
 }
@@ -279,13 +279,13 @@ void XPadInput::ConectXPad()
 		if (dwResult == ERROR_SUCCESS)
 		{
 			// Controller is connected
-			std::cout << i << ":¬Œ÷" << std::endl;
+			std::cout << i << ":æˆåŠŸ" << std::endl;
 			isConnectXPad_ = i;
 		}
 		else
 		{
 			// Controller is not connected
-			std::cout << i << ":Ž¸”s" << std::endl;
+			std::cout << i << ":å¤±æ•—" << std::endl;
 		}
 	}
 }
@@ -294,7 +294,7 @@ void XPadInput::DebugDraw(void)
 {
 	for (auto& data : padData_)
 	{
-		if (data.second[Trg::Now])
+		if (data.second[Trg::NOW])
 		{
 			auto str = magic_enum::enum_name(data.first).data();
 			std::cout << str << std::endl;

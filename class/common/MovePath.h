@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <DxLib.h>
 #include <vector>
 #include <string>
@@ -15,9 +15,9 @@ public:
     void Update(const double& delta);
     VECTOR GetCurrentPos();
 private:
-    //ƒJƒƒ‰‚ªƒpƒX‚É‰ˆ‚Á‚ÄˆÚ“®‚ğI‚¦‚½‚©
+    //ã‚«ãƒ¡ãƒ©ãŒãƒ‘ã‚¹ã«æ²¿ã£ã¦ç§»å‹•ã‚’çµ‚ãˆãŸã‹
     bool IsEndPathMove(void);
-    //ƒJƒƒ‰‚Ì’Ê‚éƒpƒX‚ğƒf[ƒ^‚©‚çæ“¾‚·‚é
+    //ã‚«ãƒ¡ãƒ©ã®é€šã‚‹ãƒ‘ã‚¹ã‚’ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰å–å¾—ã™ã‚‹
     void PathDataLoader(std::string filepath);
 private:
     struct PointDate

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <unordered_map>
 #include <array>
 #include <vector>
@@ -9,33 +9,33 @@
 #include "../common/Vector2.h"
 
 enum class Trg {
-	Now,	//Œ»İ‚ÌƒtƒŒ[ƒ€
-	Old,	//1ƒtƒŒ[ƒ€‘O‚ÌƒtƒŒ[ƒ€
-	Max
+	NOW,	//ç¾åœ¨ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
+	OLD,	//1ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã®ãƒ•ãƒ¬ãƒ¼ãƒ 
+	MAX
 };
 enum class InputType {
-	Keybord,
-	Pad,
-	Max
+	KEYBOARD,
+	PAD,
+	MAX
 };
 enum class InputState
 {
-	None,	//‰½‚à‚µ‚Ä‚È‚¢	now:false,old:false
-	Push,	//‰Ÿ‚µ‚½uŠÔ	now:true,old:false
-	Relese,	//—£‚µ‚½uŠÔ	now:false,old:true
-	Hold,	//‰Ÿ‚µ‚Ä‚¢‚éŠÔ	now:true,old:true
-	Max
+	NONE,		//ä½•ã‚‚ã—ã¦ãªã„	now:false,old:false
+	PUSH,		//æŠ¼ã—ãŸç¬é–“	now:true,old:false
+	RELEASE,	//é›¢ã—ãŸç¬é–“	now:false,old:true
+	HOLD,		//æŠ¼ã—ã¦ã„ã‚‹é–“	now:true,old:true
+	MAX
 };
-enum class Stick_LR
+enum class StickLR
 {
 	L,
 	R,
-	Max
+	MAX
 };
-using TrgBool = std::unordered_map<Trg, bool>;//‚Ç‚Ìƒ^ƒCƒ~ƒ“ƒO‚Ì‰Ÿ‚³‚ê‚Ä‚é‚©
-using XPadData = std::unordered_map<PadInputID, TrgBool>;//‰Ÿ‚³‚ê‚Ä‚éƒ{ƒ^ƒ“‚Æ‚¢‚Â‰Ÿ‚³‚ê‚½‚©
+using TrgBool = std::unordered_map<Trg, bool>;//ã©ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã®æŠ¼ã•ã‚Œã¦ã‚‹ã‹
+using XPadData = std::unordered_map<PadInputID, TrgBool>;//æŠ¼ã•ã‚Œã¦ã‚‹ãƒœã‚¿ãƒ³ã¨ã„ã¤æŠ¼ã•ã‚ŒãŸã‹
 using KeyState = std::array<char, 256U>;
-using KeybordData = std::unordered_map<Trg,KeyState>;
+using KeyboardData = std::unordered_map<Trg,KeyState>;
 using MouseData = std::unordered_map<MouseInputID, TrgBool>;
 using AnalogData = std::unordered_map<AnalogInputID, float>;
 using MousePointer = std::unordered_map<Trg, Vector2>;//now,old
@@ -43,60 +43,60 @@ class Input
 {
 public:
 	Input();
-	~Input();
+	virtual ~Input();
 	virtual void Update(void) = 0;
 
-	/// @brief “ü—Í‹@Ší‚Ìƒ^ƒCƒv‚ğæ“¾
-	/// @return “ü—Í‹@Šíƒ^ƒCƒv
-	virtual InputType GetInputType(void)const = 0;
+	/// @brief å…¥åŠ›æ©Ÿå™¨ã®ã‚¿ã‚¤ãƒ—ã‚’å–å¾—
+	/// @return å…¥åŠ›æ©Ÿå™¨ã‚¿ã‚¤ãƒ—
+	[[nodiscard]] virtual InputType GetInputType(void)const = 0;
 
-	/// @brief ƒ{ƒ^ƒ“‚Ìó‘Ô‚ğæ“¾‚·‚é
-	/// @param keyid enum‚©‚çstring‚É•ÏŠ·‚µ‚½keyid
-	/// @return ƒ{ƒ^ƒ“ó‘Ô
-	virtual InputState GetInputState(std::string keyid)=0;
+	/// @brief ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ã‚’å–å¾—ã™ã‚‹
+	/// @param keyid enumã‹ã‚‰stringã«å¤‰æ›ã—ãŸkeyid
+	/// @return ãƒœã‚¿ãƒ³çŠ¶æ…‹
+	virtual InputState GetInputState(std::string_view keyid)=0;
 
-	/// @brief ƒAƒiƒƒO’l‚Ìæ“¾‚·‚é
-	/// @param keyid enum‚©‚çstring‚É•ÏŠ·‚µ‚½keyid
-	/// @return ƒAƒiƒƒO’l
-	virtual float GetAnalogData(std::string keyid) = 0;
+	/// @brief ã‚¢ãƒŠãƒ­ã‚°å€¤ã®å–å¾—ã™ã‚‹
+	/// @param keyid enumã‹ã‚‰stringã«å¤‰æ›ã—ãŸkeyid
+	/// @return ã‚¢ãƒŠãƒ­ã‚°å€¤
+	virtual float GetAnalogData(std::string_view keyid) = 0;
 
-	/// @brief “ü—Í‚ª‚ ‚é‚©
-	/// @return “ü—Í‚ ‚è:true “ü—Í‚È‚µ:false
+	/// @brief å…¥åŠ›ãŒã‚ã‚‹ã‹
+	/// @return å…¥åŠ›ã‚ã‚Š:true å…¥åŠ›ãªã—:false
 	virtual bool IsActive(void) = 0;
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚ÌŠ´“x‚ğƒZƒbƒg‚·‚é
-	/// @param sensi 0.01~20.0
-	void SetSensi(float sensi);
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®æ„Ÿåº¦ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
+	/// @param sensitivity 0.01~20.0
+	void SetSensitivity(float sensitivity);
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚ÌŠ´“x‚ğæ“¾‚·‚é
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®æ„Ÿåº¦ã‚’å–å¾—ã™ã‚‹
 	/// @return 0.01~20.0
-	float GetSensi(void) { return sensitivity_; };
+	[[nodiscard]] float GetSensitivity(void) const { return sensitivity_; }
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚Ìƒfƒbƒhƒ][ƒ“‚ğƒZƒbƒg‚·‚é
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
 	/// @param zone 0.0~1.0
 	virtual void SetDeadZone(float zone);
 
-	/// @brief w’è‚µ‚½“ü—Í‹@Ší‚Ìƒfƒbƒhƒ][ƒ“‚ğæ“¾‚·‚é
-	/// @return 1.0~0.0‚ÌŠÔ‚Ìƒfƒbƒhƒ][ƒ“
-	float GetDeadZone(void) { return deadZone_; };
+	/// @brief æŒ‡å®šã—ãŸå…¥åŠ›æ©Ÿå™¨ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ã‚’å–å¾—ã™ã‚‹
+	/// @return 1.0~0.0ã®é–“ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³
+	[[nodiscard]] float GetDeadZone(void) const { return deadZone_; }
 
-	/// @brief ƒ}ƒEƒXƒ|ƒCƒ“ƒ^[‚ğƒZƒ“ƒ^[ŒÅ’è‚·‚é
-	/// @param flag true:ŒÅ’è false:©—R
+	/// @brief ãƒã‚¦ã‚¹ãƒã‚¤ãƒ³ã‚¿ãƒ¼ã‚’ã‚»ãƒ³ã‚¿ãƒ¼å›ºå®šã™ã‚‹
+	/// @param flag true:å›ºå®š false:è‡ªç”±
 	void FixCenterCursor(bool flag);
 
-	/// @brief ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğƒZƒ“ƒ^[‚ÉŒÅ’è‚µ‚Ä‚¢‚é‚©
-	/// @return true:ŒÅ’è false:©—R
-	bool GetIsFixCenterCursor(void) { return isFixCenterCursor_; };
+	/// @brief ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’ã‚»ãƒ³ã‚¿ãƒ¼ã«å›ºå®šã—ã¦ã„ã‚‹ã‹
+	/// @return true:å›ºå®š false:è‡ªç”±
+	[[nodiscard]] bool GetIsFixCenterCursor(void) const { return isFixCenterCursor_; }
 private:
-	/// @brief ƒCƒ“ƒXƒ^ƒ“ƒX“à‚Å‚Ì‰Šú‰» 
+	/// @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å†…ã§ã®åˆæœŸåŒ– 
 	virtual void InInit(void) = 0;
 protected:
-	/// @brief isFixCenterCursor‚ªtrue‚ÌC‰æ–Ê’†‰›‚ÉƒZƒbƒg‚·‚é 
+	/// @brief isFixCenterCursorãŒtrueã®æ™‚ï¼Œç”»é¢ä¸­å¤®ã«ã‚»ãƒƒãƒˆã™ã‚‹ 
 	void DoCenterCursor(void);
 
-	AnalogData analogData_;		//ƒAƒiƒƒO’l(ƒgƒŠƒK[‚âƒXƒeƒBƒbƒN‚È‚Ç)
-	float sensitivity_;			//ƒJ[ƒ\ƒ‹‚ÌŠ´“x(ƒAƒiƒƒO’l‚ÉŠ|‚¯‚é’l)
-	float deadZone_;			//ƒXƒeƒBƒbƒN‚Ìƒfƒbƒhƒ][ƒ“”ÍˆÍ
-	bool isFixCenterCursor_;	//‰æ–Ê’†‰›‚ÉŒÅ’è‚·‚é‚©
+	AnalogData analogData_;		//ã‚¢ãƒŠãƒ­ã‚°å€¤(ãƒˆãƒªã‚¬ãƒ¼ã‚„ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãªã©)
+	float sensitivity_;			//ã‚«ãƒ¼ã‚½ãƒ«ã®æ„Ÿåº¦(ã‚¢ãƒŠãƒ­ã‚°å€¤ã«æ›ã‘ã‚‹å€¤)
+	float deadZone_;			//ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ç¯„å›²
+	bool isFixCenterCursor_;	//ç”»é¢ä¸­å¤®ã«å›ºå®šã™ã‚‹ã‹
 };
 

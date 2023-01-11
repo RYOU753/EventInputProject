@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <DxLib.h>
 #include <memory>
 #include <optional>
@@ -13,76 +13,76 @@ public:
 
 	void Update(void)override;
 
-	/// @brief “ü—Í‹@Ší‚Ìƒ^ƒCƒv‚ğæ“¾
-	/// @return “ü—Í‹@Šíƒ^ƒCƒv
-	InputType GetInputType(void)const override { return InputType::Pad; };
+	/// @brief å…¥åŠ›æ©Ÿå™¨ã®ã‚¿ã‚¤ãƒ—ã‚’å–å¾—
+	/// @return å…¥åŠ›æ©Ÿå™¨ã‚¿ã‚¤ãƒ—
+	InputType GetInputType(void)const override { return InputType::PAD; };
 
-	/// @brief ƒ{ƒ^ƒ“‚Ìó‘Ô‚ğæ“¾‚·‚é
-	/// @param keyid enum‚©‚çstring‚É•ÏŠ·‚µ‚½keyid
-	/// @return ƒ{ƒ^ƒ“ó‘Ô
-	InputState GetInputState(std::string keyid)override;
+	/// @brief ãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ã‚’å–å¾—ã™ã‚‹
+	/// @param keyid enumã‹ã‚‰stringã«å¤‰æ›ã—ãŸkeyid
+	/// @return ãƒœã‚¿ãƒ³çŠ¶æ…‹
+	InputState GetInputState(std::string_view keyid)override;
 
-	/// @brief ƒAƒiƒƒO’l‚Ìæ“¾‚·‚é
-	/// @param keyid enum‚©‚çstring‚É•ÏŠ·‚µ‚½keyid
-	/// @return ƒAƒiƒƒO’l
-	float GetAnalogData(std::string keyid)override;
+	/// @brief ã‚¢ãƒŠãƒ­ã‚°å€¤ã®å–å¾—ã™ã‚‹
+	/// @param keyid enumã‹ã‚‰stringã«å¤‰æ›ã—ãŸkeyid
+	/// @return ã‚¢ãƒŠãƒ­ã‚°å€¤
+	float GetAnalogData(std::string_view keyid)override;
 
-	/// @brief ƒXƒeƒBƒbƒN‚Ì“|‚µ‚½•ûŒü‚ÌŠp“x‚ğæ“¾‚·‚é
-	/// @param dir w’è‚·‚éƒXƒeƒBƒbƒN
-	/// @return ã•ûŒü‚ğ0“x‚Æ‚µ‚ÄŒv‰ñ‚è‚É360“x‚Ü‚Å‚ÌŠÔ‚ğ•Ô‚·(“x”–@)(“|‚ê‚Ä‚È‚¢C–³Œø’l‚ğ•Ô‚·)
-	std::optional<float> GetDirRot(Stick_LR dir);
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®å€’ã—ãŸæ–¹å‘ã®è§’åº¦ã‚’å–å¾—ã™ã‚‹
+	/// @param dir æŒ‡å®šã™ã‚‹ã‚¹ãƒ†ã‚£ãƒƒã‚¯
+	/// @return ä¸Šæ–¹å‘ã‚’0åº¦ã¨ã—ã¦æ™‚è¨ˆå›ã‚Šã«360åº¦ã¾ã§ã®é–“ã‚’è¿”ã™(åº¦æ•°æ³•)(å€’ã‚Œã¦ãªã„æ™‚ï¼Œç„¡åŠ¹å€¤ã‚’è¿”ã™)
+	std::optional<float> GetDirRot(StickLR dir);
 
-	/// @brief ƒXƒeƒBƒbƒN‚Ì“|‚µ‚½ƒxƒNƒgƒ‹‚ğ•Ô‚·
-	/// @param dir w’è‚·‚éƒXƒeƒBƒbƒN
-	/// @return 0~1‚Ì“|‚µ‚½’l(DeadZone‚Ì’†‚¾‚Á‚½‚ç(0,0)‚Å•Ô‚·)
-	Vector2F GetMoveVec(Stick_LR dir);
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®å€’ã—ãŸãƒ™ã‚¯ãƒˆãƒ«ã‚’è¿”ã™
+	/// @param dir æŒ‡å®šã™ã‚‹ã‚¹ãƒ†ã‚£ãƒƒã‚¯
+	/// @return 0~1ã®å€’ã—ãŸå€¤(DeadZoneã®ä¸­ã ã£ãŸã‚‰(0,0)ã§è¿”ã™)
+	Vector2F GetMoveVec(StickLR dir);
 
-	/// @brief 0~0.999‚ÌŠÔ‚Åƒfƒbƒhƒ][ƒ“‚ğİ’è‚·‚é
-	/// @param zone 0~1‚Ì’l(”ÍˆÍŠO‚Ì’l‚Íclamp‚³‚ê‚é)
+	/// @brief 0~0.999ã®é–“ã§ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³ã‚’è¨­å®šã™ã‚‹
+	/// @param zone 0~1ã®å€¤(ç¯„å›²å¤–ã®å€¤ã¯clampã•ã‚Œã‚‹)
 	void SetDeadZone(float zone)override;
 
-	/// @brief “ü—Í‚ª‚ ‚é‚©
-	/// @return “ü—Í‚ ‚è:true “ü—Í‚È‚µ:false
+	/// @brief å…¥åŠ›ãŒã‚ã‚‹ã‹
+	/// @return å…¥åŠ›ã‚ã‚Š:true å…¥åŠ›ãªã—:false
 	bool IsActive(void)override;
 private:
-	/// @brief ƒCƒ“ƒXƒ^ƒ“ƒX“à‚Å‚Ì‰Šú‰» 
+	/// @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å†…ã§ã®åˆæœŸåŒ– 
 	void InInit(void)override;
 
-	/// @brief ƒ{ƒ^ƒ“‚È‚Ç‚Ìbool‚ÅŒˆ‚Ü‚é“ü—Í‚ğXV‚·‚é
+	/// @brief ãƒœã‚¿ãƒ³ãªã©ã®boolã§æ±ºã¾ã‚‹å…¥åŠ›ã‚’æ›´æ–°ã™ã‚‹
 	void UpdateDigital(void);
 
-	/// @brief ƒXƒeƒBƒbƒN‚ğ“|‚µ‚Ä‚¢‚é‚©‚ğXV‚·‚é
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã‚’å€’ã—ã¦ã„ã‚‹ã‹ã‚’æ›´æ–°ã™ã‚‹
 	void UpdateStickDigitalButton(void);
 
-	/// @brief ƒXƒeƒBƒbƒN“ü—Í‚âƒgƒŠƒK[‚Ì[“x‚È‚Ç‚ÌƒAƒiƒƒO“ü—Í‚ğXV‚·‚é
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯å…¥åŠ›ã‚„ãƒˆãƒªã‚¬ãƒ¼ã®æ·±åº¦ãªã©ã®ã‚¢ãƒŠãƒ­ã‚°å…¥åŠ›ã‚’æ›´æ–°ã™ã‚‹
 	void UpdateAnalog(void);
 
-	/// @brief ƒXƒeƒBƒbƒN‚Ì“|‚µ‚½•ûŒü‚ÌŠp“x‚ğ•Ô‚·
-	/// @param x ƒXƒeƒBƒbƒN‚Ì‰¡²
-	/// @param y ƒXƒeƒBƒbƒN‚Ìc²
-	/// @return ã•ûŒü‚ğ0“x‚Æ‚µ‚ÄŒv‰ñ‚è‚É360“x‚Ü‚Å‚ÌŠÔ‚ğ•Ô‚·(“|‚ê‚Ä‚È‚¢C–³Œø’l‚ğ•Ô‚·)
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®å€’ã—ãŸæ–¹å‘ã®è§’åº¦ã‚’è¿”ã™
+	/// @param x ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®æ¨ªè»¸
+	/// @param y ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ç¸¦è»¸
+	/// @return ä¸Šæ–¹å‘ã‚’0åº¦ã¨ã—ã¦æ™‚è¨ˆå›ã‚Šã«360åº¦ã¾ã§ã®é–“ã‚’è¿”ã™(å€’ã‚Œã¦ãªã„æ™‚ï¼Œç„¡åŠ¹å€¤ã‚’è¿”ã™)
 	std::optional<float> GetMoveDirRot(short x, short y);
 	
-	/// @brief ƒXƒeƒBƒbƒN‚Ìc‰¡‚Ì“|‚µ‚½‚Ì’l‚ğ0~1‚ÌŠÔ‚É³‹K‰»‚µ‚½’l‚ğ•Ô‚·
-	/// @param x ƒXƒeƒBƒbƒN‚Ì‰¡²
-	/// @param y ƒXƒeƒBƒbƒN‚Ìc²
-	/// @return 0~1‚Ì“|‚µ‚½’l(DeadZone‚Ì’†‚¾‚Á‚½‚ç(0,0)‚Å•Ô‚·)
+	/// @brief ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ç¸¦æ¨ªã®å€’ã—ãŸæ™‚ã®å€¤ã‚’0~1ã®é–“ã«æ­£è¦åŒ–ã—ãŸå€¤ã‚’è¿”ã™
+	/// @param x ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®æ¨ªè»¸
+	/// @param y ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ç¸¦è»¸
+	/// @return 0~1ã®å€’ã—ãŸå€¤(DeadZoneã®ä¸­ã ã£ãŸã‚‰(0,0)ã§è¿”ã™)
 	Vector2F GetMoveVec(short x, short y);
 
-	/// @brief ƒfƒbƒhƒ][ƒ““à‚È‚çƒ[ƒ‚É‚·‚é
-	/// @param in •â³‚·‚éƒXƒeƒBƒbƒN‚Ì“|‚µ‚½ƒxƒNƒgƒ‹
-	/// @return •â³Œã‚ÌƒXƒeƒBƒbƒN‚Ì“|‚µ‚½ƒxƒNƒgƒ‹
+	/// @brief ãƒ‡ãƒƒãƒ‰ã‚¾ãƒ¼ãƒ³å†…ãªã‚‰ã‚¼ãƒ­ã«ã™ã‚‹
+	/// @param in è£œæ­£ã™ã‚‹ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®å€’ã—ãŸãƒ™ã‚¯ãƒˆãƒ«
+	/// @return è£œæ­£å¾Œã®ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®å€’ã—ãŸãƒ™ã‚¯ãƒˆãƒ«
 	Vector2F CorrectDeadZone(Vector2F in);
 
-	/// @brief ƒfƒoƒbƒO•\¦
+	/// @brief ãƒ‡ãƒãƒƒã‚°è¡¨ç¤º
 	void DebugDraw(void);
 
-	const int padNo_;										//ƒpƒbƒh‚ÌŒÂ‘Ì”Ô†
-	XINPUT_STATE xInput_;									//XInput‚Ìƒf[ƒ^‚ğó‚¯æ‚é•Ï”
-	XPadData padData_;										//Pad‚Ì“ü—Í•ÛŠÇêŠ
-	std::unordered_map<PadInputID, unsigned int> btnTbl_;	//PadInputID‚ÆDxlib‚Ìƒpƒbƒh‚Ìƒrƒbƒg‚ğƒe[ƒuƒ‹‰»
-	Vector2F oldCursorPos_;									//ƒJ[ƒ\ƒ‹ˆÊ’u‚Ì‘OƒtƒŒ[ƒ€‚ÌÀ•W
-	std::pair<int, int> ConnectNum_;						//ƒpƒbƒh‚ÌÚ‘±ó‘Ô fierst:Now,second:Old
-	int isConnectXPad_;										//ƒpƒbƒh‚ª‚¢‚­‚Â‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©
+	const int padNo_;										//ãƒ‘ãƒƒãƒ‰ã®å€‹ä½“ç•ªå·
+	XINPUT_STATE xInput_;									//XInputã®ãƒ‡ãƒ¼ã‚¿ã‚’å—ã‘å–ã‚‹å¤‰æ•°
+	XPadData padData_;										//Padã®å…¥åŠ›ä¿ç®¡å ´æ‰€
+	std::unordered_map<PadInputID, unsigned int> btnTbl_;	//PadInputIDã¨Dxlibã®ãƒ‘ãƒƒãƒ‰ã®ãƒ“ãƒƒãƒˆã‚’ãƒ†ãƒ¼ãƒ–ãƒ«åŒ–
+	Vector2F oldCursorPos_;									//ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®åº§æ¨™
+	std::pair<int, int> connectNum_;						//ãƒ‘ãƒƒãƒ‰ã®æ¥ç¶šçŠ¶æ…‹ first:Now,second:Old
+	int isConnectXPad_;										//ãƒ‘ãƒƒãƒ‰ãŒã„ãã¤ã¤ãªãŒã£ã¦ã„ã‚‹ã‹
 };
 

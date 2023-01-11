@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <string>
 
 template<class T> class Vector2Template
@@ -16,14 +16,14 @@ public:
 	};
 	~Vector2Template();
 
-	//‘ã“ü‰‰Zq
+	//ä»£å…¥æ¼”ç®—å­
 	Vector2Template& operator= (const Vector2Template& vec);
 	Vector2Template& operator+= (const Vector2Template& vec);
 	Vector2Template& operator-= (const Vector2Template& vec);
 
 	T& operator[] (int no)const;
 	Vector2Template operator- ()const;
-	//ŒvZ‰‰Zq
+	//è¨ˆç®—æ¼”ç®—å­
 	Vector2Template operator+ (const Vector2Template& vec)const;
 	Vector2Template operator- (const Vector2Template& vec)const;
 
@@ -31,28 +31,28 @@ public:
 	Vector2Template operator- (const T& val)const;
 	Vector2Template operator* (const T& val)const;
 	Vector2Template operator/ (const T& val)const;
-	//˜_—‰‰Zq
-	//’†g‚ªˆê’v‚µ‚Ä‚¢‚é‚©
+	//è«–ç†æ¼”ç®—å­
+	//ä¸­èº«ãŒä¸€è‡´ã—ã¦ã„ã‚‹ã‹
 	bool operator== (const Vector2Template& vec)const;
-	//’†g‚ªˆê’v‚µ‚Ä‚¢‚È‚¢‚©
+	//ä¸­èº«ãŒä¸€è‡´ã—ã¦ã„ãªã„ã‹
 	bool operator!=(const Vector2Template& vec)const;
-	//’·‚³‚ğ”äŠr
+	//é•·ã•ã‚’æ¯”è¼ƒ
 	bool operator<(const Vector2Template& vec)const;
-	//’·‚³‚ğ”äŠr
+	//é•·ã•ã‚’æ¯”è¼ƒ
 	bool operator>(const Vector2Template& vec)const;
-	//’·‚³‚ğ”äŠr
+	//é•·ã•ã‚’æ¯”è¼ƒ
 	bool operator<=(const Vector2Template& vec)const;
-	//’·‚³‚ğ”äŠr
+	//é•·ã•ã‚’æ¯”è¼ƒ
 	bool operator>=(const Vector2Template& vec)const;
 
-	//Œ^•ÏŠ·
+	//å‹å¤‰æ›
 	//Vector2Template& operator double()const;
-	//cast‰‰Zq
+	//castæ¼”ç®—å­
 	operator Vector2Template<int>() const{ return { static_cast<int>(this->x),static_cast<int>(this->y) }; };
 	operator Vector2Template<float>() const{ return { static_cast<float>(this->x),static_cast<float>(this->y) }; };
 	operator Vector2Template<double>() const{ return { static_cast<double>(this->x),static_cast<double>(this->y) }; };
 
-	//•Ö—˜ŠÖ”
+	//ä¾¿åˆ©é–¢æ•°
 	T area(void)const;
 	T length(void)const;
 	T lengthSQ(void)const;

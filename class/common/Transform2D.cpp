@@ -1,4 +1,4 @@
-#include <DxLib.h>
+﻿#include <DxLib.h>
 #include "Transform2D.h"
 #include "Utility.h"
 

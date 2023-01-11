@@ -19,7 +19,7 @@ int WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int)
 		//Update
 		input.Update(0.5);
 		input.DebugDraw();
-		if(input.GetDigitalEvent(EventID::ShotBall, InputState::Relese))
+		if(input.GetDigitalEvent(EventID::ShotBall, InputState::RELEASE))
 		{
 			//input.FixCenterCursor(!input.GetIsFixCenterCursor());
 			input.SaveConfig();

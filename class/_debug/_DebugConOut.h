@@ -1,9 +1,9 @@
-#pragma once
+﻿#pragma once
 #ifdef _DEBUG
 #include <windows.h>
 #include <memory>
 #include <assert.h>
-// ���ޯ��ү���ޗp��`
+// ﾃﾞﾊﾞｯｸﾞﾒｯｾｰｼﾞ用定義
 
 #define TRACE(fmt, ...) printf(fmt, __VA_ARGS__)
 

@@ -1,15 +1,15 @@
-#pragma once
+я╗┐#pragma once
 enum class AnalogInputID
 {
-	PAD_STICK_LX,		//Н╢ГXГeГBГbГNВ╠ЙбВ╠Тl
-	PAD_STICK_LY,		//Н╢ГXГeГBГbГNВ╠ПcВ╠Тl
-	PAD_STICK_RX,		//ЙEГXГeГBГbГNВ╠ЙбВ╠Тl
-	PAD_STICK_RY,		//ЙEГXГeГBГbГNВ╠ПcВ╠Тl
-	PAD_TRIGGER_L,		//Н╢ГgГКГKБ[В╠ЙЯВ╡НЮВ▌Тl
-	PAD_TRIGGER_R,		//ЙEГgГКГKБ[В╠ЙЯВ╡НЮВ▌Тl
-	CURSOR_MOVED_X,		//ГJБ[Г\ГЛВ╠И┌УоЧ╩X
-	CURSOR_MOVED_Y,		//ГJБ[Г\ГЛВ╠И┌УоЧ╩Y
-	CURSOR_X,			//ГJБ[Г\ГЛИ╩ТuX
-	CURSOR_Y,			//ГJБ[Г\ГЛИ╩ТuY
+	PAD_STICK_LX,		//х╖жуВ╣уГЖуВгуГГуВпуБоцикуБохАд
+	PAD_STICK_LY,		//х╖жуВ╣уГЖуВгуГГуВпуБоч╕жуБохАд
+	PAD_STICK_RX,		//хП│уВ╣уГЖуВгуГГуВпуБоцикуБохАд
+	PAD_STICK_RY,		//хП│уВ╣уГЖуВгуГГуВпуБоч╕жуБохАд
+	PAD_TRIGGER_L,		//х╖жуГИуГкуВмуГ╝уБоцК╝уБЧш╛╝уБ┐хАд
+	PAD_TRIGGER_R,		//хП│уГИуГкуВмуГ╝уБоцК╝уБЧш╛╝уБ┐хАд
+	CURSOR_MOVED_X,		//уВлуГ╝уВ╜уГлуБочз╗хЛХщЗПX
+	CURSOR_MOVED_Y,		//уВлуГ╝уВ╜уГлуБочз╗хЛХщЗПY
+	CURSOR_X,			//уВлуГ╝уВ╜уГлф╜Нч╜оX
+	CURSOR_Y,			//уВлуГ╝уВ╜уГлф╜Нч╜оY
 	Max
 };

@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 #include <type_traits>
 
-//enum class‚ÌŠg’£forƒ‹[ƒv¶¬ƒ}ƒNƒ(ƒwƒbƒ_‘¤)
+//enum classã®æ‹¡å¼µforãƒ«ãƒ¼ãƒ—ç”Ÿæˆãƒã‚¯ãƒ­(ãƒ˜ãƒƒãƒ€å´)
 #define GENERATE_ENUM_PROTOTYPE(T)\
 T begin(T);\
 T end(T);\
 T operator++(T& id);\
 T operator*(T& id);
 
-//enum class‚ÌŠg’£forƒ‹[ƒv¶¬ƒ}ƒNƒ(ƒ\[ƒX‘¤)
+//enum classã®æ‹¡å¼µforãƒ«ãƒ¼ãƒ—ç”Ÿæˆãƒã‚¯ãƒ­(ã‚½ãƒ¼ã‚¹å´)
 #define GENERATE_ENUM_ITERATOR(T)\
 T begin(T)\
 {\

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <DxLib.h>
 #include <optional>
 #include "Quaternion.h"
@@ -10,10 +10,10 @@
 //#endif
 
 /// <summary>
-/// ƒ‚ƒfƒ‹§Œä‚ÌŠî–{î•ñ
-/// ‘å‚«‚³FVECTORŠî€
-/// ‰ñ“]@FQuaternionŠî€
-/// ˆÊ’u@FVECTORŠî€
+/// ãƒ¢ãƒ‡ãƒ«åˆ¶å¾¡ã®åŸºæœ¬æƒ…å ±
+/// å¤§ãã•ï¼šVECTORåŸºæº–
+/// å›è»¢ã€€ï¼šQuaternionåŸºæº–
+/// ä½ç½®ã€€ï¼šVECTORåŸºæº–
 /// </summary>
 class Transform
 {
@@ -23,72 +23,72 @@ public:
 	Transform(VECTOR pos, Quaternion qRot, VECTOR scale, Quaternion qRotLocal = Quaternion{});
 	~Transform();
 
-	//‘å‚«‚³‚ğƒZƒbƒg
+	//å¤§ãã•ã‚’ã‚»ãƒƒãƒˆ
 	void SetScale(VECTOR scl);
-	//À•W‚ğƒZƒbƒg
+	//åº§æ¨™ã‚’ã‚»ãƒƒãƒˆ
 	void SetPosition(VECTOR pos);
-	//‰ñ“]‚ğƒZƒbƒg
+	//å›è»¢ã‚’ã‚»ãƒƒãƒˆ
 	void SetQuaternionRot(Quaternion qua);
-	//X²‚¾‚¯‰ñ“]
+	//Xè»¸ã ã‘å›è»¢
 	void SetRotX(float rotx);
-	//Y²‚¾‚¯‰ñ“]
+	//Yè»¸ã ã‘å›è»¢
 	void SetRotY(float roty);
-	//Z²‚¾‚¯‰ñ“]
+	//Zè»¸ã ã‘å›è»¢
 	void SetRotZ(float rotz);
 	void SetQuaternionRotLocal(Quaternion quaLocal);
 
-	//X²‚¾‚¯‰ñ“](ƒ[ƒJƒ‹)
+	//Xè»¸ã ã‘å›è»¢(ãƒ­ãƒ¼ã‚«ãƒ«)
 	void SetRotLocalX(const float& rotx);
-	//Y²‚¾‚¯‰ñ“](ƒ[ƒJƒ‹)
+	//Yè»¸ã ã‘å›è»¢(ãƒ­ãƒ¼ã‚«ãƒ«)
 	void SetRotLocalY(const float& roty);
-	//Z²‚¾‚¯‰ñ“](ƒ[ƒJƒ‹)
+	//Zè»¸ã ã‘å›è»¢(ãƒ­ãƒ¼ã‚«ãƒ«)
 	void SetRotLocalZ(const float& rotz);
-	//‘å‚«‚³‚ğæ“¾
+	//å¤§ãã•ã‚’å–å¾—
 	const VECTOR& GetScale(void) const{ return scl; };
-	//À•W‚ğæ“¾
+	//åº§æ¨™ã‚’å–å¾—
 	const VECTOR& GetPosition(void) const { return pos; };
-	//‰ñ“]‚ğæ“¾
+	//å›è»¢ã‚’å–å¾—
 	Quaternion GetQuaternionRot(void) { return quaRot; };
 	const Quaternion& GetQuaternionLocalRot(void)const { return quaRotLocal; };
 
-	// ‘O•û•ûŒü‚ğæ“¾
+	// å‰æ–¹æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetForward(void);
 
-	// Œã•û•ûŒü‚ğæ“¾
+	// å¾Œæ–¹æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetBack(void);
 
-	// ‰E•ûŒü‚ğæ“¾
+	// å³æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetRight(void);
 
-	// ¶•ûŒü‚ğæ“¾
+	// å·¦æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetLeft(void);
 
-	// ã•ûŒü‚ğæ“¾
+	// ä¸Šæ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetUp(void);
 
-	// ‰º•ûŒü‚ğæ“¾
+	// ä¸‹æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetDown(void);
 
-	// ‘ÎÛ•ûŒü‚ğæ“¾
+	// å¯¾è±¡æ–¹å‘ã‚’å–å¾—
 	const VECTOR&& GetDir(VECTOR vec);
 
 public:
 private:
-	// ‘å‚«‚³
+	// å¤§ãã•
 	VECTOR scl;
-	// ‰ñ“]
+	// å›è»¢
 	VECTOR rot;
-	// ˆÊ’u
+	// ä½ç½®
 	VECTOR pos;
 
 	MATRIX matScl;
 	MATRIX matRot;
 	MATRIX matPos;
 	MATRIX matAll;
-	// ‰ñ“]
+	// å›è»¢
 	Quaternion quaRot;
 
-	// ƒ[ƒJƒ‹‰ñ“]
+	// ãƒ­ãƒ¼ã‚«ãƒ«å›è»¢
 	Quaternion quaRotLocal;
 };
 

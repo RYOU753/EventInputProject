@@ -1,4 +1,4 @@
-#include <magic_enum.hpp>
+ï»¿#include <magic_enum.hpp>
 #include "PadInput.h"
 #include "../_debug/_DebugDispOut.h"
 #include "../_debug/_DebugConOut.h"
@@ -14,17 +14,17 @@ PadInput::~PadInput()
 
 void PadInput::Update(void)
 {
-	//ƒpƒbƒh‚ÌÚ‘±”‚ÌXV•”•ª
-	ConnectNum_.second = ConnectNum_.first;
-	ConnectNum_.first = GetJoypadNum();
+	//ãƒ‘ãƒƒãƒ‰ã®æ¥ç¶šæ•°ã®æ›´æ–°éƒ¨åˆ†
+	connectNum_.second = connectNum_.first;
+	connectNum_.first = GetJoypadNum();
 
-	if (isConnectXPad_ == 0)//Ú‘±‚Å‚«‚Ä‚¢‚é
+	if (isConnectXPad_ == 0)//æ¥ç¶šã§ãã¦ã„ã‚‹æ™‚
 	{
 		UpdateDigital();
 		UpdateAnalog();
 		DoCenterCursor();
 	}
-	else if (ConnectNum_.first > ConnectNum_.second)
+	else if (connectNum_.first > connectNum_.second)
 	{
 		ReSetupJoypad();
 		isConnectXPad_ = GetJoypadXInputState(padNo_, &xInput_);
@@ -34,14 +34,14 @@ void PadInput::Update(void)
 
 void PadInput::InInit(void)
 {
-	//ƒAƒiƒƒOƒf[ƒ^‚Ì‰Šú‰»
+	//ã‚¢ãƒŠãƒ­ã‚°ãƒ‡ãƒ¼ã‚¿ã®åˆæœŸåŒ–
 	analogData_.try_emplace(AnalogInputID::PAD_STICK_LX, 0.0f);
 	analogData_.try_emplace(AnalogInputID::PAD_STICK_LY, 0.0f);
 	analogData_.try_emplace(AnalogInputID::PAD_STICK_RX, 0.0f);
 	analogData_.try_emplace(AnalogInputID::PAD_STICK_RY, 0.0f);
 	analogData_.try_emplace(AnalogInputID::PAD_TRIGGER_L, 0.0f);
 	analogData_.try_emplace(AnalogInputID::PAD_TRIGGER_R, 0.0f);
-	//ƒe[ƒuƒ‹‚Ì‰Šú‰»
+	//ãƒ†ãƒ¼ãƒ–ãƒ«ã®åˆæœŸåŒ–
 	btnTbl_ = {
 		{PadInputID::UP,XINPUT_BUTTON_DPAD_UP},
 		{PadInputID::DOWN,XINPUT_BUTTON_DPAD_DOWN},
@@ -58,69 +58,69 @@ void PadInput::InInit(void)
 		{PadInputID::BTN_X,XINPUT_BUTTON_X},
 		{PadInputID::BTN_Y,XINPUT_BUTTON_Y}
 	};
-	//ƒpƒbƒh‚Ì“ü—Í•ÛŠÇêŠ‚Ì‰Šú‰»
+	//ãƒ‘ãƒƒãƒ‰ã®å…¥åŠ›ä¿ç®¡å ´æ‰€ã®åˆæœŸåŒ–
 	for (auto id : PadInputID())
 	{
 		padData_.try_emplace(id);
-		padData_.at(id).try_emplace(Trg::Now);
-		padData_.at(id).try_emplace(Trg::Old);
+		padData_.at(id).try_emplace(Trg::NOW);
+		padData_.at(id).try_emplace(Trg::OLD);
 	}
 	SetDeadZone(0.3f);
-	//Œ»İCXPAD‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©‚ğŠm”F
+	//ç¾åœ¨ï¼ŒXPADãŒã¤ãªãŒã£ã¦ã„ã‚‹ã‹ã‚’ç¢ºèª
 	isConnectXPad_ = GetJoypadXInputState(padNo_, &xInput_);
-	//‰½‚ç‚©‚ÌPad‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚é‚©‚ğŠm”F
-	ConnectNum_.first = GetJoypadNum();
-	ConnectNum_.second = ConnectNum_.first;
+	//ä½•ã‚‰ã‹ã®PadãŒã¤ãªãŒã£ã¦ã„ã‚‹ã‹ã‚’ç¢ºèª
+	connectNum_.first = GetJoypadNum();
+	connectNum_.second = connectNum_.first;
 }
 
 void PadInput::UpdateDigital(void)
 {
-	//‘OƒtƒŒ[ƒ€‚Ìpad‚Ìƒ{ƒ^ƒ““ü—Í‚ÌXV•”•ª
+	//å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®padã®ãƒœã‚¿ãƒ³å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
 	for(auto& data : padData_)
 	{
-		data.second[Trg::Old] = data.second[Trg::Now];
+		data.second[Trg::OLD] = data.second[Trg::NOW];
 	}
 
-	//Œ»ƒtƒŒ[ƒ€‚Ìƒpƒbƒh‚Ìƒ{ƒ^ƒ““ü—Í‚ÌXV•”•ª
+	//ç¾ãƒ•ãƒ¬ãƒ¼ãƒ ã®ãƒ‘ãƒƒãƒ‰ã®ãƒœã‚¿ãƒ³å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
 	isConnectXPad_ = GetJoypadXInputState(padNo_, &xInput_);
 	for(auto& tblData : btnTbl_)
 	{
-		padData_[tblData.first][Trg::Now] = xInput_.Buttons[tblData.second];
+		padData_[tblData.first][Trg::NOW] = xInput_.Buttons[tblData.second];
 	}
 
-	//ƒgƒŠƒK[“ü—Í‚ÌXV•”•ª
-	padData_[PadInputID::LT][Trg::Now] = xInput_.LeftTrigger > 0;
-	padData_[PadInputID::RT][Trg::Now] = xInput_.RightTrigger > 0;
+	//ãƒˆãƒªã‚¬ãƒ¼å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
+	padData_[PadInputID::LT][Trg::NOW] = xInput_.LeftTrigger > 0;
+	padData_[PadInputID::RT][Trg::NOW] = xInput_.RightTrigger > 0;
 
-	//ƒAƒiƒƒOƒXƒeƒBƒbƒN“ü—Í‚ÌXV•”•ª
+	//ã‚¢ãƒŠãƒ­ã‚°ã‚¹ãƒ†ã‚£ãƒƒã‚¯å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
 	UpdateStickDigitalButton();
 }
 
-InputState PadInput::GetInputState(std::string keyid)
+InputState PadInput::GetInputState(std::string_view keyid)
 {
-	auto id = magic_enum::enum_cast<PadInputID>(keyid);
+	const auto id = magic_enum::enum_cast<PadInputID>(keyid);
 	if (id.has_value())
 	{
-		if (padData_[id.value()][Trg::Now] && !padData_[id.value()][Trg::Old])
+		if (padData_[id.value()][Trg::NOW] && !padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Push;
+			return InputState::PUSH;
 		}
-		if (!padData_[id.value()][Trg::Now] && padData_[id.value()][Trg::Old])
+		if (!padData_[id.value()][Trg::NOW] && padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Relese;
+			return InputState::RELEASE;
 		}
-		if (padData_[id.value()][Trg::Now] && padData_[id.value()][Trg::Old])
+		if (padData_[id.value()][Trg::NOW] && padData_[id.value()][Trg::OLD])
 		{
-			return InputState::Hold;
+			return InputState::HOLD;
 		}
 	}
 
-	return InputState::None;
+	return InputState::NONE;
 }
 
-float PadInput::GetAnalogData(std::string keyid)
+float PadInput::GetAnalogData(std::string_view keyid)
 {
-	auto id = magic_enum::enum_cast<AnalogInputID>(keyid);
+	const auto id = magic_enum::enum_cast<AnalogInputID>(keyid);
 	if (id.has_value())
 	{
 		if (analogData_.count(id.value()))
@@ -132,9 +132,9 @@ float PadInput::GetAnalogData(std::string keyid)
 	return 0.0f;
 }
 
-std::optional<float> PadInput::GetDirRot(Stick_LR dir)
+std::optional<float> PadInput::GetDirRot(StickLR dir)
 {
-	if (dir == Stick_LR::L)
+	if (dir == StickLR::L)
 	{
 		return GetMoveDirRot(xInput_.ThumbLX, xInput_.ThumbLY);
 	}
@@ -142,9 +142,9 @@ std::optional<float> PadInput::GetDirRot(Stick_LR dir)
 	return GetMoveDirRot(xInput_.ThumbRX, xInput_.ThumbRY);
 }
 
-Vector2F PadInput::GetMoveVec(Stick_LR dir)
+Vector2F PadInput::GetMoveVec(StickLR dir)
 {
-	if (dir == Stick_LR::L)
+	if (dir == StickLR::L)
 	{
 		return GetMoveVec(xInput_.ThumbLX, xInput_.ThumbLY);
 	}
@@ -162,7 +162,7 @@ bool PadInput::IsActive(void)
 {
 	for (auto id : PadInputID())
 	{
-		if (padData_[id][Trg::Now])
+		if (padData_[id][Trg::NOW])
 		{
 			return true;
 		}
@@ -172,32 +172,32 @@ bool PadInput::IsActive(void)
 
 void PadInput::UpdateStickDigitalButton(void)
 {
-	//¶ƒXƒeƒBƒbƒN“ü—Í‚ÌXV•”•ª
-	auto StickL = GetMoveVec(Stick_LR::L);
-	padData_[PadInputID::STICK_L_DOWN][Trg::Now] = StickL.y < 0;
-	padData_[PadInputID::STICK_L_UP][Trg::Now] = StickL.y > 0;
-	padData_[PadInputID::STICK_L_RIGHT][Trg::Now] = StickL.x > 0;
-	padData_[PadInputID::STICK_L_LEFT][Trg::Now] = StickL.x < 0;
-	//‰EƒXƒeƒBƒbƒN“ü—Í‚ÌXV•”•ª
-	auto StickR = GetMoveVec(Stick_LR::R);
-	padData_[PadInputID::STICK_R_DOWN][Trg::Now] = StickR.y < 0;
-	padData_[PadInputID::STICK_R_UP][Trg::Now] = StickR.y > 0;
-	padData_[PadInputID::STICK_R_RIGHT][Trg::Now] = StickR.x > 0;
-	padData_[PadInputID::STICK_R_LEFT][Trg::Now] = StickR.x < 0;
+	//å·¦ã‚¹ãƒ†ã‚£ãƒƒã‚¯å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
+	auto StickL = GetMoveVec(StickLR::L);
+	padData_[PadInputID::STICK_L_DOWN][Trg::NOW] = StickL.y < 0;
+	padData_[PadInputID::STICK_L_UP][Trg::NOW] = StickL.y > 0;
+	padData_[PadInputID::STICK_L_RIGHT][Trg::NOW] = StickL.x > 0;
+	padData_[PadInputID::STICK_L_LEFT][Trg::NOW] = StickL.x < 0;
+	//å³ã‚¹ãƒ†ã‚£ãƒƒã‚¯å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
+	auto StickR = GetMoveVec(StickLR::R);
+	padData_[PadInputID::STICK_R_DOWN][Trg::NOW] = StickR.y < 0;
+	padData_[PadInputID::STICK_R_UP][Trg::NOW] = StickR.y > 0;
+	padData_[PadInputID::STICK_R_RIGHT][Trg::NOW] = StickR.x > 0;
+	padData_[PadInputID::STICK_R_LEFT][Trg::NOW] = StickR.x < 0;
 }
 
 void PadInput::UpdateAnalog(void)
 {
-	//ƒAƒiƒƒOƒXƒeƒBƒbƒN“ü—Í‚ÌXV•”•ª
-	auto StickL = GetMoveVec(Stick_LR::L);
-	auto StickR = GetMoveVec(Stick_LR::R);
+	//ã‚¢ãƒŠãƒ­ã‚°ã‚¹ãƒ†ã‚£ãƒƒã‚¯å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
+	auto StickL = GetMoveVec(StickLR::L);
+	auto StickR = GetMoveVec(StickLR::R);
 	analogData_.at(AnalogInputID::PAD_STICK_LX) = StickL.x;
 	analogData_.at(AnalogInputID::PAD_STICK_LY) = StickL.y;
 	analogData_.at(AnalogInputID::PAD_STICK_RX) = StickR.x;
 	analogData_.at(AnalogInputID::PAD_STICK_RY) = StickR.y;
 	analogData_.at(AnalogInputID::PAD_TRIGGER_L) = xInput_.LeftTrigger / 255.0f;
 	analogData_.at(AnalogInputID::PAD_TRIGGER_R) = xInput_.RightTrigger / 255.0f;
-	//ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ÌXV•”•ª
+	//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã®æ›´æ–°éƒ¨åˆ†
 	oldCursorPos_.x = analogData_.at(AnalogInputID::CURSOR_X);
 	oldCursorPos_.y = analogData_.at(AnalogInputID::CURSOR_Y);
 	analogData_.at(AnalogInputID::CURSOR_X) += StickL.x * sensitivity_;
@@ -205,13 +205,13 @@ void PadInput::UpdateAnalog(void)
 	analogData_.at(AnalogInputID::CURSOR_MOVED_X) = analogData_.at(AnalogInputID::CURSOR_X) - oldCursorPos_.x;
 	analogData_.at(AnalogInputID::CURSOR_MOVED_Y) = analogData_.at(AnalogInputID::CURSOR_Y) - oldCursorPos_.y;
 
-	if(isFixCenterCursor_)//‰æ–Ê’†‰›ŒÅ’è‚ÌC’†‰›‚É–ß‚·(‰æ–Ê’†‰›ƒtƒ‰ƒO‚ğ—§‚Ä‚é‚ÉCˆê‚ÉCursorPos‚ª‰æ–Ê’†‰›‚Ì’l‚É‚È‚Á‚Ä‚¢‚é‚Ì‚Å‘OƒtƒŒ[ƒ€‚ÌCursorPos‚ğ“ü‚ê‚é)
+	if(isFixCenterCursor_)//ç”»é¢ä¸­å¤®å›ºå®šã®æ™‚ï¼Œä¸­å¤®ã«æˆ»ã™(ç”»é¢ä¸­å¤®ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹æ™‚ã«ï¼Œä¸€ç·’ã«CursorPosãŒç”»é¢ä¸­å¤®ã®å€¤ã«ãªã£ã¦ã„ã‚‹ã®ã§å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®CursorPosã‚’å…¥ã‚Œã‚‹)
 	{
 		SetMousePoint(static_cast<int>(oldCursorPos_.x), static_cast<int>(oldCursorPos_.y));
 		analogData_.at(AnalogInputID::CURSOR_X) = oldCursorPos_.x;
 		analogData_.at(AnalogInputID::CURSOR_Y) = oldCursorPos_.y;
 	}
-	/*else//analogData_‚ÌCURSOR‚Æƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ“¯Šú‚·‚é
+	/*else//analogData_ã®CURSORã¨ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’åŒæœŸã™ã‚‹
 	{
 		SetMousePoint(static_cast<int>(analogData_.at(AnalogInputID::CURSOR_X)), static_cast<int>(analogData_.at(AnalogInputID::CURSOR_Y)));
 	}*/
@@ -220,7 +220,7 @@ void PadInput::UpdateAnalog(void)
 std::optional<float> PadInput::GetMoveDirRot(short x, short y)
 {
 	auto dir = GetMoveVec(x,y);
-	if(dir.isZero())//‚Ç‚±‚É‚àŒX‚¢‚Ä‚È‚¢
+	if(dir.isZero())//ã©ã“ã«ã‚‚å‚¾ã„ã¦ãªã„æ™‚
 	{
 		return std::nullopt;
 	}
@@ -233,7 +233,7 @@ std::optional<float> PadInput::GetMoveDirRot(short x, short y)
 		rad = rad + 2 * DX_PI_F;
 	};
 
-	return floorf(rad * 360 / (2 * DX_PI_F));//“x”–@‚Å•Ô‚·
+	return floorf(rad * 360 / (2 * DX_PI_F));//åº¦æ•°æ³•ã§è¿”ã™
 }
 
 Vector2F PadInput::GetMoveVec(short x, short y)
@@ -306,10 +306,10 @@ Vector2F PadInput::CorrectDeadZone(Vector2F in)
 
 void PadInput::DebugDraw()
 {
-	_TRACE_S(0xffffff, "Ú‘±”:", ConnectNum_.first);
+	_TRACE_S(0xffffff, "æ¥ç¶šæ•°:", connectNum_.first);
 	for (auto& data : padData_)
 	{
-		if (data.second[Trg::Now])
+		if (data.second[Trg::NOW])
 		{
 			auto str = magic_enum::enum_name(data.first).data();
 			_TRACE_M(0xffffff, str);

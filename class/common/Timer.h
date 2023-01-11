@@ -1,28 +1,28 @@
-#pragma once
+ï»¿#pragma once
 class Timer
 {
 public:
 	Timer(float limit=0.0f,float currenttime=0.0f);
 	~Timer();
 	void Update(const double& delta);
-	//ŠÔ‚ª‚·‚¬‚½‚©
+	//æ™‚é–“ãŒã™ããŸã‹
 	bool IsTimeOver();
-	//‚O`‚P‚É³‹K‰»‚µ‚½ŠÔ‚ğæ“¾
+	//ï¼ï½ï¼‘ã«æ­£è¦åŒ–ã—ãŸæ™‚é–“ã‚’å–å¾—
 	float NormalizedTime();
-	//Œ»İ‚ÌŒo‰ßŠÔ‚ğæ“¾
+	//ç¾åœ¨ã®çµŒéæ™‚é–“ã‚’å–å¾—
 	float GetDurationTime();
-	//1‚©‚ç‚O`‚P‚É³‹K‰»‚µ‚½ŠÔ‚ğˆø‚¢‚½ŠÔ‚ğæ“¾
+	//1ã‹ã‚‰ï¼ï½ï¼‘ã«æ­£è¦åŒ–ã—ãŸæ™‚é–“ã‚’å¼•ã„ãŸæ™‚é–“ã‚’å–å¾—
 	float InversNormalizedTime();
-	//Limit‚©‚çŒ»İ‚ÌŒo‰ßŠÔ‚ğˆø‚¢‚½ŠÔ‚ğæ“¾
+	//Limitã‹ã‚‰ç¾åœ¨ã®çµŒéæ™‚é–“ã‚’å¼•ã„ãŸæ™‚é–“ã‚’å–å¾—
 	float InversTime();
-	//Œo‰ßŠÔ‚ğ0‚É‚·‚é
+	//çµŒéæ™‚é–“ã‚’0ã«ã™ã‚‹
 	void ResetTime();
-	//Œo‰ßŠÔ‚ğD‚«‚ÈŠÔ‚Éİ’è
+	//çµŒéæ™‚é–“ã‚’å¥½ããªæ™‚é–“ã«è¨­å®š
 	void SetTime(float time);
-	//§ŒÀ‚ğD‚«‚ÈŠÔ‚Éİ’è
+	//åˆ¶é™ã‚’å¥½ããªæ™‚é–“ã«è¨­å®š
 	void SetLimitTime(float limit);
 	const float& GetLimitTime(void);
-	//ƒŠƒZƒbƒg‚µ‚½‰ñ”‚ğæ“¾‚·‚é
+	//ãƒªã‚»ãƒƒãƒˆã—ãŸå›æ•°ã‚’å–å¾—ã™ã‚‹
 	const int& GetResetCount(void);
 private:
 	float currentTime_;

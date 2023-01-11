@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <vector>
 #include <map>
 #include <string>
@@ -8,14 +8,14 @@
 struct TileMapData
 {
     TileMapData();
-    std::vector<int> tileDatas_;//ƒ}ƒbƒvƒ^ƒCƒ‹‚Ìƒf[ƒ^‚ÌW‡‘Ì
+    std::vector<int> tileDatas_;//ãƒãƒƒãƒ—ã‚¿ã‚¤ãƒ«ã®ãƒ‡ãƒ¼ã‚¿ã®é›†åˆä½“
     std::map<std::string,std::vector<int>> layerTileDatas_;
-    Vector2 WorldArea_;//¢ŠE‚Ì‘å‚«‚³(ƒOƒŠƒbƒh‚Ì”)
-    Vector2 ViewArea_;//‰æ–Ê‚ÉŒ©‚¦‚é‘å‚«‚³(ƒOƒŠƒbƒh‚Ì”)
-    float cameraMoveRangeL_;//ƒJƒƒ‰‚ª“®‚­”ÍˆÍLeft
-    float cameraMoveRangeR_;//ƒJƒƒ‰‚ª“®‚­”ÍˆÍRight
-    float cameraMoveRangeT_;//ƒJƒƒ‰‚ª“®‚­”ÍˆÍTop
-    float cameraMoveRangeB_;//ƒJƒƒ‰‚ª“®‚­”ÍˆÍBottom
+    Vector2 WorldArea_;//ä¸–ç•Œã®å¤§ãã•(ã‚°ãƒªãƒƒãƒ‰ã®æ•°)
+    Vector2 ViewArea_;//ç”»é¢ã«è¦‹ãˆã‚‹å¤§ãã•(ã‚°ãƒªãƒƒãƒ‰ã®æ•°)
+    float cameraMoveRangeL_;//ã‚«ãƒ¡ãƒ©ãŒå‹•ãç¯„å›²Left
+    float cameraMoveRangeR_;//ã‚«ãƒ¡ãƒ©ãŒå‹•ãç¯„å›²Right
+    float cameraMoveRangeT_;//ã‚«ãƒ¡ãƒ©ãŒå‹•ãç¯„å›²Top
+    float cameraMoveRangeB_;//ã‚«ãƒ¡ãƒ©ãŒå‹•ãç¯„å›²Bottom
     int chipSize_;
     struct tileinfo {
         int firstID_;

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <DxLib.h>
 #include <iostream>
 #include <algorithm>
@@ -18,37 +18,37 @@ public:
 	Quaternion(VECTOR rad);
 	Quaternion(double w, double x, double y, double z);
 
-	// ƒIƒCƒ‰[Šp‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚Ö•ÏŠ·
+	// ã‚ªã‚¤ãƒ©ãƒ¼è§’ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã¸å¤‰æ›
 	static Quaternion Euler(VECTOR rad);
 	static Quaternion Euler(double radX, double radY, double radZ);
 
-	// ƒNƒH[ƒ^ƒjƒIƒ“‚Ì‡¬
+	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã®åˆæˆ
 	static Quaternion Mult(Quaternion q1, Quaternion q2);
 	Quaternion Mult(Quaternion q);
 
-	// w’è²‚ğw’èŠp•ªA‰ñ“]‚³‚¹‚é
+	// æŒ‡å®šè»¸ã‚’æŒ‡å®šè§’åˆ†ã€å›è»¢ã•ã›ã‚‹
 	static Quaternion AngleAxis(double rad, VECTOR axis);
 
-	// À•W‚ğ‰ñ“]‚³‚¹‚é
+	// åº§æ¨™ã‚’å›è»¢ã•ã›ã‚‹
 	static VECTOR PosAxis(Quaternion q, VECTOR pos);
 	VECTOR PosAxis(VECTOR pos)const;
 
-	// ƒNƒH[ƒ^ƒjƒIƒ“‚©‚çƒIƒCƒ‰[Šp‚Ö•ÏŠ·
+	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‹ã‚‰ã‚ªã‚¤ãƒ©ãƒ¼è§’ã¸å¤‰æ›
 	static VECTOR ToEuler(Quaternion q);
 	VECTOR ToEuler(void);
 
-	// ƒNƒH[ƒ^ƒjƒIƒ“‚©‚çs—ñ‚Ö•ÏŠ·
+	// ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã‹ã‚‰è¡Œåˆ—ã¸å¤‰æ›
 	static MATRIX ToMatrix(Quaternion q);
 	MATRIX ToMatrix(void);
 
-	// ƒxƒNƒgƒ‹‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚É•ÏŠ·
+	// ãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã«å¤‰æ›
 	static Quaternion LookRotation(VECTOR dir);
 	static Quaternion LookRotation(VECTOR dir, VECTOR up);
 
-	// s—ñ‚©‚çƒNƒH[ƒ^ƒjƒIƒ“‚É•ÏŠ·
+	// è¡Œåˆ—ã‹ã‚‰ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³ã«å¤‰æ›
 	static Quaternion GetRotation(MATRIX mat);
 
-	// Šî–{ƒxƒNƒgƒ‹‚ğæ“¾
+	// åŸºæœ¬ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—
 	VECTOR GetForward(void)const;
 	VECTOR GetBack(void)const;
 	VECTOR GetRight(void)const;
@@ -59,25 +59,25 @@ public:
 	static double Dot(Quaternion q1, Quaternion q2);
 	double Dot(Quaternion b);
 
-	// ³‹K‰»
+	// æ­£è¦åŒ–
 	Quaternion Normalized(void);
 	void Normalize(void);
 
-	// ‹tƒNƒH[ƒ^ƒjƒIƒ“
+	// é€†ã‚¯ã‚©ãƒ¼ã‚¿ãƒ‹ã‚ªãƒ³
 	Quaternion Inverse(void)const;
 
-	// ‹…–Ê•âŠÔ
+	// çƒé¢è£œé–“
 	static Quaternion Slerp(Quaternion from, Quaternion to, double t);
 
 
-	// ‚Q‚Â‚ÌƒxƒNƒgƒ‹ŠÔ‚Ì‰ñ“]—Ê‚ğæ“¾‚·‚é
+	// ï¼’ã¤ã®ãƒ™ã‚¯ãƒˆãƒ«é–“ã®å›è»¢é‡ã‚’å–å¾—ã™ã‚‹
 	static Quaternion FromToRotation(VECTOR fromDir, VECTOR toDir);
 	static Quaternion RotateTowards(Quaternion from, Quaternion to, float maxDegreesDelta);
 	static double Angle(Quaternion q1, Quaternion q2);
 	static Quaternion SlerpUnclamped(Quaternion& a, Quaternion& b, float t);
 	static Quaternion Identity(void);
 
-	// ‘ÎÛ•ûŒü‚Ì‰ñ“]
+	// å¯¾è±¡æ–¹å‘ã®å›è»¢
 	double Length(void);
 	double LengthSquared(void);
 	VECTOR xyz(void);
@@ -97,7 +97,7 @@ public:
 
 private:
 
-	// Šî–{ƒxƒNƒgƒ‹‚ğæ“¾
+	// åŸºæœ¬ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—
 	VECTOR GetDir(VECTOR dir)const;
 
 	Quaternion operator*(float& rhs);

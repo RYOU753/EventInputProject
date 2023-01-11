@@ -30,7 +30,7 @@
     <ClCompile Include="class\input\InputEvent.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="class\input\Keybord.cpp">
+    <ClCompile Include="class\input\Keyboard.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="class\input\PadInput.cpp">
@@ -89,13 +89,10 @@
     <ClInclude Include="class\input\InputEvent.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="class\input\Keybord.h">
+    <ClInclude Include="class\input\Keyboard.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="class\input\KeybordID.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="class\input\KeybordID2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="class\input\MouseInputID.h">

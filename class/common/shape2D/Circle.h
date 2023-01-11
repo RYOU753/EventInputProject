@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Shape.h"
 class Circle :
     public Shape
@@ -10,14 +10,14 @@ public:
 	ShapeType GetShapeType(void)const;
 
 	/// <summary>
-	/// ‰~‚Ì”¼Œa‚ğİ’è‚·‚é(ƒ}ƒCƒiƒX‚Ìê‡‚Íƒvƒ‰ƒX‚É‚È‚é);
+	/// å††ã®åŠå¾„ã‚’è¨­å®šã™ã‚‹(ãƒã‚¤ãƒŠã‚¹ã®å ´åˆã¯ãƒ—ãƒ©ã‚¹ã«ãªã‚‹);
 	/// </summary>
-	/// <param name="radius">”¼Œa</param>
+	/// <param name="radius">åŠå¾„</param>
 	void SetRadius(float radius);
 	/// <summary>
-	/// ‰~‚Ì”¼Œa‚ğ•Ô‚·
+	/// å††ã®åŠå¾„ã‚’è¿”ã™
 	/// </summary>
-	/// <returns>‰~‚Ì”¼Œa</returns>
+	/// <returns>å††ã®åŠå¾„</returns>
 	const float& GetRadius(void)const;
 private:
 	float radius_;

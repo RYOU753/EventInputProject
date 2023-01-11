@@ -1,38 +1,43 @@
-#include <DxLib.h>
+ï»¿#include <DxLib.h>
 #include <magic_enum.hpp>
-#include "Keybord.h"
+#include "Keyboard.h"
 #include "KeybordID.h"
 #include "../_debug/_DebugConOut.h"
 #include "../_debug/_DebugDispOut.h"
 
-Keybord::Keybord()
+Keyboard::Keyboard()
 {
 	InInit();
 }
 
-Keybord::~Keybord()
+Keyboard::~Keyboard()
 {
 }
 
-void Keybord::Update(void)
+void Keyboard::Update(void)
 {
-	UpdateKeybord();
+	UpdateKeyboard();
 	UpdateMouse();
 }
 
-void Keybord::InInit(void)
+InputType Keyboard::GetInputType() const
 {
-	//ƒL[“ü—Í‚ğ•Û‚·‚é256‚Ì”z—ñ‚ğNow‚ÆOld‚Å—pˆÓ
-	keybordData_.try_emplace(Trg::Now);
-	keybordData_.try_emplace(Trg::Old);
-	//MouseInputID‚Ì•Û‘¶êŠ‚ğì¬
+	return InputType::KEYBOARD;
+}
+
+void Keyboard::InInit(void)
+{
+	//ã‚­ãƒ¼å…¥åŠ›ã‚’ä¿æŒã™ã‚‹256ã®é…åˆ—ã‚’Nowã¨Oldã§ç”¨æ„
+	keybordData_.try_emplace(Trg::NOW);
+	keybordData_.try_emplace(Trg::OLD);
+	//MouseInputIDã®ä¿å­˜å ´æ‰€ã‚’ä½œæˆ
 	for (auto id : MouseInputID())
 	{
 		mouseData_.try_emplace(id);
-		mouseData_[id].try_emplace(Trg::Now, false);
-		mouseData_[id].try_emplace(Trg::Old, false);
+		mouseData_[id].try_emplace(Trg::NOW, false);
+		mouseData_[id].try_emplace(Trg::OLD, false);
 	}
-	//MouseInputID‚ÆDXLib‚Ìƒ}ƒEƒX“ü—Í‚Ì’l‚ğƒe[ƒuƒ‹‚É‚·‚é
+	//MouseInputIDã¨DXLibã®ãƒã‚¦ã‚¹å…¥åŠ›ã®å€¤ã‚’ãƒ†ãƒ¼ãƒ–ãƒ«ã«ã™ã‚‹
 	clickTbl_ = {
 		{MouseInputID::Click_L,MOUSE_INPUT_LEFT},
 		{MouseInputID::Click_R,MOUSE_INPUT_RIGHT},
@@ -45,47 +50,47 @@ void Keybord::InInit(void)
 	DoCenterCursor();
 }
 
-InputState Keybord::GetInputState(std::string keyid)
+InputState Keyboard::GetInputState(std::string_view keyid)
 {
 	auto enum_key = magic_enum::enum_cast<KeybordID>(keyid);
 	if (enum_key.has_value())
 	{
 		auto key = static_cast<size_t>(enum_key.value());
-		if (keybordData_[Trg::Now][key] == 1 && keybordData_[Trg::Old][key] != 1)
+		if (keybordData_[Trg::NOW][key] == 1 && keybordData_[Trg::OLD][key] != 1)
 		{
-			return InputState::Push;
+			return InputState::PUSH;
 		}
-		if (keybordData_[Trg::Now][key] != 1 && keybordData_[Trg::Old][key] == 1)
+		if (keybordData_[Trg::NOW][key] != 1 && keybordData_[Trg::OLD][key] == 1)
 		{
-			return InputState::Relese;
+			return InputState::RELEASE;
 		}
-		if (keybordData_[Trg::Now][key] == 1 && keybordData_[Trg::Old][key] == 1)
+		if (keybordData_[Trg::NOW][key] == 1 && keybordData_[Trg::OLD][key] == 1)
 		{
-			return InputState::Hold;
+			return InputState::HOLD;
 		}
 	}
 	auto mouse_key = magic_enum::enum_cast<MouseInputID>(keyid);
 	if (mouse_key)
 	{
 		auto key = mouse_key.value();
-		if (mouseData_[key][Trg::Now] && !mouseData_[key][Trg::Old])
+		if (mouseData_[key][Trg::NOW] && !mouseData_[key][Trg::OLD])
 		{
-			return InputState::Push;
+			return InputState::PUSH;
 		}
-		if (!mouseData_[key][Trg::Now] && mouseData_[key][Trg::Old])
+		if (!mouseData_[key][Trg::NOW] && mouseData_[key][Trg::OLD])
 		{
-			return InputState::Relese;
+			return InputState::RELEASE;
 		}
-		if (mouseData_[key][Trg::Now] && mouseData_[key][Trg::Old])
+		if (mouseData_[key][Trg::NOW] && mouseData_[key][Trg::OLD])
 		{
-			return InputState::Hold;
+			return InputState::HOLD;
 		}
 	}
 
-	return InputState::None;
+	return InputState::NONE;
 }
 
-float Keybord::GetAnalogData(std::string keyid)
+float Keyboard::GetAnalogData(std::string_view keyid)
 {
 	auto id = magic_enum::enum_cast<AnalogInputID>(keyid);
 	if (id.has_value())
@@ -98,25 +103,25 @@ float Keybord::GetAnalogData(std::string keyid)
 	return 0.0f;
 }
 
-bool Keybord::IsActive(void)
+bool Keyboard::IsActive(void)
 {
-	//ƒL[“ü—Í‚ª‚ ‚Á‚½‚©
-	for (const auto& key : keybordData_[Trg::Now])
+	//ã‚­ãƒ¼å…¥åŠ›ãŒã‚ã£ãŸã‹
+	for (const auto& key : keybordData_[Trg::NOW])
 	{
 		if (key != 0)
 		{
 			return true;
 		}
 	}
-	//ƒ}ƒEƒX‚ÌƒXƒCƒbƒ`“ü—Í‚ª‚ ‚Á‚½‚©
+	//ãƒã‚¦ã‚¹ã®ã‚¹ã‚¤ãƒƒãƒå…¥åŠ›ãŒã‚ã£ãŸã‹
 	for (auto id : MouseInputID())
 	{
-		if (mouseData_[id][Trg::Now])
+		if (mouseData_[id][Trg::NOW])
 		{
 			return true;
 		}
 	}
-	//ƒ}ƒEƒX‚ª“®‚¢‚½‚©
+	//ãƒã‚¦ã‚¹ãŒå‹•ã„ãŸã‹
 	if (analogData_[AnalogInputID::CURSOR_MOVED_X] > 0.f && analogData_[AnalogInputID::CURSOR_MOVED_X] < 0.f)
 	{
 		return true;
@@ -129,40 +134,40 @@ bool Keybord::IsActive(void)
 	return false;
 }
 
-void Keybord::UpdateKeybord(void)
+void Keyboard::UpdateKeyboard(void)
 {
-	keybordData_[Trg::Old].swap(keybordData_[Trg::Now]);
-	GetHitKeyStateAll(keybordData_[Trg::Now].data());
+	keybordData_[Trg::OLD].swap(keybordData_[Trg::NOW]);
+	GetHitKeyStateAll(keybordData_[Trg::NOW].data());
 }
 
-void Keybord::UpdateMouse(void)
+void Keyboard::UpdateMouse(void)
 {
 	for (auto& data : mouseData_)
 	{
-		data.second[Trg::Old] = data.second[Trg::Now];//1ƒtƒŒ[ƒ€‘O‚Ìƒ}ƒEƒX“ü—Í‚ğ•Û‘¶
+		data.second[Trg::OLD] = data.second[Trg::NOW];//1ãƒ•ãƒ¬ãƒ¼ãƒ å‰ã®ãƒã‚¦ã‚¹å…¥åŠ›ã‚’ä¿å­˜
 	}
-	//ƒ}ƒEƒX‚ÌƒXƒCƒbƒ`“ü—Í‚ÌXV•”•ª
+	//ãƒã‚¦ã‚¹ã®ã‚¹ã‚¤ãƒƒãƒå…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
 	int click = GetMouseInput();
 	for (auto id = MouseInputID(); id <= MouseInputID::Click_4; id = static_cast<MouseInputID>(static_cast<int>(id) + 1))
 	{
-		mouseData_[id][Trg::Now] = click & clickTbl_[id];
+		mouseData_[id][Trg::NOW] = click & clickTbl_[id];
 	}
-	//ƒ}ƒEƒX‚ÌƒzƒC[ƒ‹“ü—Í‚ÌXV•”•ª
+	//ãƒã‚¦ã‚¹ã®ãƒ›ã‚¤ãƒ¼ãƒ«å…¥åŠ›ã®æ›´æ–°éƒ¨åˆ†
 	int vol = GetMouseWheelRotVol();
-	mouseData_[MouseInputID::WheelUp][Trg::Now] = vol > 0;
-	mouseData_[MouseInputID::WheelDown][Trg::Now] = vol < 0;
-	//ƒ}ƒEƒX‚ÌƒJ[ƒ\ƒ‹ˆÊ’u‚ÌXV•”•ª	
+	mouseData_[MouseInputID::WheelUp][Trg::NOW] = vol > 0;
+	mouseData_[MouseInputID::WheelDown][Trg::NOW] = vol < 0;
+	//ãƒã‚¦ã‚¹ã®ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã®æ›´æ–°éƒ¨åˆ†	
 	Vector2 nowPos;
 	GetMousePoint(&nowPos.x,&nowPos.y);
 	oldCursorPos_.x = analogData_.at(AnalogInputID::CURSOR_X);
 	oldCursorPos_.y = analogData_.at(AnalogInputID::CURSOR_Y);
 	analogData_.at(AnalogInputID::CURSOR_X) = static_cast<float>(nowPos.x);
 	analogData_.at(AnalogInputID::CURSOR_Y) = static_cast<float>(nowPos.y);	
-	//ƒ}ƒEƒX‚ÌƒJ[ƒ\ƒ‹ˆÚ“®—Ê‚ÌXV•”•ª
+	//ãƒã‚¦ã‚¹ã®ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•é‡ã®æ›´æ–°éƒ¨åˆ†
 	analogData_.at(AnalogInputID::CURSOR_MOVED_X) = analogData_.at(AnalogInputID::CURSOR_X) - oldCursorPos_.x;
 	analogData_.at(AnalogInputID::CURSOR_MOVED_Y) = analogData_.at(AnalogInputID::CURSOR_Y) - oldCursorPos_.y;
-	//ƒJ[ƒ\ƒ‹‚Ì’†‰›ŒÅ’è‚Ìˆ—
-	if(isFixCenterCursor_)//‰æ–Ê’†‰›ŒÅ’è‚ÌC’†‰›‚É–ß‚·(‰æ–Ê’†‰›ƒtƒ‰ƒO‚ğ—§‚Ä‚é‚ÉCˆê‚ÉCursorPos‚ª‰æ–Ê’†‰›‚Ì’l‚É‚È‚Á‚Ä‚¢‚é‚Ì‚Å‘OƒtƒŒ[ƒ€‚ÌCursorPos‚ğ“ü‚ê‚é)
+	//ã‚«ãƒ¼ã‚½ãƒ«ã®ä¸­å¤®å›ºå®šæ™‚ã®å‡¦ç†
+	if(isFixCenterCursor_)//ç”»é¢ä¸­å¤®å›ºå®šã®æ™‚ï¼Œä¸­å¤®ã«æˆ»ã™(ç”»é¢ä¸­å¤®ãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹æ™‚ã«ï¼Œä¸€ç·’ã«CursorPosãŒç”»é¢ä¸­å¤®ã®å€¤ã«ãªã£ã¦ã„ã‚‹ã®ã§å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®CursorPosã‚’å…¥ã‚Œã‚‹)
 	{
 		SetMousePoint(static_cast<int>(oldCursorPos_.x), static_cast<int>(oldCursorPos_.y));
 		analogData_.at(AnalogInputID::CURSOR_X) = oldCursorPos_.x;

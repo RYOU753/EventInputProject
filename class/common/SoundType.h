@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <json.hpp>
 
 enum class SOUND_TYPE {

@@ -1,4 +1,4 @@
-#include <DxLib.h>
+﻿#include <DxLib.h>
 #include <algorithm>
 #include "Input.h"
 
@@ -11,7 +11,7 @@ Input::Input()
 	isFixCenterCursor_ = true;
 	DoCenterCursor();
 	isFixCenterCursor_ = false;
-	SetSensi(0.5f);
+	SetSensitivity(0.5f);
 	SetDeadZone(0.3f);
 }
 
@@ -19,9 +19,9 @@ Input::~Input()
 {
 }
 
-void Input::SetSensi(float sensi) 
+void Input::SetSensitivity(float sensitivity) 
 {
-	sensitivity_ = std::clamp(sensi, 0.01f, 20.0f);;
+	sensitivity_ = std::clamp(sensitivity, 0.01f, 20.0f);;
 }
 
 void Input::SetDeadZone(float zone) 

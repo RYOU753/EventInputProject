@@ -1,4 +1,4 @@
-#include <algorithm>
+﻿#include <algorithm>
 #include "Timer.h"
 
 Timer::Timer(float limit, float currenttime):limitTime_(limit), currentTime_(currenttime), resetCounter_(0)

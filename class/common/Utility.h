@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <memory>
 #include <algorithm>
 #include <cmath>
@@ -12,12 +12,12 @@
 //#include "shape/Capsule.h"
 //#include "shape/Circle.h"
 
-//ŠÔ‚ª‚ ‚é‚Æ‚«‚ÉƒNƒ‰ƒX‚É•ªŠ„
+//æ™‚é–“ãŒã‚ã‚‹ã¨ãã«ã‚¯ãƒ©ã‚¹ã«åˆ†å‰²
 namespace utility
 {
 	constexpr VECTOR VECTOR_ZERO = { 0.0f, 0.0f, 0.0f };
 	constexpr VECTOR VECTOR_ONE = { 1.0f, 1.0f, 1.0f };
-	// •ûŒü
+	// æ–¹å‘
 	constexpr VECTOR DIR_F = { 0.0f, 0.0f, 1.0f };
 	constexpr VECTOR DIR_B = { 0.0f, 0.0f, -1.0f };
 	constexpr VECTOR DIR_R = { 1.0f, 0.0f, 0.0f };
@@ -38,7 +38,7 @@ namespace utility
 	constexpr float metreF = 100.f;
 	//constexpr double metre = 10.;
 
-	//’l‚ğ”ÍˆÍ“à‚É‚Ü‚Æ‚ß‚éŠÖ”
+	//å€¤ã‚’ç¯„å›²å†…ã«ã¾ã¨ã‚ã‚‹é–¢æ•°
 	struct Clamp
 	{
 		double operator()(double value, double minVal = 0.0, double maxVal = 1.0)
@@ -47,7 +47,7 @@ namespace utility
 		}
 	};
 
-	//ƒJƒvƒZƒ‹‚Æ‰~‚Ì“–‚½‚è”»’è
+	//ã‚«ãƒ—ã‚»ãƒ«ã¨å††ã®å½“ãŸã‚Šåˆ¤å®š
 	/*struct isHitCapCircle
 	{
 		bool operator()(const Capsule& cap, const Circle& cc)
@@ -64,7 +64,7 @@ namespace utility
 		}
 	};*/
 
-	//”½ËƒxƒNƒgƒ‹‚Ì“±o
+	//åå°„ãƒ™ã‚¯ãƒˆãƒ«ã®å°å‡º
 	struct VecReflection
 	{
 		Vector2D operator()(Vector2D vec, Vector2D nVec)
@@ -75,7 +75,7 @@ namespace utility
 		}
 	};
 
-	//ƒ‰ƒWƒAƒ“’l‚ğ0`2ƒÎ‚Éû‚ß‚é
+	//ãƒ©ã‚¸ã‚¢ãƒ³å€¤ã‚’0ï½2Ï€ã«åã‚ã‚‹
 	struct RadIn2PI
 	{
 		double operator()(double rad)
@@ -94,7 +94,7 @@ namespace utility
 		}
 	};
 
-	//ƒ‰ƒWƒAƒ“’l‚Ì·•ª‚ğ“±o
+	//ãƒ©ã‚¸ã‚¢ãƒ³å€¤ã®å·®åˆ†ã‚’å°å‡º
 	struct DiffRad
 	{
 		double operator()(double base, double target)
@@ -117,7 +117,7 @@ namespace utility
 		}
 	};
 
-	//w’è‚µ‚½•b”‚Éˆê‰ñtrue‚ğ•Ô‚·
+	//æŒ‡å®šã—ãŸç§’æ•°ã«ä¸€å›trueã‚’è¿”ã™
 	/*struct Timer
 	{
 		bool operator()(const double& cnt, double inv)
@@ -126,7 +126,7 @@ namespace utility
 		}
 	};*/
 
-	//std::string(UTF-8)‚©‚çstd::string(Shift-JIS)‚É•ÏŠ·
+	//std::string(UTF-8)ã‹ã‚‰std::string(Shift-JIS)ã«å¤‰æ›
 	struct ConvertUTF8ToSJIS
 	{
 		std::string operator()(std::string utf8Str)
@@ -145,7 +145,7 @@ namespace utility
 		}
 	};
 
-	//ƒ‰ƒWƒAƒ“‚©‚ç“x
+	//ãƒ©ã‚¸ã‚¢ãƒ³ã‹ã‚‰åº¦
 	struct RadToDeg
 	{
 		double operator()(double rad)
@@ -159,7 +159,7 @@ namespace utility
 		}
 	};
 
-	//“x‚©‚çƒ‰ƒWƒAƒ“
+	//åº¦ã‹ã‚‰ãƒ©ã‚¸ã‚¢ãƒ³
 	struct DegToRad
 	{
 		double operator()(double deg)
@@ -204,7 +204,7 @@ namespace utility
 		}
 	};
 
-	//JSON‚Ì“Ç‚İ‚İ—p
+	//JSONã®èª­ã¿è¾¼ã¿ç”¨
 	struct JSONLoader
 	{
 		bool operator()(std::string_view path, nlohmann::json& j)
@@ -222,7 +222,7 @@ namespace utility
 		}
 	};
 
-	//JSON‚Ì‘‚«‚İ—p
+	//JSONã®æ›¸ãè¾¼ã¿ç”¨
 	struct JSONWriter
 	{
 		bool operator()(std::string_view path, const nlohmann::json& j)
@@ -241,7 +241,7 @@ namespace utility
 		}
 	};
 
-	//JSON‚Ì“WŠJ
+	//JSONã®å±•é–‹
 	struct DeployJSON
 	{
 		bool operator()(nlohmann::json& j)
@@ -256,7 +256,7 @@ namespace utility
 			}
 			else if (j.is_object())
 			{
-				//‰½‚à‚µ‚È‚¢
+				//ä½•ã‚‚ã—ãªã„
 				return true;
 			}
 
@@ -264,7 +264,7 @@ namespace utility
 		}
 	};
 
-	//null‚Ü‚½‚Í‘¶İ‚µ‚È‚¢‚±‚Æ‚ğ”»’è
+	//nullã¾ãŸã¯å­˜åœ¨ã—ãªã„ã“ã¨ã‚’åˆ¤å®š
 	struct CheckExistJSONKey
 	{
 		bool operator()(const nlohmann::json& doc, std::string_view key, std::function<void(const nlohmann::json&)> func)
@@ -315,8 +315,8 @@ namespace utility
 		{
 			if (EqualsVZero()(v))
 			{
-				// QuaternionŒvZ‚Åƒ[ƒ‚ğ“n‚µ‚ÄA
-				// ƒGƒ‰[(-1, -1, -1)‚ª•Ô‚Á‚Ä‚­‚é‚Æ¢‚é
+				// Quaternionè¨ˆç®—ã§ã‚¼ãƒ­ã‚’æ¸¡ã—ã¦ã€
+				// ã‚¨ãƒ©ãƒ¼(-1, -1, -1)ãŒè¿”ã£ã¦ãã‚‹ã¨å›°ã‚‹
 				return v;
 			}
 			return VNorm(v);
@@ -330,7 +330,7 @@ namespace utility
 			return v.x * v.x + v.y * v.y + v.z * v.z;
 		}
 	};
-	//“ñ‚Â‚ÌƒxƒNƒgƒ‹‚Ì‚È‚·Šp‚ğ‹‚ß‚é
+	//äºŒã¤ã®ãƒ™ã‚¯ãƒˆãƒ«ã®ãªã™è§’ã‚’æ±‚ã‚ã‚‹
 	struct AngleDeg
 	{
 		float operator()(const VECTOR& from, const VECTOR& to)
@@ -361,11 +361,11 @@ namespace utility
 			auto bit = cross.y < 0 ? -1.0f : 1.0f;
 
 			auto d = acosf(dot) * (180.0f / DX_PI_F) * bit;
-			//®”•”Ši”[•Ï”
+			//æ•´æ•°éƒ¨æ ¼ç´å¤‰æ•°
 			float integ = 0.0f;
-			//¬”“_ˆÈ‰ºŠi”[—p•Ï”
+			//å°æ•°ç‚¹ä»¥ä¸‹æ ¼ç´ç”¨å¤‰æ•°
 			float decimal = 0.0f;
-			//degree‚È‚Ì‚Å¬”“_ˆÈ‰º‚ğØ‚èÌ‚Ä
+			//degreeãªã®ã§å°æ•°ç‚¹ä»¥ä¸‹ã‚’åˆ‡ã‚Šæ¨ã¦
 			decimal = modf(d, &integ);
 			return integ;
 		}
@@ -427,7 +427,7 @@ namespace utility
 		}
 	};
 
-	//w’èÀ•W‚ªw’è”ÍˆÍ“à‚É‚ ‚é‚©
+	//æŒ‡å®šåº§æ¨™ãŒæŒ‡å®šç¯„å›²å†…ã«ã‚ã‚‹ã‹
 	struct IsSearchPos
 	{
 		bool operator()(const VECTOR& origin, const float& radius, const VECTOR& searchpos)
@@ -437,7 +437,7 @@ namespace utility
 		}
 	};
 
-	//F‚ğw’è’lˆÈã‚Éû‚ß‚é
+	//è‰²ã‚’æŒ‡å®šå€¤ä»¥ä¸Šã«åã‚ã‚‹
 	struct ColorMax
 	{
 		COLOR_F operator()(const COLOR_F& col, const COLOR_F& maxcol)
@@ -465,7 +465,7 @@ namespace utility
 		}
 	};
 
-	//F‚ğw’è’lˆÈ‰º‚Éû‚ß‚é
+	//è‰²ã‚’æŒ‡å®šå€¤ä»¥ä¸‹ã«åã‚ã‚‹
 	struct ColorMin
 	{
 		COLOR_F operator()(const COLOR_F& col, const COLOR_F& mincol)
@@ -493,7 +493,7 @@ namespace utility
 		}
 	};
 
-	//F‚ğw’è”ÍˆÍ‚Éû‚ß‚é
+	//è‰²ã‚’æŒ‡å®šç¯„å›²ã«åã‚ã‚‹
 	struct ColorClamp
 	{
 		COLOR_F operator()(const COLOR_F& col, const COLOR_F& mincol, const COLOR_F& maxcol)
@@ -523,7 +523,7 @@ namespace utility
 
 	struct ConvertColorRateToRealNumber
 	{
-		//0.0f`1.0f‚ÌFî•ñ‚ğ0.0f`255.0f‚É•ÏŠ·
+		//0.0fï½1.0fã®è‰²æƒ…å ±ã‚’0.0fï½255.0fã«å¤‰æ›
 		COLOR_F operator()(const COLOR_F& col)
 		{
 			COLOR_F retcol = ColorClamp()(col, 0.0f, 1.0f);
@@ -536,7 +536,7 @@ namespace utility
 			return retcol;
 		}
 
-		//0.0f`1.0f‚ÌFî•ñ‚ğ0.0f`255.0f‚É•ÏŠ·‚µ—]è•ª‚ğoverCol‚ÉŠi”[
+		//0.0fï½1.0fã®è‰²æƒ…å ±ã‚’0.0fï½255.0fã«å¤‰æ›ã—ä½™å‰°åˆ†ã‚’overColã«æ ¼ç´
 		COLOR_F operator()(const COLOR_F& col, COLOR_F& overCol)
 		{
 			COLOR_F retcol = ColorMax()(col, 0.0f);
@@ -554,7 +554,7 @@ namespace utility
 			return retcol;
 		}
 
-		//0.0f`1.0f‚ÌFî•ñ‚ğ0.0f`255.0f‚É•ÏŠ·
+		//0.0fï½1.0fã®è‰²æƒ…å ±ã‚’0.0fï½255.0fã«å¤‰æ›
 		float operator()(const float& col)
 		{
 			float retcol = std::clamp(col, 0.0f, 1.0f);
@@ -562,7 +562,7 @@ namespace utility
 			return colorMaxNum * retcol;
 		}
 
-		//0.0f`1.0f‚Ì“Á’è‚ÌFî•ñ‚ğ0.0f`255.0f‚É•ÏŠ·‚µ—]è•ª‚ğoverCol‚ÉŠi”[
+		//0.0fï½1.0fã®ç‰¹å®šã®è‰²æƒ…å ±ã‚’0.0fï½255.0fã«å¤‰æ›ã—ä½™å‰°åˆ†ã‚’overColã«æ ¼ç´
 		float operator()(const float& col, float& overCol)
 		{
 			float retcol = (std::max)(col, 0.0f);
@@ -575,7 +575,7 @@ namespace utility
 
 	struct ConvertColorRealNumberToRate
 	{
-		//0.0f`255.0f‚ÌFî•ñ‚ğ0.0f`1.0f‚É•ÏŠ·
+		//0.0fï½255.0fã®è‰²æƒ…å ±ã‚’0.0fï½1.0fã«å¤‰æ›
 		COLOR_F operator()(const COLOR_F& col)
 		{
 			COLOR_F retcol = ColorClamp()(col, 0.0f, colorMaxNum);
@@ -588,7 +588,7 @@ namespace utility
 			return retcol;
 		}
 
-		//0.0f`255.0f‚ÌFî•ñ‚ğ0.0f`1.0f‚É•ÏŠ·‚µ—]è•ª‚ğoverCol‚ÉŠi”[
+		//0.0fï½255.0fã®è‰²æƒ…å ±ã‚’0.0fï½1.0fã«å¤‰æ›ã—ä½™å‰°åˆ†ã‚’overColã«æ ¼ç´
 		COLOR_F operator()(const COLOR_F& col, COLOR_F& overCol)
 		{
 			COLOR_F retcol = ColorMax()(col, 0.0f);
@@ -606,7 +606,7 @@ namespace utility
 			return retcol;
 		}
 
-		//0.0f`255.0f‚Ì“Á’è‚ÌFî•ñ‚ğ0.0f`1.0f‚É•ÏŠ·
+		//0.0fï½255.0fã®ç‰¹å®šã®è‰²æƒ…å ±ã‚’0.0fï½1.0fã«å¤‰æ›
 		float operator()(const float& col)
 		{
 			float retcol = std::clamp(col, 0.0f, 255.0f);
@@ -614,7 +614,7 @@ namespace utility
 			return retcol / colorMaxNum;
 		}
 
-		//0.0f`255.0f‚Ì“Á’è‚ÌFî•ñ‚ğ0.0f`1.0f‚É•ÏŠ·‚µ—]è•ª‚ğoverCol‚ÉŠi”[
+		//0.0fï½255.0fã®ç‰¹å®šã®è‰²æƒ…å ±ã‚’0.0fï½1.0fã«å¤‰æ›ã—ä½™å‰°åˆ†ã‚’overColã«æ ¼ç´
 		float operator()(const float& col, float& overCol)
 		{
 			float retcol = (std::max)(col, 0.0f);
