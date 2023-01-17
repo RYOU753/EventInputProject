@@ -151,7 +151,14 @@ void InputEvent::SetDeadZone(const InputType type, const float zone) const
 
 float InputEvent::GetDeadZone(InputType type)
 {
-	return 0.0f;
+	if (activeInput_->GetInputType() == type)
+	{
+		return activeInput_->GetDeadZone();
+	}
+	else
+	{
+		return noneActive_->GetDeadZone();
+	}
 }
 
 void InputEvent::FixCenterCursor(const bool flag) const
