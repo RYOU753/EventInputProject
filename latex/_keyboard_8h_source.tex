@@ -1,0 +1,37 @@
+\hypertarget{_keyboard_8h_source}{}\doxysection{Keyboard.\+h}
+\label{_keyboard_8h_source}\index{D:/source/repos/EventInputProject/class/input/Keyboard.h@{D:/source/repos/EventInputProject/class/input/Keyboard.h}}
+\mbox{\hyperlink{_keyboard_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../common/Vector2.h"{}}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00005}\mbox{\hyperlink{class_keyboard}{00005}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_keyboard}{Keyboard}}\ :}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_input}{Input}}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00008}00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{class_keyboard_ad6b0bb849d6bb7cdf63091e40b5f5f7f}{Keyboard}}();}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{class_keyboard_af6a99ec66c8c722a45b967bf79167038}{\string~Keyboard}}();}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_afc2f57982921b614b1774014478f5bbc}{Update}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ \mbox{\hyperlink{class_keyboard_aa44f8f043ee226243e03e8ab7709a39e}{GetInputType}}(\textcolor{keywordtype}{void})\textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{InputState}}\ \mbox{\hyperlink{class_keyboard_a57b51f2593aba7b1694c2c10cf78ae8e}{GetInputState}}(std::string\_view\ keyid)\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_keyboard_abe0cb8d470c89dbd364f6234bb6e4b32}{GetAnalogData}}(std::string\_view\ keyid)\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_keyboard_a96589117e6a579bb7e63ecaeacc5a2fd}{IsActive}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00030}00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_a3835b1dab37f2433cbcb8343a7abaf6c}{InInit}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_afe68b3daecb3023101f2f9c964d236be}{UpdateKeyboard}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_keyboard_ac03866c7b496038e32530b8fb3282c4b}{UpdateMouse}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00040}\mbox{\hyperlink{class_keyboard_ae5628e12a3dc6ca87085aa1deb325b62}{00040}}\ \ \ \ \ \mbox{\hyperlink{_input_8h_a5af990bad27ac919d1fbaec75aa82864}{KeyboardData}}\ \mbox{\hyperlink{class_keyboard_ae5628e12a3dc6ca87085aa1deb325b62}{keybordData\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//キーボードの入力データ}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00041}\mbox{\hyperlink{class_keyboard_ab3f909302ca1b09eb46b9380a3108cad}{00041}}\ \ \ \ \ \mbox{\hyperlink{_input_8h_aceb3a2dec7637a58ce5dfc1abd1826a9}{MouseData}}\ \mbox{\hyperlink{class_keyboard_ab3f909302ca1b09eb46b9380a3108cad}{mouseData\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//マウスのスイッチ入力データ}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00042}\mbox{\hyperlink{class_keyboard_a7a14bf9a481517262928b6ab77f08f45}{00042}}\ \ \ \ \ std::unordered\_map<MouseInputID,\ int>\ \mbox{\hyperlink{class_keyboard_a7a14bf9a481517262928b6ab77f08f45}{clickTbl\_}};\ \ \ \textcolor{comment}{//MouseInputIDとDxLibのビットをテーブルにしている}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00043}\mbox{\hyperlink{class_keyboard_aa7c361fc973dedfbee5eda9d443fa09d}{00043}}\ \ \ \ \ Vector2F\ \mbox{\hyperlink{class_keyboard_aa7c361fc973dedfbee5eda9d443fa09d}{oldCursorPos\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//カーソル位置の前フレームの座標}}
+\DoxyCodeLine{\Hypertarget{_keyboard_8h_source_l00044}00044\ \};}
+
+\end{DoxyCode}

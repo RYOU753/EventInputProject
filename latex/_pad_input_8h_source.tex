@@ -1,0 +1,60 @@
+\hypertarget{_pad_input_8h_source}{}\doxysection{Pad\+Input.\+h}
+\label{_pad_input_8h_source}\index{D:/source/repos/EventInputProject/class/input/PadInput.h@{D:/source/repos/EventInputProject/class/input/PadInput.h}}
+\mbox{\hyperlink{_pad_input_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <DxLib.h>}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}../common/Vector2.h"{}}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00008}\mbox{\hyperlink{class_pad_input}{00008}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_pad_input}{PadInput}}:\textcolor{keyword}{public}\ \mbox{\hyperlink{class_input}{Input}}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00010}00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{class_pad_input}{PadInput}}(\textcolor{keywordtype}{int}\ padNo);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_pad_input_a9322ab51c6a4b4327875eda501deea59}{\string~PadInput}}();}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_ae50e64b87ba7e8e18923ff6ad744c7b8}{Update}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00018}\mbox{\hyperlink{class_pad_input_a6a3c0a6383707a58a96fd5849984c8c2}{00018}}\ \ \ \ \ \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ \mbox{\hyperlink{class_pad_input_a6a3c0a6383707a58a96fd5849984c8c2}{GetInputType}}(\textcolor{keywordtype}{void})\textcolor{keyword}{const\ override\ }\{\ \textcolor{keywordflow}{return}\ InputType::PAD;\ \};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{InputState}}\ \mbox{\hyperlink{class_pad_input_af4c7bf64452f890490753d2b8140c74b}{GetInputState}}(std::string\_view\ keyid)\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_pad_input_a3212de76afef4cf7558c2bc047c04e73}{GetAnalogData}}(std::string\_view\ keyid)\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00033}00033\ \ \ \ \ std::optional<float>\ \mbox{\hyperlink{class_pad_input_a29e6c6f4822dae0b999f4dfad06d3fda}{GetDirRot}}(\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{StickLR}}\ dir);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00038}00038\ \ \ \ \ Vector2F\ \mbox{\hyperlink{class_pad_input_a9f0e7b1b80ef4ad92b6153ebcbc71e13}{GetMoveVec}}(\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{StickLR}}\ dir);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_aa88f9aa2fb1fba92aae3282d8d70c136}{SetDeadZone}}(\textcolor{keywordtype}{float}\ zone)\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_pad_input_a8e298c27daf62639bc9fab8a4f04c37e}{IsActive}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00047}00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_ace0b72dcad65c77614fd86cc98c7bb84}{InInit}}(\textcolor{keywordtype}{void})\textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_a9538432d46f709a481cff2ef84ef5dd0}{UpdateDigital}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_af2921ccc70834f22368a55d4aff72198}{UpdateStickDigitalButton}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_adbcdb4893dd922c8e91e46523a661d40}{UpdateAnalog}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00064}00064\ \ \ \ \ std::optional<float>\ \mbox{\hyperlink{class_pad_input_a6dce820651397eaedd9172b8c77d7be8}{GetMoveDirRot}}(\textcolor{keywordtype}{short}\ x,\ \textcolor{keywordtype}{short}\ y);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00065}00065\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00070}00070\ \ \ \ \ Vector2F\ \mbox{\hyperlink{class_pad_input_a9f0e7b1b80ef4ad92b6153ebcbc71e13}{GetMoveVec}}(\textcolor{keywordtype}{short}\ x,\ \textcolor{keywordtype}{short}\ y);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00075}00075\ \ \ \ \ Vector2F\ \mbox{\hyperlink{class_pad_input_ac9131988f837a41a5ae5011f1e23a3e9}{CorrectDeadZone}}(Vector2F\ in);}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_pad_input_aae7d7a093086acd682c3cec7ebcf888b}{DebugDraw}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00080}\mbox{\hyperlink{class_pad_input_adcb550a0dd79a8bb72f5ebe3b5a1b89f}{00080}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pad_input_adcb550a0dd79a8bb72f5ebe3b5a1b89f}{padNo\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//パッドの個体番号}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00081}\mbox{\hyperlink{class_pad_input_a96f62ebf0a9262580ce43737cd9b7fd5}{00081}}\ \ \ \ \ XINPUT\_STATE\ \mbox{\hyperlink{class_pad_input_a96f62ebf0a9262580ce43737cd9b7fd5}{xInput\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//XInputのデータを受け取る変数}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00082}\mbox{\hyperlink{class_pad_input_aa58583e52a2ebdba85ce670765e33956}{00082}}\ \ \ \ \ \mbox{\hyperlink{_input_8h_ab1831e4909731db6ce68bf478eb03e56}{XPadData}}\ \mbox{\hyperlink{class_pad_input_aa58583e52a2ebdba85ce670765e33956}{padData\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Padの入力保管場所}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00083}\mbox{\hyperlink{class_pad_input_a650807c6cb856c2f52d921630a75eef7}{00083}}\ \ \ \ \ std::unordered\_map<PadInputID,\ unsigned\ int>\ \mbox{\hyperlink{class_pad_input_a650807c6cb856c2f52d921630a75eef7}{btnTbl\_}};\ \ \ \ \textcolor{comment}{//PadInputIDとDxlibのパッドのビットをテーブル化}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00084}\mbox{\hyperlink{class_pad_input_a805ad7049c6c944b5b8c2e91117cf223}{00084}}\ \ \ \ \ Vector2F\ \mbox{\hyperlink{class_pad_input_a805ad7049c6c944b5b8c2e91117cf223}{oldCursorPos\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//カーソル位置の前フレームの座標}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00085}\mbox{\hyperlink{class_pad_input_ad889e3ce5e3bf223bb735f0d66aa99e2}{00085}}\ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{class_pad_input_ad889e3ce5e3bf223bb735f0d66aa99e2}{connectNum\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//パッドの接続状態\ first:Now,second:Old}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00086}\mbox{\hyperlink{class_pad_input_ad949b1a0b60dcf1166561c8d48398e05}{00086}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_pad_input_ad949b1a0b60dcf1166561c8d48398e05}{isConnectXPad\_}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//パッドがいくつつながっているか}}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00087}00087\ \};}
+\DoxyCodeLine{\Hypertarget{_pad_input_8h_source_l00088}00088\ }
+
+\end{DoxyCode}

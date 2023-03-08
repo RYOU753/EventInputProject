@@ -1,0 +1,331 @@
+\hypertarget{class_keyboard}{}\doxysection{Keyboard Class Reference}
+\label{class_keyboard}\index{Keyboard@{Keyboard}}
+
+
+{\ttfamily \#include $<$Keyboard.\+h$>$}
+
+Inheritance diagram for Keyboard\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_keyboard}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_keyboard_ad6b0bb849d6bb7cdf63091e40b5f5f7f}{Keyboard}} ()
+\item 
+\mbox{\hyperlink{class_keyboard_af6a99ec66c8c722a45b967bf79167038}{$\sim$\+Keyboard}} ()
+\item 
+void \mbox{\hyperlink{class_keyboard_afc2f57982921b614b1774014478f5bbc}{Update}} (void) override
+\item 
+\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_keyboard_aa44f8f043ee226243e03e8ab7709a39e}{Get\+Input\+Type}} (void) const override
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_keyboard_a57b51f2593aba7b1694c2c10cf78ae8e}{Get\+Input\+State}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em 指定した入力\+IDの状態を取得する \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_keyboard_abe0cb8d470c89dbd364f6234bb6e4b32}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em キーボードとマウスのアナログ入力値を取得する \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_keyboard_a96589117e6a579bb7e63ecaeacc5a2fd}{Is\+Active}} (void) override
+\begin{DoxyCompactList}\small\item\em キーボードを現在使っているかを判定する \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}} ()
+\item 
+virtual \mbox{\hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input}} ()
+\item 
+virtual void \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Update}} (void)=0
+\item 
+virtual \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Get\+Input\+Type}} (void) const =0
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Get\+Input\+State}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em ボタンの状態を取得する \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em アナログ値の取得する \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Is\+Active}} (void)=0
+\begin{DoxyCompactList}\small\item\em 入力があるか \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_ae6bd94f10741093e249f23122865919f}{Set\+Sensitivity}} (float sensitivity)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度をセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_acec6b495a8abcf301f3e91bbe9f89874}{Get\+Sensitivity}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度を取得する \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_input_a418bda3acd6d6e4ae3beb8950f359555}{Set\+Dead\+Zone}} (float zone)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンをセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_ac36d0bf09b744c1b044e96d6a3c9f2a8}{Get\+Dead\+Zone}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンを取得する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_a2a11219c058161b4a9954e44d666d2d8}{Fix\+Center\+Cursor}} (bool flag)
+\begin{DoxyCompactList}\small\item\em マウスポインターをセンター固定する \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_a9b294bb951947e4a5d1a325f7a53dbea}{Get\+Is\+Fix\+Center\+Cursor}} (void) const
+\begin{DoxyCompactList}\small\item\em マウスカーソルをセンターに固定しているか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_keyboard_a3835b1dab37f2433cbcb8343a7abaf6c}{In\+Init}} (void) override
+\begin{DoxyCompactList}\small\item\em インスタンス内での初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_afe68b3daecb3023101f2f9c964d236be}{Update\+Keyboard}} (void)
+\begin{DoxyCompactList}\small\item\em キーボード入力の更新 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keyboard_ac03866c7b496038e32530b8fb3282c4b}{Update\+Mouse}} (void)
+\begin{DoxyCompactList}\small\item\em マウス入力の更新 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h_a5af990bad27ac919d1fbaec75aa82864}{Keyboard\+Data}} \mbox{\hyperlink{class_keyboard_ae5628e12a3dc6ca87085aa1deb325b62}{keybord\+Data\+\_\+}}
+\item 
+\mbox{\hyperlink{_input_8h_aceb3a2dec7637a58ce5dfc1abd1826a9}{Mouse\+Data}} \mbox{\hyperlink{class_keyboard_ab3f909302ca1b09eb46b9380a3108cad}{mouse\+Data\+\_\+}}
+\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{_mouse_input_i_d_8h_a1a711a11b911ba187edc59f779cf77fa}{Mouse\+Input\+ID}}, int $>$ \mbox{\hyperlink{class_keyboard_a7a14bf9a481517262928b6ab77f08f45}{click\+Tbl\+\_\+}}
+\item 
+Vector2F \mbox{\hyperlink{class_keyboard_aa7c361fc973dedfbee5eda9d443fa09d}{old\+Cursor\+Pos\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_input_a5bc497aaf62b9f6a5792eda35f4b190d}{Do\+Center\+Cursor}} (void)
+\begin{DoxyCompactList}\small\item\em is\+Fix\+Center\+Cursorがtrueの時，画面中央にセットする \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h_a3cabd32b56627f3b121d8d411a947841}{Analog\+Data}} \mbox{\hyperlink{class_input_a58f68fc7175f31e0bca07707664269f6}{analog\+Data\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a4e9c992fc9a90116d27665195dff8684}{sensitivity\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a5e2604e559cc0c72e22525a4fc5f52c4}{dead\+Zone\+\_\+}}
+\item 
+bool \mbox{\hyperlink{class_input_a0ebd71f1cea424dcc6beb88d6b9e9c09}{is\+Fix\+Center\+Cursor\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8h_source_l00005}{5}} of file \mbox{\hyperlink{_keyboard_8h_source}{Keyboard.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_keyboard_ad6b0bb849d6bb7cdf63091e40b5f5f7f}\label{class_keyboard_ad6b0bb849d6bb7cdf63091e40b5f5f7f}} 
+\index{Keyboard@{Keyboard}!Keyboard@{Keyboard}}
+\index{Keyboard@{Keyboard}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{Keyboard()}{Keyboard()}}
+{\footnotesize\ttfamily Keyboard\+::\+Keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_af6a99ec66c8c722a45b967bf79167038}\label{class_keyboard_af6a99ec66c8c722a45b967bf79167038}} 
+\index{Keyboard@{Keyboard}!````~Keyboard@{$\sim$Keyboard}}
+\index{````~Keyboard@{$\sim$Keyboard}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{$\sim$Keyboard()}{~Keyboard()}}
+{\footnotesize\ttfamily Keyboard\+::$\sim$\+Keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_keyboard_abe0cb8d470c89dbd364f6234bb6e4b32}\label{class_keyboard_abe0cb8d470c89dbd364f6234bb6e4b32}} 
+\index{Keyboard@{Keyboard}!GetAnalogData@{GetAnalogData}}
+\index{GetAnalogData@{GetAnalogData}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{GetAnalogData()}{GetAnalogData()}}
+{\footnotesize\ttfamily float Keyboard\+::\+Get\+Analog\+Data (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+キーボードとマウスのアナログ入力値を取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & キーボードかマウスの入力\+IDの文字列 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+指定された入力\+IDのアナログ入力値 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_a57b51f2593aba7b1694c2c10cf78ae8e}\label{class_keyboard_a57b51f2593aba7b1694c2c10cf78ae8e}} 
+\index{Keyboard@{Keyboard}!GetInputState@{GetInputState}}
+\index{GetInputState@{GetInputState}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{GetInputState()}{GetInputState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} Keyboard\+::\+Get\+Input\+State (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+指定した入力\+IDの状態を取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & キーボードかマウスの入力\+IDの文字列 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+指定された入力\+IDの状態 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_aa44f8f043ee226243e03e8ab7709a39e}\label{class_keyboard_aa44f8f043ee226243e03e8ab7709a39e}} 
+\index{Keyboard@{Keyboard}!GetInputType@{GetInputType}}
+\index{GetInputType@{GetInputType}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{GetInputType()}{GetInputType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} Keyboard\+::\+Get\+Input\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+入力機器のタイプを取得 
+
+\begin{DoxyReturn}{Returns}
+入力機器タイプ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_a3835b1dab37f2433cbcb8343a7abaf6c}\label{class_keyboard_a3835b1dab37f2433cbcb8343a7abaf6c}} 
+\index{Keyboard@{Keyboard}!InInit@{InInit}}
+\index{InInit@{InInit}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{InInit()}{InInit()}}
+{\footnotesize\ttfamily void Keyboard\+::\+In\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+インスタンス内での初期化 
+
+
+
+Implements \mbox{\hyperlink{class_input_addb532fb8623719b5948d2635dccf809}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_a96589117e6a579bb7e63ecaeacc5a2fd}\label{class_keyboard_a96589117e6a579bb7e63ecaeacc5a2fd}} 
+\index{Keyboard@{Keyboard}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool Keyboard\+::\+Is\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+キーボードを現在使っているかを判定する 
+
+\begin{DoxyReturn}{Returns}
+true\+:使っている false\+:使っていない 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_afc2f57982921b614b1774014478f5bbc}\label{class_keyboard_afc2f57982921b614b1774014478f5bbc}} 
+\index{Keyboard@{Keyboard}!Update@{Update}}
+\index{Update@{Update}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Keyboard\+::\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_afe68b3daecb3023101f2f9c964d236be}\label{class_keyboard_afe68b3daecb3023101f2f9c964d236be}} 
+\index{Keyboard@{Keyboard}!UpdateKeyboard@{UpdateKeyboard}}
+\index{UpdateKeyboard@{UpdateKeyboard}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{UpdateKeyboard()}{UpdateKeyboard()}}
+{\footnotesize\ttfamily void Keyboard\+::\+Update\+Keyboard (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+キーボード入力の更新 
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+\mbox{\Hypertarget{class_keyboard_ac03866c7b496038e32530b8fb3282c4b}\label{class_keyboard_ac03866c7b496038e32530b8fb3282c4b}} 
+\index{Keyboard@{Keyboard}!UpdateMouse@{UpdateMouse}}
+\index{UpdateMouse@{UpdateMouse}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{UpdateMouse()}{UpdateMouse()}}
+{\footnotesize\ttfamily void Keyboard\+::\+Update\+Mouse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+マウス入力の更新 
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{_keyboard_8cpp_source}{Keyboard.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_keyboard_a7a14bf9a481517262928b6ab77f08f45}\label{class_keyboard_a7a14bf9a481517262928b6ab77f08f45}} 
+\index{Keyboard@{Keyboard}!clickTbl\_@{clickTbl\_}}
+\index{clickTbl\_@{clickTbl\_}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{clickTbl\_}{clickTbl\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_mouse_input_i_d_8h_a1a711a11b911ba187edc59f779cf77fa}{Mouse\+Input\+ID}}, int$>$ Keyboard\+::click\+Tbl\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8h_source_l00042}{42}} of file \mbox{\hyperlink{_keyboard_8h_source}{Keyboard.\+h}}.
+
+\mbox{\Hypertarget{class_keyboard_ae5628e12a3dc6ca87085aa1deb325b62}\label{class_keyboard_ae5628e12a3dc6ca87085aa1deb325b62}} 
+\index{Keyboard@{Keyboard}!keybordData\_@{keybordData\_}}
+\index{keybordData\_@{keybordData\_}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{keybordData\_}{keybordData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_a5af990bad27ac919d1fbaec75aa82864}{Keyboard\+Data}} Keyboard\+::keybord\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8h_source_l00040}{40}} of file \mbox{\hyperlink{_keyboard_8h_source}{Keyboard.\+h}}.
+
+\mbox{\Hypertarget{class_keyboard_ab3f909302ca1b09eb46b9380a3108cad}\label{class_keyboard_ab3f909302ca1b09eb46b9380a3108cad}} 
+\index{Keyboard@{Keyboard}!mouseData\_@{mouseData\_}}
+\index{mouseData\_@{mouseData\_}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{mouseData\_}{mouseData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_aceb3a2dec7637a58ce5dfc1abd1826a9}{Mouse\+Data}} Keyboard\+::mouse\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8h_source_l00041}{41}} of file \mbox{\hyperlink{_keyboard_8h_source}{Keyboard.\+h}}.
+
+\mbox{\Hypertarget{class_keyboard_aa7c361fc973dedfbee5eda9d443fa09d}\label{class_keyboard_aa7c361fc973dedfbee5eda9d443fa09d}} 
+\index{Keyboard@{Keyboard}!oldCursorPos\_@{oldCursorPos\_}}
+\index{oldCursorPos\_@{oldCursorPos\_}!Keyboard@{Keyboard}}
+\doxysubsubsection{\texorpdfstring{oldCursorPos\_}{oldCursorPos\_}}
+{\footnotesize\ttfamily Vector2F Keyboard\+::old\+Cursor\+Pos\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_keyboard_8h_source_l00043}{43}} of file \mbox{\hyperlink{_keyboard_8h_source}{Keyboard.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_keyboard_8h}{Keyboard.\+h}}\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_keyboard_8cpp}{Keyboard.\+cpp}}\end{DoxyCompactItemize}

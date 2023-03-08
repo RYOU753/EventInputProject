@@ -1,0 +1,548 @@
+\hypertarget{class_pad_input}{}\doxysection{Pad\+Input Class Reference}
+\label{class_pad_input}\index{PadInput@{PadInput}}
+
+
+{\ttfamily \#include $<$Pad\+Input.\+h$>$}
+
+Inheritance diagram for Pad\+Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pad_input}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pad_input_a03156b20534b4b23443a40e096ddfd12}{Pad\+Input}} (int pad\+No)
+\item 
+\mbox{\hyperlink{class_pad_input_a9322ab51c6a4b4327875eda501deea59}{$\sim$\+Pad\+Input}} ()
+\item 
+void \mbox{\hyperlink{class_pad_input_ae50e64b87ba7e8e18923ff6ad744c7b8}{Update}} (void) override
+\item 
+\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_pad_input_a6a3c0a6383707a58a96fd5849984c8c2}{Get\+Input\+Type}} (void) const override
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_pad_input_af4c7bf64452f890490753d2b8140c74b}{Get\+Input\+State}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em ボタンの状態を取得する \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_pad_input_a3212de76afef4cf7558c2bc047c04e73}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em アナログ値の取得する \end{DoxyCompactList}\item 
+std\+::optional$<$ float $>$ \mbox{\hyperlink{class_pad_input_a29e6c6f4822dae0b999f4dfad06d3fda}{Get\+Dir\+Rot}} (\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}} dir)
+\begin{DoxyCompactList}\small\item\em スティックの倒した方向の角度を取得する \end{DoxyCompactList}\item 
+Vector2F \mbox{\hyperlink{class_pad_input_a9f0e7b1b80ef4ad92b6153ebcbc71e13}{Get\+Move\+Vec}} (\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}} dir)
+\begin{DoxyCompactList}\small\item\em スティックの倒したベクトルを返す \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pad_input_aa88f9aa2fb1fba92aae3282d8d70c136}{Set\+Dead\+Zone}} (float zone) override
+\begin{DoxyCompactList}\small\item\em 0$\sim$0.999の間でデッドゾーンを設定する \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_pad_input_a8e298c27daf62639bc9fab8a4f04c37e}{Is\+Active}} (void) override
+\begin{DoxyCompactList}\small\item\em 入力があるか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}} ()
+\item 
+virtual \mbox{\hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input}} ()
+\item 
+virtual void \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Update}} (void)=0
+\item 
+virtual \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Get\+Input\+Type}} (void) const =0
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Get\+Input\+State}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em ボタンの状態を取得する \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em アナログ値の取得する \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Is\+Active}} (void)=0
+\begin{DoxyCompactList}\small\item\em 入力があるか \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_ae6bd94f10741093e249f23122865919f}{Set\+Sensitivity}} (float sensitivity)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度をセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_acec6b495a8abcf301f3e91bbe9f89874}{Get\+Sensitivity}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度を取得する \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_input_a418bda3acd6d6e4ae3beb8950f359555}{Set\+Dead\+Zone}} (float zone)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンをセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_ac36d0bf09b744c1b044e96d6a3c9f2a8}{Get\+Dead\+Zone}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンを取得する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_a2a11219c058161b4a9954e44d666d2d8}{Fix\+Center\+Cursor}} (bool flag)
+\begin{DoxyCompactList}\small\item\em マウスポインターをセンター固定する \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_a9b294bb951947e4a5d1a325f7a53dbea}{Get\+Is\+Fix\+Center\+Cursor}} (void) const
+\begin{DoxyCompactList}\small\item\em マウスカーソルをセンターに固定しているか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pad_input_ace0b72dcad65c77614fd86cc98c7bb84}{In\+Init}} (void) override
+\begin{DoxyCompactList}\small\item\em インスタンス内での初期化 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pad_input_a9538432d46f709a481cff2ef84ef5dd0}{Update\+Digital}} (void)
+\begin{DoxyCompactList}\small\item\em ボタンなどのboolで決まる入力を更新する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pad_input_af2921ccc70834f22368a55d4aff72198}{Update\+Stick\+Digital\+Button}} (void)
+\begin{DoxyCompactList}\small\item\em スティックを倒しているかを更新する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pad_input_adbcdb4893dd922c8e91e46523a661d40}{Update\+Analog}} (void)
+\begin{DoxyCompactList}\small\item\em スティック入力やトリガーの深度などのアナログ入力を更新する \end{DoxyCompactList}\item 
+std\+::optional$<$ float $>$ \mbox{\hyperlink{class_pad_input_a6dce820651397eaedd9172b8c77d7be8}{Get\+Move\+Dir\+Rot}} (short x, short y)
+\begin{DoxyCompactList}\small\item\em スティックの倒した方向の角度を返す \end{DoxyCompactList}\item 
+Vector2F \mbox{\hyperlink{class_pad_input_a7b8ca49176361bafa8f8c0c29baaa5c8}{Get\+Move\+Vec}} (short x, short y)
+\begin{DoxyCompactList}\small\item\em スティックの縦横の倒した時の値を0$\sim$1の間に正規化した値を返す \end{DoxyCompactList}\item 
+Vector2F \mbox{\hyperlink{class_pad_input_ac9131988f837a41a5ae5011f1e23a3e9}{Correct\+Dead\+Zone}} (Vector2F in)
+\begin{DoxyCompactList}\small\item\em デッドゾーン内ならゼロにする \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pad_input_aae7d7a093086acd682c3cec7ebcf888b}{Debug\+Draw}} (void)
+\begin{DoxyCompactList}\small\item\em デバッグ表示 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_pad_input_adcb550a0dd79a8bb72f5ebe3b5a1b89f}{pad\+No\+\_\+}}
+\item 
+XINPUT\+\_\+\+STATE \mbox{\hyperlink{class_pad_input_a96f62ebf0a9262580ce43737cd9b7fd5}{x\+Input\+\_\+}}
+\item 
+\mbox{\hyperlink{_input_8h_ab1831e4909731db6ce68bf478eb03e56}{XPad\+Data}} \mbox{\hyperlink{class_pad_input_aa58583e52a2ebdba85ce670765e33956}{pad\+Data\+\_\+}}
+\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{Pad\+Input\+ID}}, unsigned int $>$ \mbox{\hyperlink{class_pad_input_a650807c6cb856c2f52d921630a75eef7}{btn\+Tbl\+\_\+}}
+\item 
+Vector2F \mbox{\hyperlink{class_pad_input_a805ad7049c6c944b5b8c2e91117cf223}{old\+Cursor\+Pos\+\_\+}}
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{class_pad_input_ad889e3ce5e3bf223bb735f0d66aa99e2}{connect\+Num\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_pad_input_ad949b1a0b60dcf1166561c8d48398e05}{is\+Connect\+XPad\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_input_a5bc497aaf62b9f6a5792eda35f4b190d}{Do\+Center\+Cursor}} (void)
+\begin{DoxyCompactList}\small\item\em is\+Fix\+Center\+Cursorがtrueの時，画面中央にセットする \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h_a3cabd32b56627f3b121d8d411a947841}{Analog\+Data}} \mbox{\hyperlink{class_input_a58f68fc7175f31e0bca07707664269f6}{analog\+Data\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a4e9c992fc9a90116d27665195dff8684}{sensitivity\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a5e2604e559cc0c72e22525a4fc5f52c4}{dead\+Zone\+\_\+}}
+\item 
+bool \mbox{\hyperlink{class_input_a0ebd71f1cea424dcc6beb88d6b9e9c09}{is\+Fix\+Center\+Cursor\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00008}{8}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pad_input_a03156b20534b4b23443a40e096ddfd12}\label{class_pad_input_a03156b20534b4b23443a40e096ddfd12}} 
+\index{PadInput@{PadInput}!PadInput@{PadInput}}
+\index{PadInput@{PadInput}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{PadInput()}{PadInput()}}
+{\footnotesize\ttfamily Pad\+Input\+::\+Pad\+Input (\begin{DoxyParamCaption}\item[{int}]{pad\+No }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a9322ab51c6a4b4327875eda501deea59}\label{class_pad_input_a9322ab51c6a4b4327875eda501deea59}} 
+\index{PadInput@{PadInput}!````~PadInput@{$\sim$PadInput}}
+\index{````~PadInput@{$\sim$PadInput}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{$\sim$PadInput()}{~PadInput()}}
+{\footnotesize\ttfamily Pad\+Input\+::$\sim$\+Pad\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pad_input_ac9131988f837a41a5ae5011f1e23a3e9}\label{class_pad_input_ac9131988f837a41a5ae5011f1e23a3e9}} 
+\index{PadInput@{PadInput}!CorrectDeadZone@{CorrectDeadZone}}
+\index{CorrectDeadZone@{CorrectDeadZone}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{CorrectDeadZone()}{CorrectDeadZone()}}
+{\footnotesize\ttfamily Vector2F Pad\+Input\+::\+Correct\+Dead\+Zone (\begin{DoxyParamCaption}\item[{Vector2F}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+デッドゾーン内ならゼロにする 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & 補正するスティックの倒したベクトル \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+補正後のスティックの倒したベクトル 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00249}{249}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_aae7d7a093086acd682c3cec7ebcf888b}\label{class_pad_input_aae7d7a093086acd682c3cec7ebcf888b}} 
+\index{PadInput@{PadInput}!DebugDraw@{DebugDraw}}
+\index{DebugDraw@{DebugDraw}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{DebugDraw()}{DebugDraw()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Debug\+Draw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+デバッグ表示 
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00307}{307}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a3212de76afef4cf7558c2bc047c04e73}\label{class_pad_input_a3212de76afef4cf7558c2bc047c04e73}} 
+\index{PadInput@{PadInput}!GetAnalogData@{GetAnalogData}}
+\index{GetAnalogData@{GetAnalogData}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetAnalogData()}{GetAnalogData()}}
+{\footnotesize\ttfamily float Pad\+Input\+::\+Get\+Analog\+Data (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+アナログ値の取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & enumからstringに変換したkeyid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+アナログ値 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00121}{121}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a29e6c6f4822dae0b999f4dfad06d3fda}\label{class_pad_input_a29e6c6f4822dae0b999f4dfad06d3fda}} 
+\index{PadInput@{PadInput}!GetDirRot@{GetDirRot}}
+\index{GetDirRot@{GetDirRot}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetDirRot()}{GetDirRot()}}
+{\footnotesize\ttfamily std\+::optional$<$ float $>$ Pad\+Input\+::\+Get\+Dir\+Rot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+スティックの倒した方向の角度を取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & 指定するスティック \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+上方向を0度として時計回りに360度までの間を返す(度数法)(倒れてない時，無効値を返す) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_af4c7bf64452f890490753d2b8140c74b}\label{class_pad_input_af4c7bf64452f890490753d2b8140c74b}} 
+\index{PadInput@{PadInput}!GetInputState@{GetInputState}}
+\index{GetInputState@{GetInputState}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetInputState()}{GetInputState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} Pad\+Input\+::\+Get\+Input\+State (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+ボタンの状態を取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & enumからstringに変換したkeyid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ボタン状態 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a6a3c0a6383707a58a96fd5849984c8c2}\label{class_pad_input_a6a3c0a6383707a58a96fd5849984c8c2}} 
+\index{PadInput@{PadInput}!GetInputType@{GetInputType}}
+\index{GetInputType@{GetInputType}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetInputType()}{GetInputType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} Pad\+Input\+::\+Get\+Input\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+入力機器のタイプを取得 
+
+\begin{DoxyReturn}{Returns}
+入力機器タイプ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00018}{18}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_a6dce820651397eaedd9172b8c77d7be8}\label{class_pad_input_a6dce820651397eaedd9172b8c77d7be8}} 
+\index{PadInput@{PadInput}!GetMoveDirRot@{GetMoveDirRot}}
+\index{GetMoveDirRot@{GetMoveDirRot}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveDirRot()}{GetMoveDirRot()}}
+{\footnotesize\ttfamily std\+::optional$<$ float $>$ Pad\+Input\+::\+Get\+Move\+Dir\+Rot (\begin{DoxyParamCaption}\item[{short}]{x,  }\item[{short}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+スティックの倒した方向の角度を返す 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & スティックの横軸 \\
+\hline
+{\em y} & スティックの縦軸 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+上方向を0度として時計回りに360度までの間を返す(倒れてない時，無効値を返す) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00220}{220}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a7b8ca49176361bafa8f8c0c29baaa5c8}\label{class_pad_input_a7b8ca49176361bafa8f8c0c29baaa5c8}} 
+\index{PadInput@{PadInput}!GetMoveVec@{GetMoveVec}}
+\index{GetMoveVec@{GetMoveVec}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveVec()}{GetMoveVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Vector2F Pad\+Input\+::\+Get\+Move\+Vec (\begin{DoxyParamCaption}\item[{short}]{x,  }\item[{short}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+スティックの縦横の倒した時の値を0$\sim$1の間に正規化した値を返す 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & スティックの横軸 \\
+\hline
+{\em y} & スティックの縦軸 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0$\sim$1の倒した値(Dead\+Zoneの中だったら(0,0)で返す) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00239}{239}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a9f0e7b1b80ef4ad92b6153ebcbc71e13}\label{class_pad_input_a9f0e7b1b80ef4ad92b6153ebcbc71e13}} 
+\index{PadInput@{PadInput}!GetMoveVec@{GetMoveVec}}
+\index{GetMoveVec@{GetMoveVec}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveVec()}{GetMoveVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vector2F Pad\+Input\+::\+Get\+Move\+Vec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+スティックの倒したベクトルを返す 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & 指定するスティック \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0$\sim$1の倒した値(Dead\+Zoneの中だったら(0,0)で返す) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00145}{145}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_ace0b72dcad65c77614fd86cc98c7bb84}\label{class_pad_input_ace0b72dcad65c77614fd86cc98c7bb84}} 
+\index{PadInput@{PadInput}!InInit@{InInit}}
+\index{InInit@{InInit}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{InInit()}{InInit()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+In\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+インスタンス内での初期化 
+
+
+
+Implements \mbox{\hyperlink{class_input_addb532fb8623719b5948d2635dccf809}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a8e298c27daf62639bc9fab8a4f04c37e}\label{class_pad_input_a8e298c27daf62639bc9fab8a4f04c37e}} 
+\index{PadInput@{PadInput}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool Pad\+Input\+::\+Is\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+入力があるか 
+
+\begin{DoxyReturn}{Returns}
+入力あり\+:true 入力なし\+:false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_aa88f9aa2fb1fba92aae3282d8d70c136}\label{class_pad_input_aa88f9aa2fb1fba92aae3282d8d70c136}} 
+\index{PadInput@{PadInput}!SetDeadZone@{SetDeadZone}}
+\index{SetDeadZone@{SetDeadZone}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{SetDeadZone()}{SetDeadZone()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Set\+Dead\+Zone (\begin{DoxyParamCaption}\item[{float}]{zone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+0$\sim$0.999の間でデッドゾーンを設定する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em zone} & 0$\sim$1の値(範囲外の値はclampされる) \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_input_a418bda3acd6d6e4ae3beb8950f359555}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_ae50e64b87ba7e8e18923ff6ad744c7b8}\label{class_pad_input_ae50e64b87ba7e8e18923ff6ad744c7b8}} 
+\index{PadInput@{PadInput}!Update@{Update}}
+\index{Update@{Update}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_adbcdb4893dd922c8e91e46523a661d40}\label{class_pad_input_adbcdb4893dd922c8e91e46523a661d40}} 
+\index{PadInput@{PadInput}!UpdateAnalog@{UpdateAnalog}}
+\index{UpdateAnalog@{UpdateAnalog}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{UpdateAnalog()}{UpdateAnalog()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Update\+Analog (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+スティック入力やトリガーの深度などのアナログ入力を更新する 
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_a9538432d46f709a481cff2ef84ef5dd0}\label{class_pad_input_a9538432d46f709a481cff2ef84ef5dd0}} 
+\index{PadInput@{PadInput}!UpdateDigital@{UpdateDigital}}
+\index{UpdateDigital@{UpdateDigital}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{UpdateDigital()}{UpdateDigital()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Update\+Digital (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+ボタンなどのboolで決まる入力を更新する 
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_pad_input_af2921ccc70834f22368a55d4aff72198}\label{class_pad_input_af2921ccc70834f22368a55d4aff72198}} 
+\index{PadInput@{PadInput}!UpdateStickDigitalButton@{UpdateStickDigitalButton}}
+\index{UpdateStickDigitalButton@{UpdateStickDigitalButton}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{UpdateStickDigitalButton()}{UpdateStickDigitalButton()}}
+{\footnotesize\ttfamily void Pad\+Input\+::\+Update\+Stick\+Digital\+Button (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+スティックを倒しているかを更新する 
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8cpp_source_l00173}{173}} of file \mbox{\hyperlink{_pad_input_8cpp_source}{Pad\+Input.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pad_input_a650807c6cb856c2f52d921630a75eef7}\label{class_pad_input_a650807c6cb856c2f52d921630a75eef7}} 
+\index{PadInput@{PadInput}!btnTbl\_@{btnTbl\_}}
+\index{btnTbl\_@{btnTbl\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{btnTbl\_}{btnTbl\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{Pad\+Input\+ID}}, unsigned int$>$ Pad\+Input\+::btn\+Tbl\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00083}{83}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_ad889e3ce5e3bf223bb735f0d66aa99e2}\label{class_pad_input_ad889e3ce5e3bf223bb735f0d66aa99e2}} 
+\index{PadInput@{PadInput}!connectNum\_@{connectNum\_}}
+\index{connectNum\_@{connectNum\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{connectNum\_}{connectNum\_}}
+{\footnotesize\ttfamily std\+::pair$<$int, int$>$ Pad\+Input\+::connect\+Num\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00085}{85}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_ad949b1a0b60dcf1166561c8d48398e05}\label{class_pad_input_ad949b1a0b60dcf1166561c8d48398e05}} 
+\index{PadInput@{PadInput}!isConnectXPad\_@{isConnectXPad\_}}
+\index{isConnectXPad\_@{isConnectXPad\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{isConnectXPad\_}{isConnectXPad\_}}
+{\footnotesize\ttfamily int Pad\+Input\+::is\+Connect\+XPad\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00086}{86}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_a805ad7049c6c944b5b8c2e91117cf223}\label{class_pad_input_a805ad7049c6c944b5b8c2e91117cf223}} 
+\index{PadInput@{PadInput}!oldCursorPos\_@{oldCursorPos\_}}
+\index{oldCursorPos\_@{oldCursorPos\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{oldCursorPos\_}{oldCursorPos\_}}
+{\footnotesize\ttfamily Vector2F Pad\+Input\+::old\+Cursor\+Pos\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00084}{84}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_aa58583e52a2ebdba85ce670765e33956}\label{class_pad_input_aa58583e52a2ebdba85ce670765e33956}} 
+\index{PadInput@{PadInput}!padData\_@{padData\_}}
+\index{padData\_@{padData\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{padData\_}{padData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_ab1831e4909731db6ce68bf478eb03e56}{XPad\+Data}} Pad\+Input\+::pad\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00082}{82}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_adcb550a0dd79a8bb72f5ebe3b5a1b89f}\label{class_pad_input_adcb550a0dd79a8bb72f5ebe3b5a1b89f}} 
+\index{PadInput@{PadInput}!padNo\_@{padNo\_}}
+\index{padNo\_@{padNo\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{padNo\_}{padNo\_}}
+{\footnotesize\ttfamily const int Pad\+Input\+::pad\+No\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00080}{80}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_pad_input_a96f62ebf0a9262580ce43737cd9b7fd5}\label{class_pad_input_a96f62ebf0a9262580ce43737cd9b7fd5}} 
+\index{PadInput@{PadInput}!xInput\_@{xInput\_}}
+\index{xInput\_@{xInput\_}!PadInput@{PadInput}}
+\doxysubsubsection{\texorpdfstring{xInput\_}{xInput\_}}
+{\footnotesize\ttfamily XINPUT\+\_\+\+STATE Pad\+Input\+::x\+Input\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_pad_input_8h_source_l00081}{81}} of file \mbox{\hyperlink{_pad_input_8h_source}{Pad\+Input.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_pad_input_8h}{Pad\+Input.\+h}}\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_pad_input_8cpp}{Pad\+Input.\+cpp}}\end{DoxyCompactItemize}

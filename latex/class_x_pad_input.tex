@@ -1,0 +1,419 @@
+\hypertarget{class_x_pad_input}{}\doxysection{XPad\+Input Class Reference}
+\label{class_x_pad_input}\index{XPadInput@{XPadInput}}
+
+
+{\ttfamily \#include $<$XPad\+Input.\+h$>$}
+
+Inheritance diagram for XPad\+Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_x_pad_input}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_x_pad_input_a5b2b319703d991c7c57db73a5cf06ed6}{XPad\+Input}} (int no=0)
+\item 
+\mbox{\hyperlink{class_x_pad_input_a8fcd80524666eae191b3c0a138009c05}{$\sim$\+XPad\+Input}} ()
+\item 
+void \mbox{\hyperlink{class_x_pad_input_a912c65d4ba57d5ae1a74c801869b04dd}{Update}} (void) override
+\item 
+void \mbox{\hyperlink{class_x_pad_input_a3aa806ce8c5e625e3971fdae7a348fe7}{In\+Init}} (void) override
+\begin{DoxyCompactList}\small\item\em インスタンス内での初期化 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_x_pad_input_a8febd0b8cd72588645ca1c644cc6f64f}{Get\+Input\+Type}} (void) const override
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_x_pad_input_a42e45f7fce81aa906b005a469f8a0d19}{Get\+Input\+State}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em ボタンの状態を取得する \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_x_pad_input_a9eebefce569ad9267d0343abca596d43}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid) override
+\begin{DoxyCompactList}\small\item\em アナログ値の取得する \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_x_pad_input_abc2a9c30c47a9fa9b80444caa379967e}{Get\+Dir\+Rot}} (\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}} dir)
+\item 
+Vector2F \mbox{\hyperlink{class_x_pad_input_aa106fc5effbc114d6b0813f61bbdca3c}{Get\+Move\+Vec}} (\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}} dir)
+\item 
+bool \mbox{\hyperlink{class_x_pad_input_a2dcb812c6095c0168a12295024ffbaf2}{Is\+Active}} (void) override
+\begin{DoxyCompactList}\small\item\em 入力があるか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_abae3f379d3f157cf42dc857309832dba}{Input}} ()
+\item 
+virtual \mbox{\hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input}} ()
+\item 
+virtual void \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Update}} (void)=0
+\item 
+virtual \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Get\+Input\+Type}} (void) const =0
+\begin{DoxyCompactList}\small\item\em 入力機器のタイプを取得 \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Get\+Input\+State}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em ボタンの状態を取得する \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Get\+Analog\+Data}} (std\+::string\+\_\+view keyid)=0
+\begin{DoxyCompactList}\small\item\em アナログ値の取得する \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Is\+Active}} (void)=0
+\begin{DoxyCompactList}\small\item\em 入力があるか \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_ae6bd94f10741093e249f23122865919f}{Set\+Sensitivity}} (float sensitivity)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度をセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_acec6b495a8abcf301f3e91bbe9f89874}{Get\+Sensitivity}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器の感度を取得する \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_input_a418bda3acd6d6e4ae3beb8950f359555}{Set\+Dead\+Zone}} (float zone)
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンをセットする \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_input_ac36d0bf09b744c1b044e96d6a3c9f2a8}{Get\+Dead\+Zone}} (void) const
+\begin{DoxyCompactList}\small\item\em 指定した入力機器のデッドゾーンを取得する \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_a2a11219c058161b4a9954e44d666d2d8}{Fix\+Center\+Cursor}} (bool flag)
+\begin{DoxyCompactList}\small\item\em マウスポインターをセンター固定する \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_a9b294bb951947e4a5d1a325f7a53dbea}{Get\+Is\+Fix\+Center\+Cursor}} (void) const
+\begin{DoxyCompactList}\small\item\em マウスカーソルをセンターに固定しているか \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_x_pad_input_ad31bd5bd16f1c936b925fc4b00677416}{Update\+Stick\+Digital\+Button}} (void)
+\item 
+void \mbox{\hyperlink{class_x_pad_input_a8dae260ba8ef34e6ca2998e8540f31b4}{Update\+Analog}} (void)
+\item 
+float \mbox{\hyperlink{class_x_pad_input_a60b309d84772eeede8b448077feb6694}{Get\+Move\+Dir\+Rot}} (short x, short y)
+\item 
+Vector2F \mbox{\hyperlink{class_x_pad_input_afdc66b7ddb6a2e07b8b4b3e4661ab826}{Get\+Move\+Vec}} (short x, short y)
+\item 
+Vector2F \mbox{\hyperlink{class_x_pad_input_a1460930a825cda028653c223c96244a2}{Correct\+Dead\+Zone}} (Vector2F in)
+\item 
+void \mbox{\hyperlink{class_x_pad_input_a51f1d90dc6b3dfabfe539be3ea37b852}{Conect\+XPad}} ()
+\item 
+void \mbox{\hyperlink{class_x_pad_input_abe5485884c73257d18c167034bcd7f72}{Debug\+Draw}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h_ab1831e4909731db6ce68bf478eb03e56}{XPad\+Data}} \mbox{\hyperlink{class_x_pad_input_afb1ce41354f6778023f1efeabdd8571f}{pad\+Data\+\_\+}}
+\item 
+\+\_\+\+XINPUT\+\_\+\+STATE \mbox{\hyperlink{class_x_pad_input_ab0204cdc804597356eb888bd423bd097}{x\+Input\+\_\+}}
+\item 
+std\+::unordered\+\_\+map$<$ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{Pad\+Input\+ID}}, unsigned int $>$ \mbox{\hyperlink{class_x_pad_input_ad74205f6785c22eb3b0f5e6f30779303}{btn\+Tbl\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_x_pad_input_a54d04880c747486189b2ce8fd8d9b2c1}{deadzone\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_x_pad_input_a496f92c07e2c643ffbbeb3bf2c231013}{is\+Connect\+XPad\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_input_a5bc497aaf62b9f6a5792eda35f4b190d}{Do\+Center\+Cursor}} (void)
+\begin{DoxyCompactList}\small\item\em is\+Fix\+Center\+Cursorがtrueの時，画面中央にセットする \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_input}{Input}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h_a3cabd32b56627f3b121d8d411a947841}{Analog\+Data}} \mbox{\hyperlink{class_input_a58f68fc7175f31e0bca07707664269f6}{analog\+Data\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a4e9c992fc9a90116d27665195dff8684}{sensitivity\+\_\+}}
+\item 
+float \mbox{\hyperlink{class_input_a5e2604e559cc0c72e22525a4fc5f52c4}{dead\+Zone\+\_\+}}
+\item 
+bool \mbox{\hyperlink{class_input_a0ebd71f1cea424dcc6beb88d6b9e9c09}{is\+Fix\+Center\+Cursor\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00005}{5}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_x_pad_input_a5b2b319703d991c7c57db73a5cf06ed6}\label{class_x_pad_input_a5b2b319703d991c7c57db73a5cf06ed6}} 
+\index{XPadInput@{XPadInput}!XPadInput@{XPadInput}}
+\index{XPadInput@{XPadInput}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{XPadInput()}{XPadInput()}}
+{\footnotesize\ttfamily XPad\+Input\+::\+XPad\+Input (\begin{DoxyParamCaption}\item[{int}]{no = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a8fcd80524666eae191b3c0a138009c05}\label{class_x_pad_input_a8fcd80524666eae191b3c0a138009c05}} 
+\index{XPadInput@{XPadInput}!````~XPadInput@{$\sim$XPadInput}}
+\index{````~XPadInput@{$\sim$XPadInput}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{$\sim$XPadInput()}{~XPadInput()}}
+{\footnotesize\ttfamily XPad\+Input\+::$\sim$\+XPad\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_x_pad_input_a51f1d90dc6b3dfabfe539be3ea37b852}\label{class_x_pad_input_a51f1d90dc6b3dfabfe539be3ea37b852}} 
+\index{XPadInput@{XPadInput}!ConectXPad@{ConectXPad}}
+\index{ConectXPad@{ConectXPad}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{ConectXPad()}{ConectXPad()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+Conect\+XPad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00273}{273}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a1460930a825cda028653c223c96244a2}\label{class_x_pad_input_a1460930a825cda028653c223c96244a2}} 
+\index{XPadInput@{XPadInput}!CorrectDeadZone@{CorrectDeadZone}}
+\index{CorrectDeadZone@{CorrectDeadZone}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{CorrectDeadZone()}{CorrectDeadZone()}}
+{\footnotesize\ttfamily Vector2F XPad\+Input\+::\+Correct\+Dead\+Zone (\begin{DoxyParamCaption}\item[{Vector2F}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00217}{217}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_abe5485884c73257d18c167034bcd7f72}\label{class_x_pad_input_abe5485884c73257d18c167034bcd7f72}} 
+\index{XPadInput@{XPadInput}!DebugDraw@{DebugDraw}}
+\index{DebugDraw@{DebugDraw}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{DebugDraw()}{DebugDraw()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+Debug\+Draw (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00293}{293}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a9eebefce569ad9267d0343abca596d43}\label{class_x_pad_input_a9eebefce569ad9267d0343abca596d43}} 
+\index{XPadInput@{XPadInput}!GetAnalogData@{GetAnalogData}}
+\index{GetAnalogData@{GetAnalogData}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetAnalogData()}{GetAnalogData()}}
+{\footnotesize\ttfamily float XPad\+Input\+::\+Get\+Analog\+Data (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+アナログ値の取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & enumからstringに変換したkeyid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+アナログ値 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a19cb398142233431dccce7e3e3e09ec3}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00115}{115}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_abc2a9c30c47a9fa9b80444caa379967e}\label{class_x_pad_input_abc2a9c30c47a9fa9b80444caa379967e}} 
+\index{XPadInput@{XPadInput}!GetDirRot@{GetDirRot}}
+\index{GetDirRot@{GetDirRot}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetDirRot()}{GetDirRot()}}
+{\footnotesize\ttfamily float XPad\+Input\+::\+Get\+Dir\+Rot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00129}{129}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a42e45f7fce81aa906b005a469f8a0d19}\label{class_x_pad_input_a42e45f7fce81aa906b005a469f8a0d19}} 
+\index{XPadInput@{XPadInput}!GetInputState@{GetInputState}}
+\index{GetInputState@{GetInputState}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetInputState()}{GetInputState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{Input\+State}} XPad\+Input\+::\+Get\+Input\+State (\begin{DoxyParamCaption}\item[{std\+::string\+\_\+view}]{keyid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+ボタンの状態を取得する 
+
+
+\begin{DoxyParams}{Parameters}
+{\em keyid} & enumからstringに変換したkeyid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ボタン状態 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_a2203afae29c6c0dec68d2941e66db337}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a8febd0b8cd72588645ca1c644cc6f64f}\label{class_x_pad_input_a8febd0b8cd72588645ca1c644cc6f64f}} 
+\index{XPadInput@{XPadInput}!GetInputType@{GetInputType}}
+\index{GetInputType@{GetInputType}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetInputType()}{GetInputType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{Input\+Type}} XPad\+Input\+::\+Get\+Input\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+入力機器のタイプを取得 
+
+\begin{DoxyReturn}{Returns}
+入力機器タイプ 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_afef5163ca71a0fc8b47a20a0a6e30284}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00014}{14}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a60b309d84772eeede8b448077feb6694}\label{class_x_pad_input_a60b309d84772eeede8b448077feb6694}} 
+\index{XPadInput@{XPadInput}!GetMoveDirRot@{GetMoveDirRot}}
+\index{GetMoveDirRot@{GetMoveDirRot}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveDirRot()}{GetMoveDirRot()}}
+{\footnotesize\ttfamily float XPad\+Input\+::\+Get\+Move\+Dir\+Rot (\begin{DoxyParamCaption}\item[{short}]{x,  }\item[{short}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00192}{192}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_afdc66b7ddb6a2e07b8b4b3e4661ab826}\label{class_x_pad_input_afdc66b7ddb6a2e07b8b4b3e4661ab826}} 
+\index{XPadInput@{XPadInput}!GetMoveVec@{GetMoveVec}}
+\index{GetMoveVec@{GetMoveVec}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveVec()}{GetMoveVec()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Vector2F XPad\+Input\+::\+Get\+Move\+Vec (\begin{DoxyParamCaption}\item[{short}]{x,  }\item[{short}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00206}{206}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_aa106fc5effbc114d6b0813f61bbdca3c}\label{class_x_pad_input_aa106fc5effbc114d6b0813f61bbdca3c}} 
+\index{XPadInput@{XPadInput}!GetMoveVec@{GetMoveVec}}
+\index{GetMoveVec@{GetMoveVec}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{GetMoveVec()}{GetMoveVec()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vector2F XPad\+Input\+::\+Get\+Move\+Vec (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_input_8h_ab946d047aa0e57776c0d63f3af9f2864}{Stick\+LR}}}]{dir }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a3aa806ce8c5e625e3971fdae7a348fe7}\label{class_x_pad_input_a3aa806ce8c5e625e3971fdae7a348fe7}} 
+\index{XPadInput@{XPadInput}!InInit@{InInit}}
+\index{InInit@{InInit}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{InInit()}{InInit()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+In\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+インスタンス内での初期化 
+
+
+
+Implements \mbox{\hyperlink{class_input_addb532fb8623719b5948d2635dccf809}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a2dcb812c6095c0168a12295024ffbaf2}\label{class_x_pad_input_a2dcb812c6095c0168a12295024ffbaf2}} 
+\index{XPadInput@{XPadInput}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool XPad\+Input\+::\+Is\+Active (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+入力があるか 
+
+\begin{DoxyReturn}{Returns}
+入力あり\+:true 入力なし\+:false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_input_ad36a8ea00cf1f1ab22e62d710ba65434}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00149}{149}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a912c65d4ba57d5ae1a74c801869b04dd}\label{class_x_pad_input_a912c65d4ba57d5ae1a74c801869b04dd}} 
+\index{XPadInput@{XPadInput}!Update@{Update}}
+\index{Update@{Update}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_input_a789024bbc1711b9f7f4ecfeca31bdf48}{Input}}.
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a8dae260ba8ef34e6ca2998e8540f31b4}\label{class_x_pad_input_a8dae260ba8ef34e6ca2998e8540f31b4}} 
+\index{XPadInput@{XPadInput}!UpdateAnalog@{UpdateAnalog}}
+\index{UpdateAnalog@{UpdateAnalog}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{UpdateAnalog()}{UpdateAnalog()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+Update\+Analog (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00177}{177}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+\mbox{\Hypertarget{class_x_pad_input_ad31bd5bd16f1c936b925fc4b00677416}\label{class_x_pad_input_ad31bd5bd16f1c936b925fc4b00677416}} 
+\index{XPadInput@{XPadInput}!UpdateStickDigitalButton@{UpdateStickDigitalButton}}
+\index{UpdateStickDigitalButton@{UpdateStickDigitalButton}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{UpdateStickDigitalButton()}{UpdateStickDigitalButton()}}
+{\footnotesize\ttfamily void XPad\+Input\+::\+Update\+Stick\+Digital\+Button (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{_x_pad_input_8cpp_source}{XPad\+Input.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_x_pad_input_ad74205f6785c22eb3b0f5e6f30779303}\label{class_x_pad_input_ad74205f6785c22eb3b0f5e6f30779303}} 
+\index{XPadInput@{XPadInput}!btnTbl\_@{btnTbl\_}}
+\index{btnTbl\_@{btnTbl\_}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{btnTbl\_}{btnTbl\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{Pad\+Input\+ID}}, unsigned int$>$ XPad\+Input\+::btn\+Tbl\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00036}{36}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a54d04880c747486189b2ce8fd8d9b2c1}\label{class_x_pad_input_a54d04880c747486189b2ce8fd8d9b2c1}} 
+\index{XPadInput@{XPadInput}!deadzone\_@{deadzone\_}}
+\index{deadzone\_@{deadzone\_}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{deadzone\_}{deadzone\_}}
+{\footnotesize\ttfamily float XPad\+Input\+::deadzone\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00037}{37}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_x_pad_input_a496f92c07e2c643ffbbeb3bf2c231013}\label{class_x_pad_input_a496f92c07e2c643ffbbeb3bf2c231013}} 
+\index{XPadInput@{XPadInput}!isConnectXPad\_@{isConnectXPad\_}}
+\index{isConnectXPad\_@{isConnectXPad\_}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{isConnectXPad\_}{isConnectXPad\_}}
+{\footnotesize\ttfamily int XPad\+Input\+::is\+Connect\+XPad\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00038}{38}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_x_pad_input_afb1ce41354f6778023f1efeabdd8571f}\label{class_x_pad_input_afb1ce41354f6778023f1efeabdd8571f}} 
+\index{XPadInput@{XPadInput}!padData\_@{padData\_}}
+\index{padData\_@{padData\_}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{padData\_}{padData\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8h_ab1831e4909731db6ce68bf478eb03e56}{XPad\+Data}} XPad\+Input\+::pad\+Data\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00034}{34}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+\mbox{\Hypertarget{class_x_pad_input_ab0204cdc804597356eb888bd423bd097}\label{class_x_pad_input_ab0204cdc804597356eb888bd423bd097}} 
+\index{XPadInput@{XPadInput}!xInput\_@{xInput\_}}
+\index{xInput\_@{xInput\_}!XPadInput@{XPadInput}}
+\doxysubsubsection{\texorpdfstring{xInput\_}{xInput\_}}
+{\footnotesize\ttfamily \+\_\+\+XINPUT\+\_\+\+STATE XPad\+Input\+::x\+Input\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_x_pad_input_8h_source_l00035}{35}} of file \mbox{\hyperlink{_x_pad_input_8h_source}{XPad\+Input.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_x_pad_input_8h}{XPad\+Input.\+h}}\item 
+D\+:/source/repos/\+Event\+Input\+Project/class/input/\mbox{\hyperlink{_x_pad_input_8cpp}{XPad\+Input.\+cpp}}\end{DoxyCompactItemize}

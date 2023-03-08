@@ -1,0 +1,50 @@
+\hypertarget{_pad_input_i_d_8h_source}{}\doxysection{Pad\+Input\+ID.\+h}
+\label{_pad_input_i_d_8h_source}\index{D:/source/repos/EventInputProject/class/input/PadInputID.h@{D:/source/repos/EventInputProject/class/input/PadInputID.h}}
+\mbox{\hyperlink{_pad_input_i_d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00003}00003\ \textcolor{comment}{//ボタンの種類}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00004}\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{00004}}\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00006}00006\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896afbaedde498cdead4f2780217646e9ba1}{UP}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00007}00007\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac4e0e4e3118472beeb2ae75827450f1f}{DOWN}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a684d325a7303f52e64011467ff5c5758}{LEFT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a21507b40c80068eda19865706fdc2403}{RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00010}00010\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac3544ae7e377e3f38079ad275c0372d9}{BTN\_A}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac73d3482500d0fabbd59d47ba391e1ff}{BTN\_X}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a16a82e1e0a3ed6d22a56861b6559a259}{BTN\_Y}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a09b31cfd48eb623d80a45d15ca759056}{BTN\_B}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ab078ffd28db767c502ac367053f6e0ac}{START}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a291554596c183e837f0a6bec3767c891}{PAUSE}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac951270e425b15fc20c64da4341c1d89}{LB}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac8ee22e1fc2165dfd3d2b04aef93b2f2}{RB}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ac562607189d77eb9dfb707464c1e7b0b}{LT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a705610ed3e5ec724f5cb0d76a5fd3aa1}{RT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a4c2f142e5add801729bf3e4fa4e13bec}{STICK\_PUSH\_L}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a3d7f70bce80de02a44164b46f944d26d}{STICK\_PUSH\_R}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a064b1110bb7dfb63e1fa8e1a7a870398}{STICK\_L\_UP}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a36de24cd496ff8df9f3840a0f2a69012}{STICK\_L\_DOWN}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a1f8c9275db3036f057a9074d36d7bcdf}{STICK\_L\_LEFT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896ae01a2d669945ad4a892416bc9828c835}{STICK\_L\_RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896aab948340b4c9ec9b52e6e23a4c49dc82}{STICK\_R\_UP}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896acb2676dbda8580e797e8a7f9784949c0}{STICK\_R\_DOWN}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896abcda94feb509fd1790b04a380814d107}{STICK\_R\_LEFT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a1f4e0d8459c9778bb6b54d8a745b9b20}{STICK\_R\_RIGHT}},}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a26a4b44a837bf97b972628509912b4a5}{MAX}}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00031}00031\ \};}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00032}00032\ \textcolor{keyword}{static}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\ begin(\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}})\ \{}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896afbaedde498cdead4f2780217646e9ba1}{PadInputID::UP}};}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00034}00034\ \};}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00036}00036\ \textcolor{keyword}{static}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\ end(\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}})\ \{}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896a26a4b44a837bf97b972628509912b4a5}{PadInputID::MAX}};}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00038}00038\ \};}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00040}00040\ \textcolor{keyword}{static}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\ operator++(\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\&\ state)\ \{}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ state\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\textcolor{keyword}{>}(std::underlying\_type<PadInputID>::type(state)\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_pad_input_i_d_8h_source_l00044}00044\ \textcolor{keyword}{static}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\ operator*(\textcolor{keyword}{const}\ \mbox{\hyperlink{_pad_input_i_d_8h_a541f1da4272c601bc1ebbea161487896}{PadInputID}}\&\ state)\ \{\ \textcolor{keywordflow}{return}\ state;\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,86 @@
+\hypertarget{_input_event_8h_source}{}\doxysection{Input\+Event.\+h}
+\label{_input_event_8h_source}\index{D:/source/repos/EventInputProject/class/input/InputEvent.h@{D:/source/repos/EventInputProject/class/input/InputEvent.h}}
+\mbox{\hyperlink{_input_event_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_event_i_d_8h}{EventID.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}../common/Vector2.h"{}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_analog_input_i_d_8h}{AnalogInputID.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00011}\mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{00011}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{Axis}}\ =\ std::pair<EventID,\ EventID>;}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00012}\mbox{\hyperlink{_input_event_8h_a13db0b7d11eedb6ce7891a1e3abe0339}{00012}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_input_event_8h_a13db0b7d11eedb6ce7891a1e3abe0339}{FlexibleInput}}\ =\ std::vector<std::string>;}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00013}\mbox{\hyperlink{_input_event_8h_aa2aba7f41fb5b9a515dad5d730493fad}{00013}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_input_event_8h_aa2aba7f41fb5b9a515dad5d730493fad}{InputTypeContena}}\ =\ std::array<FlexibleInput,\ 2U>;}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00015}\mbox{\hyperlink{struct_event_data}{00015}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_event_data}{EventData}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00017}\mbox{\hyperlink{struct_event_data_a5ccfae751d54851f1069e9e4985183b2}{00017}}\ \ \ \ \ \mbox{\hyperlink{struct_event_data_a5ccfae751d54851f1069e9e4985183b2}{EventData}}()\ :\mbox{\hyperlink{struct_event_data_aa48fd7103ed5bc784e51cbb5b528cd3c}{isCanConfig}}(false)\{\}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00018}\mbox{\hyperlink{struct_event_data_aa8ec5408b52d16a2fd27465852f0736b}{00018}}\ \ \ \ \ \mbox{\hyperlink{_input_event_8h_aa2aba7f41fb5b9a515dad5d730493fad}{InputTypeContena}}\ \mbox{\hyperlink{struct_event_data_aa8ec5408b52d16a2fd27465852f0736b}{container}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00019}\mbox{\hyperlink{struct_event_data_aa48fd7103ed5bc784e51cbb5b528cd3c}{00019}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_event_data_aa48fd7103ed5bc784e51cbb5b528cd3c}{isCanConfig}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00020}00020\ \};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00022}\mbox{\hyperlink{class_input_event}{00022}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input_event}{InputEvent}}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00024}00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_input_event}{InputEvent}}(std::string\ filePath);}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{class_input_event_a2ac246c18ad2647d8cd2f62f7a60bc39}{\string~InputEvent}}();}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_a25b03757c2ac47d0d142638cade9a8b0}{Update}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\&\ delta);}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00035}00035\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_event_aad15ed017be4d0ddaa937850b300d5f2}{GetDigitalEvent}}(\mbox{\hyperlink{_event_i_d_8h_ab25acc4990929d49b383f2b7c147f60f}{EventID}}\ \textcolor{keywordtype}{id},\mbox{\hyperlink{_input_8h_aecfb003a08d29c0b75cd266ca0cadb76}{InputState}}\ state\ =\ InputState::NONE)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00039}00039\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_event_a48c16bb10cd1e60b14c897a0e545a309}{GetAnalogEvent}}(\mbox{\hyperlink{_analog_input_i_d_8h_a785c08068da4a6cc724dcae3b4039970}{AnalogInputID}}\ \textcolor{keywordtype}{id})\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00046}00046\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_event_a48c16bb10cd1e60b14c897a0e545a309}{GetAnalogEvent}}(\mbox{\hyperlink{_event_i_d_8h_ab25acc4990929d49b383f2b7c147f60f}{EventID}}\ id1,\ \mbox{\hyperlink{_event_i_d_8h_ab25acc4990929d49b383f2b7c147f60f}{EventID}}\ id2)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00052}00052\ \ \ \ \ [[nodiscard]]\ Vector2F\ \mbox{\hyperlink{class_input_event_ae514203d6652b3545a747e67e7ec4a56}{GetAnalogVecEvent}}(\mbox{\hyperlink{_analog_input_i_d_8h_a785c08068da4a6cc724dcae3b4039970}{AnalogInputID}}\ id1,\ \mbox{\hyperlink{_analog_input_i_d_8h_a785c08068da4a6cc724dcae3b4039970}{AnalogInputID}}\ id2)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00058}00058\ \ \ \ \ [[nodiscard]]\ Vector2F\ \mbox{\hyperlink{class_input_event_ae514203d6652b3545a747e67e7ec4a56}{GetAnalogVecEvent}}(\mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{Axis}}\ axis1,\ \mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{Axis}}\ axis2)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00059}00059\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00065}00065\ \ \ \ \ [[nodiscard]]\ std::optional<float>\ \mbox{\hyperlink{class_input_event_ab679e0fd9b955394b5ee46ccc28bf929}{GetDirAngle}}(\mbox{\hyperlink{_analog_input_i_d_8h_a785c08068da4a6cc724dcae3b4039970}{AnalogInputID}}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{_analog_input_i_d_8h_a785c08068da4a6cc724dcae3b4039970}{AnalogInputID}}\ id2,\textcolor{keywordtype}{float}\ offsetDeg=\ 0.0f)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00072}00072\ \ \ \ \ [[nodiscard]]\ std::optional<float>\ \mbox{\hyperlink{class_input_event_ab679e0fd9b955394b5ee46ccc28bf929}{GetDirAngle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{Axis}}\&\ axis1,\textcolor{keyword}{const}\ \mbox{\hyperlink{_input_event_8h_a1b279ef2e2955ed4895ffb7973ea1600}{Axis}}\&\ axis2,\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\&\ offsetDeg\ =\ 0.0f)\textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00073}00073\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_a9225f8ffa61300b2dc686b098ecc1abc}{SetSensitivity}}(\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ type,\ \textcolor{keywordtype}{float}\ sensitivity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00082}00082\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_event_acb6995cdf44a371567d66ea0bf3f53bf}{GetSensitivity}}(\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ type)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_ad4f59e4dcdb93881542aab6d1322423f}{SetDeadZone}}(\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ type,\textcolor{keywordtype}{float}\ zone)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_event_a9fed08cc00a620c88f2d2c668ba6567e}{GetDeadZone}}(\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ type);}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00092}00092\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_a5174c378ecda54d7df3d94d1a4819686}{FixCenterCursor}}(\textcolor{keywordtype}{bool}\ flag)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00099}00099\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_event_a08e5168790d002b7ef5efd9d0c660139}{GetIsFixCenterCursor}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00103}00103\ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ \mbox{\hyperlink{class_input_event_a4a61d65e4caa79896c58a8ceda7ee329}{GetInputType}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_aae764f1815dad39ac970db18eecefdce}{DebugDraw}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_ab1081549461cf14c2db343c897e3b5d6}{SaveConfig}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00108}00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_a3f69f45fbe5703e2a7d32455defda4e3}{InInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_ab7cdef7b78c62d4434cea9836b1badff}{Write}}();}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_event_a78fa04c264f1d1a09402352d7eb7feb3}{ChangeEventKeyInput}}(\mbox{\hyperlink{_event_i_d_8h_ab25acc4990929d49b383f2b7c147f60f}{EventID}}\ eventID,\mbox{\hyperlink{_input_8h_a5fc772c800c3d40d2b95564e8a839bab}{InputType}}\ type);}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_event_a6298251840bb5384f28083a8240f25ed}{Read}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_abf5c92a40a04ab8e713074d27c43d95f}{InputIDCheck}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_event_aa6b55a5bffecefc5894086b1cfdf1e86}{SwitchInput}}();}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00126}\mbox{\hyperlink{class_input_event_a93108f17fc81dffc77b726c187c1a020}{00126}}\ \ \ \ \ std::unique\_ptr<Input>\ \mbox{\hyperlink{class_input_event_a93108f17fc81dffc77b726c187c1a020}{activeInput\_}};\ \ \ \ \textcolor{comment}{//現在使っている入力}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00127}\mbox{\hyperlink{class_input_event_ae31258d743464fcfdccdcfb512d4f0c5}{00127}}\ \ \ \ \ std::unique\_ptr<Input>\ \mbox{\hyperlink{class_input_event_ae31258d743464fcfdccdcfb512d4f0c5}{noneActive\_}};\ \ \ \ \ \ \textcolor{comment}{//現在使われてない入力}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00128}\mbox{\hyperlink{class_input_event_aff36f6e46fe4d0c04f628bb96f70548b}{00128}}\ \ \ \ \ std::unique\_ptr<class\ Keyboard>\ \mbox{\hyperlink{class_input_event_aff36f6e46fe4d0c04f628bb96f70548b}{keyboard\_}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00129}\mbox{\hyperlink{class_input_event_a0e15f05344a58185856786c117ea1bd9}{00129}}\ \ \ \ \ std::list<std::unique\_ptr<class\ PadInput>>\ \mbox{\hyperlink{class_input_event_a0e15f05344a58185856786c117ea1bd9}{padList\_}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00131}\mbox{\hyperlink{class_input_event_a74ed14723000c95003613fd02a1c70c6}{00131}}\ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{class_input_event_a74ed14723000c95003613fd02a1c70c6}{connectNum\_}};\ \ \ \ \ \textcolor{comment}{//padの接続数(Now,Old)}}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00133}\mbox{\hyperlink{class_input_event_af673e0ced3567be2999beba313815e1b}{00133}}\ \ \ \ \ std::unordered\_map<EventID,\ EventData>\ \mbox{\hyperlink{class_input_event_af673e0ced3567be2999beba313815e1b}{eventTbl\_}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00135}\mbox{\hyperlink{class_input_event_a2198c3b25c62b02f57d48f64f0cb3779}{00135}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_input_event_a2198c3b25c62b02f57d48f64f0cb3779}{filePath\_}};}
+\DoxyCodeLine{\Hypertarget{_input_event_8h_source_l00136}00136\ \};}
+
+\end{DoxyCode}
