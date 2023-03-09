@@ -1,0 +1,5 @@
+<map id="Keyboard::Update" name="Keyboard::Update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,132,56"/>
+<area shape="rect" id="node2" href="$class_keyboard.html#afe68b3daecb3023101f2f9c964d236be" title="キーボード入力の更新" alt="" coords="180,5,361,31"/>
+<area shape="rect" id="node3" href="$class_keyboard.html#ac03866c7b496038e32530b8fb3282c4b" title="マウス入力の更新" alt="" coords="188,55,353,80"/>
+</map>

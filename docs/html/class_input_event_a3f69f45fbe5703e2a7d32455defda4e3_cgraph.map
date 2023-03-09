@@ -1,0 +1,5 @@
+<map id="InputEvent::InInit" name="InputEvent::InInit">
+<area shape="rect" id="node1" title="インスタンス時の初期化処理" alt="" coords="5,31,123,56"/>
+<area shape="rect" id="node2" href="$class_input_event.html#abf5c92a40a04ab8e713074d27c43d95f" title="jsonに書き込まれた情報とenum classにあるkeyidが一致しているかを調べる 一致してなかったらログファイルを残して強制終了する" alt="" coords="171,5,337,31"/>
+<area shape="rect" id="node3" href="$class_input_event.html#a6298251840bb5384f28083a8240f25ed" title="jsonファイルの読み込みをしEventTblをロードする" alt="" coords="194,55,314,80"/>
+</map>

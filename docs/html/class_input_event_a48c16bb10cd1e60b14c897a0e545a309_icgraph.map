@@ -1,0 +1,6 @@
+<map id="InputEvent::GetAnalogEvent" name="InputEvent::GetAnalogEvent">
+<area shape="rect" id="node1" title="紐づいてるAnalogInputIDのアナログ値を取得" alt="" coords="436,31,619,56"/>
+<area shape="rect" id="node2" href="$class_input_event.html#ae514203d6652b3545a747e67e7ec4a56" title="アナログ値を二つ取得してvecやposのように扱う" alt="" coords="213,23,388,63"/>
+<area shape="rect" id="node3" href="$class_input_event.html#aae764f1815dad39ac970db18eecefdce" title="登録されているイベントを入力されているかデバッグ表示する" alt="" coords="7,5,163,31"/>
+<area shape="rect" id="node4" href="$class_input_event.html#ab679e0fd9b955394b5ee46ccc28bf929" title="コントローラスティックのたおした方向の角度やマウスを動かした方向の角度を求める" alt="" coords="5,55,165,80"/>
+</map>

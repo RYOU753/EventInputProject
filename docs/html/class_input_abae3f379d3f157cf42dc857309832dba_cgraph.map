@@ -1,0 +1,6 @@
+<map id="Input::Input" name="Input::Input">
+<area shape="rect" id="node1" title=" " alt="" coords="5,55,92,80"/>
+<area shape="rect" id="node2" href="$class_input.html#a5bc497aaf62b9f6a5792eda35f4b190d" title="isFixCenterCursorがtrueの時，画面中央にセットする" alt="" coords="140,5,291,31"/>
+<area shape="rect" id="node3" href="$class_input.html#a418bda3acd6d6e4ae3beb8950f359555" title="指定した入力機器のデッドゾーンをセットする" alt="" coords="147,55,283,80"/>
+<area shape="rect" id="node4" href="$class_input.html#ae6bd94f10741093e249f23122865919f" title="指定した入力機器の感度をセットする" alt="" coords="147,104,284,129"/>
+</map>

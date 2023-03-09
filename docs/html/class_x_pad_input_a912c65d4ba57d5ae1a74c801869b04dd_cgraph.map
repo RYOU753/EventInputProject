@@ -1,0 +1,9 @@
+<map id="XPadInput::Update" name="XPadInput::Update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,135,129"/>
+<area shape="rect" id="node2" href="$class_x_pad_input.html#a51f1d90dc6b3dfabfe539be3ea37b852" title=" " alt="" coords="201,5,359,31"/>
+<area shape="rect" id="node3" href="$class_x_pad_input.html#abe5485884c73257d18c167034bcd7f72" title=" " alt="" coords="203,55,357,80"/>
+<area shape="rect" id="node4" href="$class_input.html#a5bc497aaf62b9f6a5792eda35f4b190d" title="isFixCenterCursorがtrueの時，画面中央にセットする" alt="" coords="205,104,355,129"/>
+<area shape="rect" id="node5" href="$class_x_pad_input.html#a8dae260ba8ef34e6ca2998e8540f31b4" title=" " alt="" coords="195,153,365,179"/>
+<area shape="rect" id="node7" href="$class_x_pad_input.html#ad31bd5bd16f1c936b925fc4b00677416" title=" " alt="" coords="183,203,377,243"/>
+<area shape="rect" id="node6" href="$class_x_pad_input.html#aa106fc5effbc114d6b0813f61bbdca3c" title=" " alt="" coords="425,183,588,208"/>
+</map>

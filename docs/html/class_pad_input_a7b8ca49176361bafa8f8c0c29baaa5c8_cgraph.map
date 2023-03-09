@@ -1,0 +1,4 @@
+<map id="PadInput::GetMoveVec" name="PadInput::GetMoveVec">
+<area shape="rect" id="node1" title="スティックの縦横の倒した時の値を0~1の間に正規化した値を返す" alt="" coords="5,5,160,31"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#ac9131988f837a41a5ae5011f1e23a3e9" title="デッドゾーン内ならゼロにする" alt="" coords="208,5,389,31"/>
+</map>

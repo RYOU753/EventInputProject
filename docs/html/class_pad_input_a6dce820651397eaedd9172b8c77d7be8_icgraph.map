@@ -1,0 +1,4 @@
+<map id="PadInput::GetMoveDirRot" name="PadInput::GetMoveDirRot">
+<area shape="rect" id="node1" title="スティックの倒した方向の角度を返す" alt="" coords="192,5,360,31"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a29e6c6f4822dae0b999f4dfad06d3fda" title="スティックの倒した方向の角度を取得する" alt="" coords="5,5,144,31"/>
+</map>

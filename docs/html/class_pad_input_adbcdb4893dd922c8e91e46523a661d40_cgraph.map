@@ -1,0 +1,4 @@
+<map id="PadInput::UpdateAnalog" name="PadInput::UpdateAnalog">
+<area shape="rect" id="node1" title="スティック入力やトリガーの深度などのアナログ入力を更新する" alt="" coords="5,29,168,55"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a9f0e7b1b80ef4ad92b6153ebcbc71e13" title="スティックの倒したベクトルを返す" alt="" coords="216,29,371,55"/>
+</map>

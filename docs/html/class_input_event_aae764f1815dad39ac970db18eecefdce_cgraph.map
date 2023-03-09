@@ -1,0 +1,6 @@
+<map id="InputEvent::DebugDraw" name="InputEvent::DebugDraw">
+<area shape="rect" id="node1" title="登録されているイベントを入力されているかデバッグ表示する" alt="" coords="5,42,161,67"/>
+<area shape="rect" id="node2" href="$class_input_event.html#ae514203d6652b3545a747e67e7ec4a56" title="アナログ値を二つ取得してvecやposのように扱う" alt="" coords="211,5,386,45"/>
+<area shape="rect" id="node4" href="$class_input_event.html#aad15ed017be4d0ddaa937850b300d5f2" title="EventIDと紐づいてるボタンの状態がみたい状態かを調べる" alt="" coords="209,70,388,95"/>
+<area shape="rect" id="node3" href="$class_input_event.html#a48c16bb10cd1e60b14c897a0e545a309" title="紐づいてるAnalogInputIDのアナログ値を取得" alt="" coords="436,13,619,38"/>
+</map>

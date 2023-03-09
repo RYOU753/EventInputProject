@@ -1,0 +1,5 @@
+<map id="Keyboard::Keyboard" name="Keyboard::Keyboard">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,145,31"/>
+<area shape="rect" id="node2" href="$class_keyboard.html#a3835b1dab37f2433cbcb8343a7abaf6c" title="インスタンス内での初期化" alt="" coords="193,5,305,31"/>
+<area shape="rect" id="node3" href="$class_input.html#a5bc497aaf62b9f6a5792eda35f4b190d" title="isFixCenterCursorがtrueの時，画面中央にセットする" alt="" coords="353,5,504,31"/>
+</map>

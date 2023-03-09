@@ -1,0 +1,9 @@
+<map id="PadInput::Update" name="PadInput::Update">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,128,105"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#aae7d7a093086acd682c3cec7ebcf888b" title="デバッグ表示" alt="" coords="182,5,329,31"/>
+<area shape="rect" id="node3" href="$class_input.html#a5bc497aaf62b9f6a5792eda35f4b190d" title="isFixCenterCursorがtrueの時，画面中央にセットする" alt="" coords="180,55,331,80"/>
+<area shape="rect" id="node4" href="$class_pad_input.html#adbcdb4893dd922c8e91e46523a661d40" title="スティック入力やトリガーの深度などのアナログ入力を更新する" alt="" coords="395,103,558,128"/>
+<area shape="rect" id="node6" href="$class_pad_input.html#a9538432d46f709a481cff2ef84ef5dd0" title="ボタンなどのboolで決まる入力を更新する" alt="" coords="176,157,335,183"/>
+<area shape="rect" id="node5" href="$class_pad_input.html#a9f0e7b1b80ef4ad92b6153ebcbc71e13" title="スティックの倒したベクトルを返す" alt="" coords="619,132,773,157"/>
+<area shape="rect" id="node7" href="$class_pad_input.html#af2921ccc70834f22368a55d4aff72198" title="スティックを倒しているかを更新する" alt="" coords="383,153,571,193"/>
+</map>

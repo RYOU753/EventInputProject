@@ -1,0 +1,4 @@
+<map id="Input::FixCenterCursor" name="Input::FixCenterCursor">
+<area shape="rect" id="node1" title="マウスポインターをセンター固定する" alt="" coords="5,5,157,31"/>
+<area shape="rect" id="node2" href="$class_input.html#a5bc497aaf62b9f6a5792eda35f4b190d" title="isFixCenterCursorがtrueの時，画面中央にセットする" alt="" coords="205,5,356,31"/>
+</map>

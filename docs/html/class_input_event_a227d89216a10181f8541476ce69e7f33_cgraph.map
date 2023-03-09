@@ -1,0 +1,5 @@
+<map id="InputEvent::GetDirAngle" name="InputEvent::GetDirAngle">
+<area shape="rect" id="node1" title="digitalのスティックとanalogのスティックが同じORVectorの中にいると正確な値が取れない場合があります．" alt="" coords="5,13,165,38"/>
+<area shape="rect" id="node2" href="$class_input_event.html#ae514203d6652b3545a747e67e7ec4a56" title="アナログ値を二つ取得してvecやposのように扱う" alt="" coords="213,5,388,45"/>
+<area shape="rect" id="node3" href="$class_input_event.html#a48c16bb10cd1e60b14c897a0e545a309" title="紐づいてるAnalogInputIDのアナログ値を取得" alt="" coords="436,13,619,38"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="Input::SetDeadZone" name="Input::SetDeadZone">
+<area shape="rect" id="node1" title="指定した入力機器のデッドゾーンをセットする" alt="" coords="140,5,276,31"/>
+<area shape="rect" id="node2" href="$class_input.html#abae3f379d3f157cf42dc857309832dba" title=" " alt="" coords="5,5,92,31"/>
+</map>

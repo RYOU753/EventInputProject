@@ -1,0 +1,4 @@
+<map id="InputEvent::GetAnalogVecEvent" name="InputEvent::GetAnalogVecEvent">
+<area shape="rect" id="node1" title="二つの軸からvecやposを作成する" alt="" coords="5,5,180,45"/>
+<area shape="rect" id="node2" href="$class_input_event.html#a48c16bb10cd1e60b14c897a0e545a309" title="紐づいてるAnalogInputIDのアナログ値を取得" alt="" coords="228,13,411,38"/>
+</map>

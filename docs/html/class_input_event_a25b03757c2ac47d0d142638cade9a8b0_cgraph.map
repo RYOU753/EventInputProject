@@ -1,0 +1,4 @@
+<map id="InputEvent::Update" name="InputEvent::Update">
+<area shape="rect" id="node1" title="入力機器の情報更新とPadと切り替えがあるかまた接続検知をする" alt="" coords="5,5,136,31"/>
+<area shape="rect" id="node2" href="$class_input_event.html#aa6b55a5bffecefc5894086b1cfdf1e86" title="入力機器が使われてるかを調べ，使われてなかったらnoneActiveを調べ使われていたら切り替える" alt="" coords="184,5,341,31"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="PadInput::CorrectDeadZone" name="PadInput::CorrectDeadZone">
+<area shape="rect" id="node1" title="デッドゾーン内ならゼロにする" alt="" coords="208,5,389,31"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a7b8ca49176361bafa8f8c0c29baaa5c8" title="スティックの縦横の倒した時の値を0~1の間に正規化した値を返す" alt="" coords="5,5,160,31"/>
+</map>

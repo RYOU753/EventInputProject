@@ -1,0 +1,5 @@
+<map id="PadInput::UpdateStickDigitalButton" name="PadInput::UpdateStickDigitalButton">
+<area shape="rect" id="node1" title="スティックを倒しているかを更新する" alt="" coords="383,5,571,45"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a9538432d46f709a481cff2ef84ef5dd0" title="ボタンなどのboolで決まる入力を更新する" alt="" coords="176,13,335,38"/>
+<area shape="rect" id="node3" href="$class_pad_input.html#ae50e64b87ba7e8e18923ff6ad744c7b8" title=" " alt="" coords="5,13,128,38"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="PadInput::UpdateStickDigitalButton" name="PadInput::UpdateStickDigitalButton">
+<area shape="rect" id="node1" title="スティックを倒しているかを更新する" alt="" coords="5,22,193,62"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a9f0e7b1b80ef4ad92b6153ebcbc71e13" title="スティックの倒したベクトルを返す" alt="" coords="241,29,396,55"/>
+</map>

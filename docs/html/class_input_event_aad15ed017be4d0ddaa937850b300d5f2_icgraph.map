@@ -1,0 +1,5 @@
+<map id="InputEvent::GetDigitalEvent" name="InputEvent::GetDigitalEvent">
+<area shape="rect" id="node1" title="EventIDと紐づいてるボタンの状態がみたい状態かを調べる" alt="" coords="236,31,415,56"/>
+<area shape="rect" id="node2" href="$class_input_event.html#aae764f1815dad39ac970db18eecefdce" title="登録されているイベントを入力されているかデバッグ表示する" alt="" coords="19,5,175,31"/>
+<area shape="rect" id="node3" href="$class_input_event.html#a2d4e454f372c3ba88a52772330c0a8e9" title="EventIDからボタン情報を取得し，id1が押されてら1.0f,id2がおされてたら&#45;1.0fで AnalogInputIDが入ってたら1.0f~&#45;1.0fを取得する" alt="" coords="5,55,188,80"/>
+</map>

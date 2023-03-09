@@ -1,0 +1,9 @@
+<map id="PadInput::GetMoveVec" name="PadInput::GetMoveVec">
+<area shape="rect" id="node1" title="スティックの倒したベクトルを返す" alt="" coords="623,56,777,81"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#a6dce820651397eaedd9172b8c77d7be8" title="スティックの倒した方向の角度を返す" alt="" coords="397,5,565,31"/>
+<area shape="rect" id="node4" href="$class_pad_input.html#adbcdb4893dd922c8e91e46523a661d40" title="スティック入力やトリガーの深度などのアナログ入力を更新する" alt="" coords="176,60,339,85"/>
+<area shape="rect" id="node6" href="$class_pad_input.html#af2921ccc70834f22368a55d4aff72198" title="スティックを倒しているかを更新する" alt="" coords="387,106,575,146"/>
+<area shape="rect" id="node3" href="$class_pad_input.html#a29e6c6f4822dae0b999f4dfad06d3fda" title="スティックの倒した方向の角度を取得する" alt="" coords="188,5,327,31"/>
+<area shape="rect" id="node5" href="$class_pad_input.html#ae50e64b87ba7e8e18923ff6ad744c7b8" title=" " alt="" coords="5,87,128,112"/>
+<area shape="rect" id="node7" href="$class_pad_input.html#a9538432d46f709a481cff2ef84ef5dd0" title="ボタンなどのboolで決まる入力を更新する" alt="" coords="178,111,337,136"/>
+</map>

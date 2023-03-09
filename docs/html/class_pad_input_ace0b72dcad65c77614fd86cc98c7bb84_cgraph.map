@@ -1,0 +1,4 @@
+<map id="PadInput::InInit" name="PadInput::InInit">
+<area shape="rect" id="node1" title="インスタンス内での初期化" alt="" coords="5,5,113,31"/>
+<area shape="rect" id="node2" href="$class_pad_input.html#aa88f9aa2fb1fba92aae3282d8d70c136" title="0~0.999の間でデッドゾーンを設定する" alt="" coords="161,5,320,31"/>
+</map>
