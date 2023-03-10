@@ -34,9 +34,9 @@ jobs:
         uses: mattnotmitt/doxygen-action@1.9.5
         with:
           # Path to Doxyfile
-          doxyfile-path: ./docs/Doxyfile # default is ./Doxyfile
+          doxyfile-path: './docs/Doxyfile' # default is ./Doxyfile
           # Working directory
-          working-directory: . # default is .
+          working-directory: '.' # default is .
           # Generate latex documentation
           enable-latex: true # optional
           # Extra alpine packages for the build environment
