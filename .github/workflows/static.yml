@@ -29,10 +29,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Doxygen Action
+      # You may pin to the exact commit or the version.
+      # uses: mattnotmitt/doxygen-action@411df0c62acb5b96b8a93d93a7bf4b753c47ea05
         uses: mattnotmitt/doxygen-action@1.9.5
         with:
-          # working-directory: './../../class'
-          doxyfile-path: './../../docs/Doxygen'
+          # Path to Doxyfile
+          doxyfile-path: ./Doxyfile# default is ./Doxyfile
+          # Working directory
+          working-directory: . # default is .
+          # Generate latex documentation
+          enable-latex: true # optional
+          # Extra alpine packages for the build environment
+          #additional-packages: # optional, default is 
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
