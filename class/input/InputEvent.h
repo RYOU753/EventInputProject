@@ -104,6 +104,8 @@ public:
 
 	/// @brief 登録されているイベントを入力されているかデバッグ表示する 
 	void DebugDraw(void) const;
+
+	/// @brief コンフィグをjson形式で保存する
 	void SaveConfig() const;
 private:
 	/// @brief インスタンス時の初期化処理
